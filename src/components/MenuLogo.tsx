@@ -8,7 +8,9 @@ const bebas = Bebas_Neue({
 function MenuLogo() {
   return (
     <section
-      className={"min-h-60 max-h-72 flex flex-col items-center justify-evenly"}
+      className={
+        "min-h-60 max-h-72 w-full flex flex-col items-center justify-evenly"
+      }
     >
       <article
         className={`${bebas.className} mt-1 leading-10 tracking-wider text-4xl flex flex-col items-center justify-center`}
