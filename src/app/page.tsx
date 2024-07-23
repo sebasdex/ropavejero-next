@@ -4,6 +4,7 @@ import Categories from "@/components/Categories";
 import MenuCategories from "@/components/MenuCategories";
 import MenuLogo from "@/components/MenuLogo";
 import Menubar from "@/components/Menubar";
+import PopularShirts from "@/components/PopularShirts";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         </h1>
         <div className=" w-full flex justify-between">
           <MenuCategories />
+          <PopularShirts />
         </div>
       </div>
     </>
