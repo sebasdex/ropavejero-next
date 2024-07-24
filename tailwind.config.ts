@@ -12,8 +12,8 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        menGrid: "url('/men.jpg')",
-        phrase: "url('/phrase.jpg')",
+        menGrid: "url('/men.png')",
+        phrase: "url('/phrase.png')",
         teens: "url('/teens.jpg')",
       },
     },
