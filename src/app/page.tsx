@@ -17,7 +17,7 @@ export default function Home() {
         <h1 className="text-center p-4 uppercase font-semibold tracking-wider">
           Popular Products
         </h1>
-        <div className="flex w-full gap-8 border">
+        <div className="flex w-full gap-3 h-full">
           <MenuCategories />
           <PopularShirts />
         </div>

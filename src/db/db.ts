@@ -27,11 +27,10 @@ export const dbShirts = [
     price: 100,
     category: "Men",
     trend: true,
-    popular: false,
+    popular: true,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image:
-      "https://images.unsplash.com/photo-1500645984781-00d5d1e4c6a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    image: "/phrase.jpg",
   },
   {
     id: 4,

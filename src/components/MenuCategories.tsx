@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function MenuCategories() {
   return (
-    <section className="w-96 h-96 uppercase border">
+    <section className="w-1/3 uppercase">
       <p className="bg-black text-white p-2 font-semibold">Categories</p>
       <ul className="flex flex-col gap-2 p-2">
         <li>
