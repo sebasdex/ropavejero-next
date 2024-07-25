@@ -20,7 +20,7 @@ function PopularShirts() {
                 {shirt.name}
               </h3>
               <p className="py-2">${shirt.price}</p>
-              <button className="bg-black text-white p-2 rounded-md">
+              <button className="bg-black text-white p-2 rounded-md hover:bg-gray-800 ease-in-out duration-200">
                 Add to cart
               </button>
             </div>
