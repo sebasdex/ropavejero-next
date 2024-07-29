@@ -7,6 +7,7 @@ import Menubar from "@/components/Menubar";
 import Offer from "@/components/Offer";
 import PopularShirts from "@/components/PopularShirts";
 import Title from "@/components/Title";
+import Trend from "@/components/Trend";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         </div>
         <Offer />
         <Title text="Tendencias" />
+        <Trend />
       </div>
     </>
   );
