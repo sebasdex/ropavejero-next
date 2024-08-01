@@ -20,7 +20,7 @@ function MenuLogo() {
         </a>
         <span className="-mt-3">Ropavejero</span>
       </article>
-      <article className="w-full max-w-screen-xl font-semibold">
+      <article className="w-full max-w-screen-lg font-semibold">
         <ul className="flex p-2 justify-between ">
           <a href="" className="hover:text-gray-600">
             <li>Home</li>

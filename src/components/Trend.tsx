@@ -5,18 +5,18 @@ import { useState } from "react";
 function Trend() {
   const [trendShirt, setTrendShirt] = useState(dbShirts);
   return (
-    <article className="flex justify-center gap-4 w-full">
+    <article className="flex flex-wrap justify-center gap-4 w-full">
       {trendShirt.map(
         (shirt) =>
           shirt.trend && (
             <div
               key={shirt.id}
-              className="text-center w-full h-full pb-4 flex flex-col justify-center items-center"
+              className="text-center pb-4 flex flex-col justify-center items-center w-[25.9rem] h-full"
             >
               <img
                 src={shirt.image}
                 alt={shirt.name}
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
               <h3 className="font-semibold tracking-wider pt-2">
                 {shirt.name}

@@ -1,6 +1,7 @@
 "use client";
 import Banner from "@/components/Banner";
 import Categories from "@/components/Categories";
+import Footer from "@/components/Footer";
 import MenuCategories from "@/components/MenuCategories";
 import MenuLogo from "@/components/MenuLogo";
 import Menubar from "@/components/Menubar";
@@ -26,6 +27,7 @@ export default function Home() {
         <Title text="Tendencias" />
         <Trend />
       </div>
+      <Footer />
     </>
   );
 }

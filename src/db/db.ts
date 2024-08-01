@@ -41,8 +41,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image:
-      "https://images.unsplash.com/photo-1500645984781-00d5d1e4c6a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    image: "/shirts/shirt-1.png",
   },
   {
     id: 5,
@@ -53,8 +52,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image:
-      "https://images.unsplash.com/photo-1500645984781-00d5d1e4c6a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    image: "/shirts/shirt-2.png",
   },
   {
     id: 6,
@@ -65,7 +63,6 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image:
-      "https://images.unsplash.com/photo-1500645984781-00d5d1e4c6a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    image: "/shirts/shirt-3.png",
   },
 ];
