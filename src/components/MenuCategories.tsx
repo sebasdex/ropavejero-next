@@ -6,7 +6,7 @@ function MenuCategories() {
       <p className="bg-black text-white p-2 font-semibold">Categories</p>
       <ul className="flex flex-col gap-2 p-2">
         <li className="hover:text-gray-600">
-          <Link href={"/color"}>Color</Link>
+          <Link href={"/categories/color"}>Color</Link>
         </li>
         <li className="hover:text-gray-600">
           <Link href={"/men"}>Men</Link>

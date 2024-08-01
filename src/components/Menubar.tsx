@@ -1,3 +1,4 @@
+"use client";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SubMenuBar from "./SubMenuBar";

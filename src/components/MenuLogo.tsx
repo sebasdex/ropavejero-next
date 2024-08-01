@@ -1,4 +1,5 @@
 import { Bebas_Neue } from "next/font/google";
+import Link from "next/link";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -15,9 +16,9 @@ function MenuLogo() {
       <article
         className={`${bebas.className} mt-1 leading-10 tracking-wider text-4xl flex flex-col items-center justify-center`}
       >
-        <a href="">
+        <Link href="/">
           <img src="/logo.png" alt="logo" className="w-40 h-40" />
-        </a>
+        </Link>
         <span className="-mt-3">Ropavejero</span>
       </article>
       <article className="w-full max-w-screen-lg font-semibold">

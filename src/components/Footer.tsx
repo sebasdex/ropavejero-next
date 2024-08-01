@@ -3,8 +3,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-black text-white w-full h-32 flex justify-center items-center">
-      <p className="text-center">
+    <footer className="bg-black text-white w-full h-20 flex justify-center items-center">
+      <p className="text-center text-sm">
         Desarrollado por{" "}
         <Link
           href="https://github.com/sebasdex"
