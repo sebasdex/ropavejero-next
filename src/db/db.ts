@@ -19,7 +19,7 @@ export const dbShirts = [
     popular: true,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/shirts/shirt-3.png",
+    image: "/shirts/shirt-2.png",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const dbShirts = [
     popular: true,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/shirts/shirt-2.png",
+    image: "/shirts/shirt-3.png",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/shirts/shirt-1.png",
+    image: "/shirts/shirt-4.png",
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/shirts/shirt-2.png",
+    image: "/shirts/shirt-5.png",
   },
   {
     id: 6,
@@ -63,6 +63,6 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/shirts/shirt-3.png",
+    image: "/shirts/shirt-9.png",
   },
 ];
