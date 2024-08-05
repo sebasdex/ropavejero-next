@@ -23,8 +23,12 @@ function NewCollections() {
             <div className="flex flex-col text-sm">
               <p>{shirt.name}</p>
               <p className="truncate w-40">{shirt.description}</p>
-              <p className=" text-gray-500">{shirt.price} €</p>
-              <button className="bg-black text-white w-fit p-1">Ver más</button>
+              <p className=" text-gray-500 text-xs">
+                ${shirt.price.toFixed(2)} MXN
+              </p>
+              <button className="bg-black text-white w-fit p-1 text-sm">
+                Ver más
+              </button>
             </div>
           </div>
         ))}

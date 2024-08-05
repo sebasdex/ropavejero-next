@@ -14,7 +14,7 @@ export const dbShirts = [
   },
   {
     id: 2,
-    name: "The cube",
+    name: "Red Animal Shirt",
     description:
       "Añade un toque vintage a tu guardarropa con esta playera gráfica retro, con un diseño inspirado en los años 80.",
     price: 100,
@@ -27,7 +27,7 @@ export const dbShirts = [
   },
   {
     id: 3,
-    name: "Red Animal Shirt",
+    name: "The cube",
     description:
       "Perfecta para el gimnasio o actividades al aire libre, esta playera deportiva de secado rápido mantiene la frescura y comodidad.",
     price: 100,
@@ -40,7 +40,7 @@ export const dbShirts = [
   },
   {
     id: 4,
-    name: "HHello Shirt",
+    name: "Heart Shirt",
     description:
       "Luce fresco y a la moda con esta playera de algodón con un encantador estampado floral, ideal para los días soleados.",
     price: 120,
@@ -53,7 +53,7 @@ export const dbShirts = [
   },
   {
     id: 5,
-    name: "HHello Shirt",
+    name: "Text Shirt",
     description:
       "Un esencial en cualquier guardarropa, esta playera negra básica combina con todo y es perfecta para cualquier ocasión.",
     price: 120,
@@ -66,7 +66,7 @@ export const dbShirts = [
   },
   {
     id: 6,
-    name: "Hello Shirt",
+    name: "Figures Shirt",
     description:
       "Una playera de algodón de estilo moderno, con un diseño elegante y una pintura fresca, ideal para cualquier ocasión.",
     price: 120,
