@@ -23,27 +23,27 @@ function MenuLogo() {
       </article>
       <article className="w-full max-w-screen-lg font-semibold">
         <ul className="flex p-2 justify-between ">
-          <a href="" className="hover:text-gray-600">
+          <Link href="/" className="hover:text-gray-600">
             <li>Home</li>
-          </a>
-          <a href="" className="hover:text-gray-600">
+          </Link>
+          <Link href="/catalog" className="hover:text-gray-600">
             <li>Catálogo</li>
-          </a>
-          <a href="" className="hover:text-gray-600">
+          </Link>
+          <Link href="/collection" className="hover:text-gray-600">
             <li>Colección</li>
-          </a>
-          <a href="" className="hover:text-gray-600">
+          </Link>
+          <Link href="/sales" className="hover:text-gray-600">
             <li>Ventas</li>
-          </a>
-          <a href="" className="hover:text-gray-600">
+          </Link>
+          <Link href="/blog" className="hover:text-gray-600">
             <li>Blog</li>
-          </a>
-          <a href="" className="hover:text-gray-600">
+          </Link>
+          <Link href="/about" className="hover:text-gray-600">
             <li>Sobre nosotros</li>
-          </a>
-          <a href="" className="hover:text-gray-600">
+          </Link>
+          <Link href="/contact" className="hover:text-gray-600">
             <li>Contáctanos</li>
-          </a>
+          </Link>
         </ul>
       </article>
     </section>

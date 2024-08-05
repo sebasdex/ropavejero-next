@@ -19,12 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <Menubar />
         <MenuLogo />
-        <div className="container min-h-dvh mx-auto flex flex-col">
-          {children}
-        </div>
+        <div className="container mx-auto flex flex-col ">{children}</div>
         <Footer />
       </body>
     </html>

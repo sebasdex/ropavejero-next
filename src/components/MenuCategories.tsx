@@ -1,9 +1,15 @@
 import Link from "next/link";
 
-function MenuCategories() {
+function MenuCategories({
+  textMenu,
+  myStyles,
+}: {
+  textMenu: string;
+  myStyles: string;
+}) {
   return (
     <section className="w-1/3 uppercase">
-      <p className="bg-black text-white p-2 font-semibold">Categories</p>
+      <p className={myStyles}>{textMenu}</p>
       <ul className="flex flex-col gap-2 p-2">
         <li className="hover:text-gray-600">
           <Link href={"/categories/color"}>Color</Link>

@@ -2,6 +2,8 @@ export const dbShirts = [
   {
     id: 1,
     name: "Great Fox",
+    description:
+      "Ideal para cualquier ocasión, esta playera clásica blanca de algodón ofrece comodidad y estilo atemporal.",
     price: 100,
     category: "phrase",
     trend: true,
@@ -13,6 +15,8 @@ export const dbShirts = [
   {
     id: 2,
     name: "The cube",
+    description:
+      "Añade un toque vintage a tu guardarropa con esta playera gráfica retro, con un diseño inspirado en los años 80.",
     price: 100,
     category: "Woman",
     trend: true,
@@ -24,6 +28,8 @@ export const dbShirts = [
   {
     id: 3,
     name: "Red Animal Shirt",
+    description:
+      "Perfecta para el gimnasio o actividades al aire libre, esta playera deportiva de secado rápido mantiene la frescura y comodidad.",
     price: 100,
     category: "Men",
     trend: true,
@@ -35,6 +41,8 @@ export const dbShirts = [
   {
     id: 4,
     name: "HHello Shirt",
+    description:
+      "Luce fresco y a la moda con esta playera de algodón con un encantador estampado floral, ideal para los días soleados.",
     price: 120,
     category: "Teens",
     trend: true,
@@ -46,6 +54,8 @@ export const dbShirts = [
   {
     id: 5,
     name: "HHello Shirt",
+    description:
+      "Un esencial en cualquier guardarropa, esta playera negra básica combina con todo y es perfecta para cualquier ocasión.",
     price: 120,
     category: "Teens",
     trend: true,
@@ -56,7 +66,9 @@ export const dbShirts = [
   },
   {
     id: 6,
-    name: "HHello Shirt",
+    name: "Hello Shirt",
+    description:
+      "Una playera de algodón de estilo moderno, con un diseño elegante y una pintura fresca, ideal para cualquier ocasión.",
     price: 120,
     category: "Teens",
     trend: true,
