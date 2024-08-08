@@ -15,19 +15,19 @@ function MenuCategories({
           <Link href={"/categories/color"}>Color</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/men"}>Men</Link>
+          <Link href={"/categories/men"}>Men</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/women"}>Women</Link>
+          <Link href={"/categories/women"}>Women</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/teens"}>Teens</Link>
+          <Link href={"/categories/teens"}>Teens</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/phrase"}>Phrase</Link>
+          <Link href={"/categories/phrase"}>Phrase</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/images"}>Images</Link>
+          <Link href={"/categories/images"}>Images</Link>
         </li>
       </ul>
     </section>
