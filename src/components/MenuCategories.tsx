@@ -15,19 +15,31 @@ function MenuCategories({
           <Link href={"/categories/color"}>Color</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/categories/men"}>Men</Link>
+          <Link href={"/categories/funny"}>Divertidas</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/categories/women"}>Women</Link>
+          <Link href={"/categories/images"}>Figuras</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/categories/teens"}>Teens</Link>
+          <Link href={"/categories/kids"}>Niños</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/categories/phrase"}>Phrase</Link>
+          <Link href={"/categories/logo"}>Logo</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/categories/images"}>Images</Link>
+          <Link href={"/categories/men"}>Hombres</Link>
+        </li>
+        <li className="hover:text-gray-600">
+          <Link href={"/categories/phrase"}>Frases</Link>
+        </li>
+        <li className="hover:text-gray-600">
+          <Link href={"/categories/teens"}>Juvenil</Link>
+        </li>
+        <li className="hover:text-gray-600">
+          <Link href={"/categories/unique"}>Únicas</Link>
+        </li>
+        <li className="hover:text-gray-600">
+          <Link href={"/categories/women"}>Mujeres</Link>
         </li>
       </ul>
     </section>

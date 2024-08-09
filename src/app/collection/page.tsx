@@ -80,7 +80,7 @@ function page() {
       <h1 className="text-center uppercase font-medium tracking-wider p-4 w-full">
         Colecciones
       </h1>
-      <section className="grid grid-cols-4 gap-4 place-items-center w-full  font-bold uppercase text-white text-2xl my-4">
+      <section className="grid grid-cols-4 gap-4 place-items-center w-full font-bold uppercase text-white text-2xl my-4">
         {dbCollection.map((item) => (
           <Link
             href={item.link}
@@ -90,10 +90,12 @@ function page() {
           >
             <article
               key={item.name}
-              className={`relative w-full h-80 cursor-pointer hover:border-gray-600 flex flex-col items-center justify-center ${item.bg} bg-cover bg-bottom
+              className={`relative w-full h-72 cursor-pointer hover:border-gray-600 flex flex-col items-center justify-center ${item.bg} bg-cover bg-bottom
             before:block before:absolute before:-inset-0 before:bg-black before:opacity-0 hover:before:opacity-30 before:transition-opacity before:duration-300 before:ease-in-out`}
             >
-              <p className="text-center text-white relative">{item.name}</p>
+              <p className="text-center text-white relative font-bold uppercase text-5xl break-words w-64">
+                {item.name}
+              </p>
             </article>
           </Link>
         ))}
