@@ -5,9 +5,15 @@ import MenuCategories from "@/components/MenuCategories";
 import BasicBreadcrumbs from "@/components/ui/Breadcrumbs";
 import React from "react";
 
-function CollectionMain({ categoryName }: { categoryName: string }) {
+function CollectionMain({
+  categoryName,
+  categoryBG,
+}: {
+  categoryName: string;
+  categoryBG: string;
+}) {
   return (
-    <aside className="flex w-full mt-4 min-h-dvh gap-4">
+    <aside className="flex w-full mt-4 min-h-dvh gap-4 ">
       <article className="flex flex-col gap-4 w-96">
         <BasicBreadcrumbs />
         <MenuCategories
@@ -17,7 +23,7 @@ function CollectionMain({ categoryName }: { categoryName: string }) {
         <NewCollections />
       </article>
       <article className="w-full">
-        <BannerCategory categoryName={categoryName} categoryBG="bg-menGrid" />
+        <BannerCategory categoryName={categoryName} categoryBG={categoryBG} />
         <ColorElements />
       </article>
     </aside>

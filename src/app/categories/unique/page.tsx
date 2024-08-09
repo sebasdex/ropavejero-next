@@ -2,7 +2,7 @@ import CollectionMain from "@/components/CollectionMain";
 import React from "react";
 
 function page() {
-  return <CollectionMain categoryName="Figuras" categoryBG="bg-images" />;
+  return <CollectionMain categoryName="Únicas" categoryBG="bg-unique" />;
 }
 
 export default page;
