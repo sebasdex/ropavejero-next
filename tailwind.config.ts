@@ -1,3 +1,4 @@
+import { log } from "console";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -13,12 +14,16 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         menGrid: "url('/men.png')",
-        phrase: "url('/phrase.png')",
+        phrase: "url('/collection/phrase.png')",
         teens: "url('/teens.png')",
-        color: "url('/color.png')",
-        men: "url('/men.png')",
-        women: "url('/women.png')",
-        images: "url('/images.png')",
+        color: "url('/collection/color.png')",
+        men: "url('/collection/men.png')",
+        images: "url('/collection/images.png')",
+        funny: "url('/collection/funny.png')",
+        kids: "url('/collection/kids.png')",
+        logo: "url('/collection/logo.png')",
+        unique: "url('/collection/unique.png')",
+        women: "url('/collection/women.png')",
       },
     },
   },

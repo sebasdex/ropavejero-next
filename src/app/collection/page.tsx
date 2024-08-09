@@ -9,62 +9,62 @@ function page() {
     {
       id: 1,
       name: "Color",
-      image: "/34.jpg",
       bg: "bg-color",
+      link: "/categories/color",
     },
     {
       id: 2,
-      name: "Men",
-      image: "/images/collections/men.png",
-      bg: "bg-men",
+      name: "Divertidas",
+      bg: "bg-funny",
+      link: "/categories/funny",
     },
     {
       id: 3,
-      name: "Women",
-      image: "/images/collections/women.png",
-      bg: "bg-women",
+      name: "Figuras",
+      bg: "bg-images",
+      link: "/categories/images",
     },
     {
       id: 4,
-      name: "Teens",
-      image: "/images/collections/teens.png",
-      bg: "bg-teens",
+      name: "Niños",
+      bg: "bg-kids",
+      link: "/categories/kids",
     },
     {
       id: 5,
-      name: "Phrase",
-      image: "/images/collections/phrase.png",
-      bg: "bg-phrase",
+      name: "Logo",
+      bg: "bg-logo",
+      link: "/categories/logo",
     },
     {
       id: 6,
-      name: "Images",
-      image: "/images/collections/images.png",
-      bg: "bg-images",
+      name: "Hombres",
+      bg: "bg-men",
+      link: "/categories/men",
     },
     {
       id: 7,
-      name: "Phrase",
-      image: "/images/collections/phrase.png",
-      link: "/collections/phrase",
+      name: "Frases",
+      bg: "bg-phrase",
+      link: "/categories/phrase",
     },
     {
       id: 8,
-      name: "Images",
-      image: "/images/collections/images.png",
-      link: "/collections/images",
+      name: "Juvenil",
+      bg: "bg-teens",
+      link: "/categories/teens",
     },
     {
       id: 9,
-      name: "Phrase",
-      image: "/images/collections/phrase.png",
-      link: "/collections/phrase",
+      name: "Únicas",
+      bg: "bg-unique",
+      link: "/categories/unique",
     },
     {
       id: 10,
-      name: "Images",
-      image: "/images/collections/images.png",
-      link: "/collections/images",
+      name: "Mújeres",
+      bg: "bg-women",
+      link: "/categories/women",
     },
   ];
   return (
@@ -82,14 +82,20 @@ function page() {
       </h1>
       <section className="grid grid-cols-4 gap-4 place-items-center w-full  font-bold uppercase text-white text-2xl my-4">
         {dbCollection.map((item) => (
-          <article
+          <Link
+            href={item.link}
             key={item.name}
-            className={`w-full h-80 border-2 border-black cursor-pointer hover:border-gray-600 flex flex-col items-center justify-center ${item.bg} bg-cover bg-center`}
+            underline="none"
+            className="w-full"
           >
-            <Link href={item.link} className="no-underline">
-              <p className="text-center text-white ">{item.name}</p>
-            </Link>
-          </article>
+            <article
+              key={item.name}
+              className={`relative w-full h-80 cursor-pointer hover:border-gray-600 flex flex-col items-center justify-center ${item.bg} bg-cover bg-bottom
+            before:block before:absolute before:-inset-0 before:bg-black before:opacity-0 hover:before:opacity-30 before:transition-opacity before:duration-300 before:ease-in-out`}
+            >
+              <p className="text-center text-white relative">{item.name}</p>
+            </article>
+          </Link>
         ))}
       </section>
     </main>

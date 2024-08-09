@@ -12,7 +12,7 @@ function Categories() {
           <Link href={"/men"}>Men</Link>
         </span>
       </article>
-      <article className="w-full h-full relative  flex flex-col items-center justify-center bg-phrase bg-cover bg-bottom before:block before:absolute before:-inset-0 before:bg-black before:opacity-20 hover:before:opacity-30">
+      <article className="w-full h-full relative  flex flex-col items-center justify-center bg-women bg-cover bg-bottom before:block before:absolute before:-inset-0 before:bg-black before:opacity-20 hover:before:opacity-30">
         <span className="relative">
           <Link href={"/women"}>Women</Link>
         </span>

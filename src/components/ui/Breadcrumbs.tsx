@@ -11,7 +11,7 @@ export default function BasicBreadcrumbs() {
         <Link underline="hover" color="inherit" href="/">
           Incio
         </Link>
-        <Link underline="hover" color="inherit" href="/categories">
+        <Link underline="hover" color="inherit" href="/collection">
           Colecciones
         </Link>
         <Typography color="text.primary">Color</Typography>
