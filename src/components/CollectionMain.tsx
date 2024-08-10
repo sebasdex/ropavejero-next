@@ -8,9 +8,11 @@ import React from "react";
 function CollectionMain({
   categoryName,
   categoryBG,
+  nameElement,
 }: {
   categoryName: string;
   categoryBG: string;
+  nameElement: string;
 }) {
   return (
     <aside className="flex w-full mt-4 min-h-dvh gap-4 ">
@@ -24,7 +26,7 @@ function CollectionMain({
       </article>
       <article className="w-full">
         <BannerCategory categoryName={categoryName} categoryBG={categoryBG} />
-        <ColorElements />
+        <ColorElements nameElement={nameElement} />
       </article>
     </aside>
   );

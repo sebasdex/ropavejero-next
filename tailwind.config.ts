@@ -20,7 +20,6 @@ const config: Config = {
         men: "url('/collection/men.png')",
         images: "url('/collection/images.png')",
         funny: "url('/collection/funny.png')",
-        kids: "url('/collection/kids.png')",
         logo: "url('/collection/logo.png')",
         unique: "url('/collection/unique.png')",
         women: "url('/collection/women.png')",

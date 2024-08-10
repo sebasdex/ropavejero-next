@@ -26,7 +26,7 @@ function NewCollections() {
               <p className=" text-gray-500 text-xs">
                 ${shirt.price.toFixed(2)} MXN
               </p>
-              <button className="bg-black text-white w-fit p-1 text-sm">
+              <button className="bg-black text-white w-fit p-1 text-sm hover:bg-gray-500">
                 Ver más
               </button>
             </div>

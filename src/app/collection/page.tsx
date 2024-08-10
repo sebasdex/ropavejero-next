@@ -25,12 +25,6 @@ function page() {
       link: "/categories/images",
     },
     {
-      id: 4,
-      name: "Niños",
-      bg: "bg-kids",
-      link: "/categories/kids",
-    },
-    {
       id: 5,
       name: "Logo",
       bg: "bg-logo",

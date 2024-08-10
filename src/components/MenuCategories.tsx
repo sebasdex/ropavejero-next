@@ -21,9 +21,6 @@ function MenuCategories({
           <Link href={"/categories/images"}>Figuras</Link>
         </li>
         <li className="hover:text-gray-600">
-          <Link href={"/categories/kids"}>Niños</Link>
-        </li>
-        <li className="hover:text-gray-600">
           <Link href={"/categories/logo"}>Logo</Link>
         </li>
         <li className="hover:text-gray-600">
