@@ -3,64 +3,9 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
+import { dbCollection } from "@/db/db";
 
 function page() {
-  const dbCollection = [
-    {
-      id: 1,
-      name: "Color",
-      bg: "bg-color",
-      link: "/categories/color",
-    },
-    {
-      id: 2,
-      name: "Divertidas",
-      bg: "bg-funny",
-      link: "/categories/funny",
-    },
-    {
-      id: 3,
-      name: "Figuras",
-      bg: "bg-images",
-      link: "/categories/images",
-    },
-    {
-      id: 5,
-      name: "Logo",
-      bg: "bg-logo",
-      link: "/categories/logo",
-    },
-    {
-      id: 6,
-      name: "Hombres",
-      bg: "bg-men",
-      link: "/categories/men",
-    },
-    {
-      id: 7,
-      name: "Frases",
-      bg: "bg-phrase",
-      link: "/categories/phrase",
-    },
-    {
-      id: 8,
-      name: "Juvenil",
-      bg: "bg-teens",
-      link: "/categories/teens",
-    },
-    {
-      id: 9,
-      name: "Únicas",
-      bg: "bg-unique",
-      link: "/categories/unique",
-    },
-    {
-      id: 10,
-      name: "Mújeres",
-      bg: "bg-women",
-      link: "/categories/women",
-    },
-  ];
   return (
     <main className="min-h-dvh m-6">
       <div role="presentation" className="">
