@@ -1,7 +1,7 @@
 "use client";
 import { Bebas_Neue } from "next/font/google";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CatalogMenu from "./CatalogMenu";
 
 const bebas = Bebas_Neue({
@@ -11,9 +11,29 @@ const bebas = Bebas_Neue({
 
 function MenuLogo() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
   const handleClick = () => {
     setOpen(!open);
   };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
 
   return (
     <section
@@ -55,7 +75,11 @@ function MenuLogo() {
             <li>Contáctanos</li>
           </Link>
         </ul>
-        {open && <CatalogMenu />}
+        {open && (
+          <div ref={menuRef}>
+            <CatalogMenu />
+          </div>
+        )}
       </article>
     </section>
   );
