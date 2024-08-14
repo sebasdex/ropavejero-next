@@ -65,9 +65,9 @@ function MenuLogo() {
           <Link href="/sales" className="hover:text-gray-600">
             <li>Ventas</li>
           </Link>
-          <Link href="/blog" className="hover:text-gray-600">
+          {/* <Link href="/blog" className="hover:text-gray-600">
             <li>Blog</li>
-          </Link>
+          </Link> */}
           <Link href="/about" className="hover:text-gray-600">
             <li>Sobre nosotros</li>
           </Link>

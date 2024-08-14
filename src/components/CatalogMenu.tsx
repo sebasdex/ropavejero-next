@@ -8,11 +8,7 @@ function CatalogMenu() {
           .sort(() => Math.random() - 0.5)
           .slice(0, 4)
           .map((item) => (
-            <li
-              key={item.id}
-              className="w-60 h-40 p-1"
-              onClick={() => console.log(item)}
-            >
+            <li key={item.id} className="w-60 h-40 p-1">
               <img
                 src={item.image}
                 alt=""
@@ -27,7 +23,9 @@ function CatalogMenu() {
             key={item.id}
             className="capitalize text-gray-500 font-normal text-sm px-2 h-fit"
           >
-            <Link href={item.link}>{item.name}</Link>
+            <Link href={item.link} className="hover:text-black">
+              {item.name}
+            </Link>
           </li>
         ))}
       </ul>
