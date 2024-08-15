@@ -1,4 +1,5 @@
 import { dbShirts } from "@/db/db";
+import Image from "next/image";
 import { useState } from "react";
 function PopularShirts() {
   const [popularShirt, setPopularShirt] = useState(dbShirts);
@@ -11,7 +12,9 @@ function PopularShirts() {
               key={shirt.id}
               className="text-center w-full h-full pb-4 flex flex-col justify-center items-center"
             >
-              <img
+              <Image
+                width={300}
+                height={300}
                 src={shirt.image}
                 alt={shirt.name}
                 className="object-cover"

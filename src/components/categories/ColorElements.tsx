@@ -1,4 +1,5 @@
 import { dbShirts } from "@/db/db";
+import Image from "next/image";
 function ColorElements({ nameElement }: { nameElement: string }) {
   return (
     <section className="mt-12">
@@ -10,7 +11,13 @@ function ColorElements({ nameElement }: { nameElement: string }) {
                 key={shirt.id}
                 className="flex flex-col gap-4 p-4 rounded-md"
               >
-                <img src={shirt.image} alt={shirt.name} className="w-full" />
+                <Image
+                  width={300}
+                  height={300}
+                  src={shirt.image}
+                  alt={shirt.name}
+                  className="w-full"
+                />
                 <div className="flex flex-col gap-2 items-center">
                   <h2 className="text-base font-bold">{shirt.name}</h2>
                   <p className="text-sm text-gray-500">

@@ -1,6 +1,7 @@
 import React from "react";
 import { dbShirts } from "@/db/db";
 import { useState } from "react";
+import Image from "next/image";
 
 function Trend() {
   const [trendShirt, setTrendShirt] = useState(dbShirts);
@@ -13,7 +14,9 @@ function Trend() {
               key={shirt.id}
               className="text-center pb-4 flex flex-col justify-center items-center w-[25.9rem] h-full"
             >
-              <img
+              <Image
+                width={300}
+                height={300}
                 src={shirt.image}
                 alt={shirt.name}
                 className="object-cover w-full h-full"

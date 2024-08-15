@@ -1,4 +1,5 @@
 import { dbShirts, dbCollection } from "@/db/db";
+import Image from "next/image";
 import Link from "next/link";
 function CatalogMenu() {
   return (
@@ -9,7 +10,9 @@ function CatalogMenu() {
           .slice(0, 4)
           .map((item) => (
             <li key={item.id} className="w-60 h-40 p-1">
-              <img
+              <Image
+                width={600}
+                height={400}
                 src={item.image}
                 alt=""
                 className="w-full h-full object-cover object-center"

@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className}`}>
         <Menubar />
         <MenuLogo />
-        <div className="container mx-auto flex flex-col ">{children}</div>
+        <div className="container mx-auto flex flex-col">{children}</div>
         <Footer />
       </body>
     </html>
