@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 function CatalogMenu() {
   return (
-    <nav className="flex flex-col absolute z-10 top-14 left-0 right-0 bg-white p-2 w-full">
+    <nav className="flex flex-col absolute z-10 top-14 left-0 right-0 bg-white p-2 w-full shadow-md">
       <ul className="grid grid-cols-4">
         {dbShirts
           .sort(() => Math.random() - 0.5)
