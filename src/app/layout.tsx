@@ -22,10 +22,9 @@ export default function RootLayout({
       <body
         className={`${inter.className} flex flex-col min-h-dvh justify-between`}
       >
-        <div>
-          <Menubar />
-          <MenuLogo />
-        </div>
+        <Menubar />
+        <MenuLogo />
+
         <div className="container mx-auto flex flex-col mb-auto">
           {children}
         </div>

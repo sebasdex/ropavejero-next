@@ -11,6 +11,7 @@ const bebas = Bebas_Neue({
 
 function MenuLogo() {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
@@ -35,14 +36,32 @@ function MenuLogo() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <section
-      className={
-        "min-h-60 max-h-72 w-full flex flex-col items-center justify-evenly"
-      }
+      className={`w-full flex flex-col items-center justify-evenly sticky top-0 z-50 bg-[rgb(210,209,209)] transition-all duration-300 ease-out ${
+        isScrolled ? "h-20" : "h-60"
+      }`}
     >
       <article
-        className={`${bebas.className} mt-1 leading-10 tracking-wider text-4xl flex flex-col items-center justify-center`}
+        className={`${
+          bebas.className
+        } leading-10 tracking-wider text-4xl flex flex-col items-center justify-center transition-opacity duration-300 ${
+          isScrolled ? "opacity-0 h-0 overflow-hidden" : "opacity-100 h-auto"
+        }`}
+        style={{ transition: "height 0.3s ease, opacity 0.3s ease" }}
       >
         <Link href="/">
           <img src="/logo.png" alt="logo" className="w-40 h-40" />
@@ -50,7 +69,7 @@ function MenuLogo() {
         <span className="-mt-3">Ropavejero</span>
       </article>
       <article className="w-full max-w-screen-lg font-semibold relative p-2 mt-2">
-        <ul className="flex p-2 justify-between uppercase text-sm">
+        <ul className="flex justify-between uppercase text-sm">
           <Link href="/" className="hover:text-gray-600">
             <li>Home</li>
           </Link>
@@ -65,9 +84,6 @@ function MenuLogo() {
           <Link href="/sales" className="hover:text-gray-600">
             <li>Ventas</li>
           </Link>
-          {/* <Link href="/blog" className="hover:text-gray-600">
-            <li>Blog</li>
-          </Link> */}
           <Link href="/about" className="hover:text-gray-600">
             <li>Sobre nosotros</li>
           </Link>
