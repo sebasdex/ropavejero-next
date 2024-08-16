@@ -1,6 +1,6 @@
 function Title({ text }: { text: string }) {
   return (
-    <span className="text-center p-4 uppercase font-semibold tracking-wider">
+    <span className="text-center p-8 uppercase font-semibold tracking-wider">
       {text}
     </span>
   );

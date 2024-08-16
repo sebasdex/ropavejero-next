@@ -10,7 +10,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/teens/model-1.png",
+    image: "/teens/model-1.webp",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/teens/model-2.png",
+    image: "/teens/model-2.webp",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/teens/model-3.png",
+    image: "/teens/model-3.webp",
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/teens/model-4.png",
+    image: "/teens/model-4.webp",
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/teens/model-5.png",
+    image: "/teens/model-5.webp",
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/teens/model-6.png",
+    image: "/teens/model-6.webp",
   },
   {
     id: 7,
@@ -88,7 +88,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/color/color-1.png",
+    image: "/color/color-1.webp",
   },
   {
     id: 8,
@@ -101,7 +101,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/color/color-2.png",
+    image: "/color/color-2.webp",
   },
   {
     id: 9,
@@ -114,7 +114,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/color/color-3.png",
+    image: "/color/color-3.webp",
   },
   {
     id: 10,
@@ -127,7 +127,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/color/color-4.png",
+    image: "/color/color-4.webp",
   },
   {
     id: 11,
@@ -140,7 +140,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/color/color-5.png",
+    image: "/color/color-5.webp",
   },
   {
     id: 12,
@@ -153,7 +153,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/color/color-6.png",
+    image: "/color/color-6.webp",
   },
   {
     id: 13,
@@ -166,7 +166,7 @@ export const dbShirts = [
     popular: true,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/funny/funny-1.png",
+    image: "/funny/funny-1.webp",
   },
   {
     id: 14,
@@ -179,7 +179,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/funny/funny-2.png",
+    image: "/funny/funny-2.webp",
   },
   {
     id: 15,
@@ -192,7 +192,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/funny/funny-3.png",
+    image: "/funny/funny-3.webp",
   },
   {
     id: 16,
@@ -205,7 +205,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/funny/funny-4.png",
+    image: "/funny/funny-4.webp",
   },
   {
     id: 17,
@@ -218,7 +218,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/funny/funny-5.png",
+    image: "/funny/funny-5.webp",
   },
   {
     id: 18,
@@ -231,7 +231,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/funny/funny-6.png",
+    image: "/funny/funny-6.webp",
   },
   {
     id: 19,
@@ -244,7 +244,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/figures/figure-1.png",
+    image: "/figures/figure-1.webp",
   },
   {
     id: 20,
@@ -257,7 +257,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/figures/figure-2.png",
+    image: "/figures/figure-2.webp",
   },
   {
     id: 21,
@@ -270,7 +270,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/figures/figure-3.png",
+    image: "/figures/figure-3.webp",
   },
   {
     id: 22,
@@ -283,7 +283,7 @@ export const dbShirts = [
     popular: true,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/figures/figure-4.png",
+    image: "/figures/figure-4.webp",
   },
   {
     id: 23,
@@ -296,7 +296,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/figures/figure-5.png",
+    image: "/figures/figure-5.webp",
   },
   {
     id: 24,
@@ -309,7 +309,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/figures/figure-6.png",
+    image: "/figures/figure-6.webp",
   },
   {
     id: 25,
@@ -322,7 +322,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/logo/logo-1.png",
+    image: "/logo/logo-1.webp",
   },
   {
     id: 26,
@@ -335,7 +335,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/logo/logo-2.png",
+    image: "/logo/logo-2.webp",
   },
   {
     id: 27,
@@ -348,7 +348,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/logo/logo-3.png",
+    image: "/logo/logo-3.webp",
   },
   {
     id: 28,
@@ -361,7 +361,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/logo/logo-4.png",
+    image: "/logo/logo-4.webp",
   },
   {
     id: 29,
@@ -374,7 +374,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/logo/logo-5.png",
+    image: "/logo/logo-5.webp",
   },
   {
     id: 30,
@@ -387,7 +387,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/logo/logo-6.png",
+    image: "/logo/logo-6.webp",
   },
   {
     id: 31,
@@ -400,7 +400,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/men/men-1.png",
+    image: "/men/men-1.webp",
   },
   {
     id: 32,
@@ -413,7 +413,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/men/men-2.png",
+    image: "/men/men-2.webp",
   },
   {
     id: 33,
@@ -426,7 +426,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/men/men-3.png",
+    image: "/men/men-3.webp",
   },
   {
     id: 34,
@@ -439,7 +439,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/men/men-4.png",
+    image: "/men/men-4.webp",
   },
   {
     id: 35,
@@ -452,7 +452,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/men/men-5.png",
+    image: "/men/men-5.webp",
   },
   {
     id: 36,
@@ -465,7 +465,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/men/men-6.png",
+    image: "/men/men-6.webp",
   },
   {
     id: 37,
@@ -478,7 +478,7 @@ export const dbShirts = [
     popular: true,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/women/woman-1.png",
+    image: "/women/woman-1.webp",
   },
   {
     id: 38,
@@ -491,7 +491,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/women/woman-2.png",
+    image: "/women/woman-2.webp",
   },
   {
     id: 39,
@@ -504,7 +504,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/women/woman-3.png",
+    image: "/women/woman-3.webp",
   },
   {
     id: 40,
@@ -517,7 +517,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/women/woman-4.png",
+    image: "/women/woman-4.webp",
   },
   {
     id: 41,
@@ -530,7 +530,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/women/woman-5.png",
+    image: "/women/woman-5.webp",
   },
   {
     id: 42,
@@ -543,7 +543,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/women/woman-6.png",
+    image: "/women/woman-6.webp",
   },
   {
     id: 43,
@@ -556,7 +556,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/phrase/text-1.png",
+    image: "/phrase/text-1.webp",
   },
   {
     id: 44,
@@ -569,7 +569,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/phrase/text-2.png",
+    image: "/phrase/text-2.webp",
   },
   {
     id: 45,
@@ -582,7 +582,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/phrase/text-3.png",
+    image: "/phrase/text-3.webp",
   },
   {
     id: 46,
@@ -595,7 +595,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/phrase/text-4.png",
+    image: "/phrase/text-4.webp",
   },
   {
     id: 47,
@@ -608,7 +608,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/phrase/text-5.png",
+    image: "/phrase/text-5.webp",
   },
   {
     id: 48,
@@ -621,7 +621,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/phrase/text-6.png",
+    image: "/phrase/text-6.webp",
   },
   {
     id: 49,
@@ -634,7 +634,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/unique/unique-1.png",
+    image: "/unique/unique-1.webp",
   },
   {
     id: 50,
@@ -647,7 +647,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/unique/unique-2.png",
+    image: "/unique/unique-2.webp",
   },
   {
     id: 51,
@@ -660,7 +660,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/unique/unique-3.png",
+    image: "/unique/unique-3.webp",
   },
   {
     id: 52,
@@ -673,7 +673,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/unique/unique-4.png",
+    image: "/unique/unique-4.webp",
   },
   {
     id: 53,
@@ -686,7 +686,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/unique/unique-5.png",
+    image: "/unique/unique-5.webp",
   },
   {
     id: 54,
@@ -699,7 +699,7 @@ export const dbShirts = [
     popular: false,
     size: ["S", "M", "L", "XL"],
     stock: 10,
-    image: "/unique/unique-6.png",
+    image: "/unique/unique-6.webp",
   },
 ];
 
