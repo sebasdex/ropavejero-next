@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Menubar from "@/components/Menubar";
 import MenuLogo from "@/components/MenuLogo";
+import ArrowUp from "@/components/ui/ArrowUp";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} flex flex-col min-h-dvh justify-between`}
       >
+        <ArrowUp />
         <Menubar />
         <MenuLogo />
 
