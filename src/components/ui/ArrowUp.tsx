@@ -32,7 +32,7 @@ function ArrowUp() {
   }, []);
 
   return (
-    <div className="fixed bottom-0 right-40 z-50">
+    <div className="fixed bottom-0 right-40 z-50 hidden md:block">
       <button
         className={`p-8 transform transition-all duration-500 ease-in-out ${
           isScrolled ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
