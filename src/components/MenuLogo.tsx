@@ -10,31 +10,22 @@ const bebas = Bebas_Neue({
 });
 
 function MenuLogo() {
-  const [open, setOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [hover, setHover] = useState<boolean>(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleClick = () => {
-    setOpen(!open);
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setHover(true);
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      setOpen(false);
-    }
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setHover(false);
+    }, 300);
   };
-
-  useEffect(() => {
-    if (open) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [open]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,12 +64,23 @@ function MenuLogo() {
           <Link href="/" className="hover:text-gray-600">
             <li>Home</li>
           </Link>
-          <li className="hover:text-gray-600">
-            <button className="uppercase" onClick={handleClick}>
-              Catálogo
-            </button>
-          </li>
-          <Link href="/collection" className="hover:text-gray-600">
+          <Link href={"/collection"} className="hover:text-gray-600">
+            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <button className="uppercase hover:text-gray-600">
+                Catálogo
+              </button>
+              {hover && (
+                <div
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  className="transition-all duration-300 ease-in-out"
+                >
+                  <CatalogMenu />
+                </div>
+              )}
+            </li>
+          </Link>
+          <Link href="/categories/color" className="hover:text-gray-600">
             <li>Colección</li>
           </Link>
           <Link href="/sales" className="hover:text-gray-600">
@@ -91,11 +93,6 @@ function MenuLogo() {
             <li>Contáctanos</li>
           </Link>
         </ul>
-        {open && (
-          <div ref={menuRef}>
-            <CatalogMenu />
-          </div>
-        )}
       </article>
     </section>
   );
