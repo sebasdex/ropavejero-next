@@ -39,7 +39,7 @@ function MenuLogo() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 100);
+      setIsScrolled(scrollPosition > 200);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -69,7 +69,7 @@ function MenuLogo() {
         <span className="-mt-3">Ropavejero</span>
       </article>
       <article className="w-full max-w-screen-lg font-semibold relative p-2 mt-2">
-        <ul className="flex justify-between uppercase text-sm">
+        <ul className="flex justify-between uppercase text-base tracking-wider ">
           <Link href="/" className="hover:text-gray-600">
             <li>Home</li>
           </Link>

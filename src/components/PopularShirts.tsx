@@ -19,12 +19,10 @@ function PopularShirts() {
                 alt={shirt.name}
                 className="object-cover"
               />
-              <h3 className="font-semibold tracking-wider pt-2">
-                {shirt.name}
-              </h3>
-              <p className="py-2">${shirt.price}</p>
-              <button className="bg-black text-white p-2 rounded-md hover:bg-gray-800 ease-in-out duration-200">
-                Add to cart
+              <h3 className="pt-2">{shirt.name}</h3>
+              <p className="py-2 font-semibold">${shirt.price}</p>
+              <button className="bg-black text-white p-2 hover:bg-gray-600 ease-in-out duration-300">
+                Añadir al carrito
               </button>
             </div>
           )

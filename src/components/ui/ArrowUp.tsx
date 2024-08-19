@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function ArrowUp() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -10,12 +10,13 @@ function ArrowUp() {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className="size-14 cursor-pointer hover:text-gray-600"
+      className="size-12 p-3 cursor-pointer bg-[rgba(197,195,195,0.9)] hover:bg-gray-700 rounded-full transition-all duration-200"
+      color="white"
     >
       <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m4.5 15.75 7.5-7.5 7.5 7.5"
       />
     </svg>
   );
@@ -32,9 +33,9 @@ function ArrowUp() {
   }, []);
 
   return (
-    <div className="fixed bottom-0 right-40 z-50 hidden md:block">
+    <div className="fixed bottom-20 right-10 z-50 hidden md:block">
       <button
-        className={`p-8 transform transition-all duration-500 ease-in-out ${
+        className={` transform transition-all duration-500 ease-in-out ${
           isScrolled ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}
       >

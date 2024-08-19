@@ -13,10 +13,10 @@ export default function Home() {
       <Banner />
       <Categories />
       <Title text="Popular Products" />
-      <div className="flex w-full gap-3">
+      <div className="flex w-full gap-3 mb-12">
         <MenuCategories
           textMenu="Categorías"
-          myStyles="bg-black text-white p-2 font-semibold"
+          myStyles="bg-black text-white tracking-wider font-semibold p-4"
         />
         <PopularShirts />
       </div>
