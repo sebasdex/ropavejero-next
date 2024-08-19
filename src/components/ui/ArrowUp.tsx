@@ -14,8 +14,8 @@ function ArrowUp() {
       color="white"
     >
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         d="m4.5 15.75 7.5-7.5 7.5 7.5"
       />
     </svg>
