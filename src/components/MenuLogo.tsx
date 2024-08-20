@@ -64,22 +64,18 @@ function MenuLogo() {
           <Link href="/" className="hover:text-gray-600">
             <li>Home</li>
           </Link>
-          <Link href={"/collection"} className="hover:text-gray-600">
-            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <button className="uppercase hover:text-gray-600">
-                Catálogo
-              </button>
-              {hover && (
-                <div
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  className="transition-all duration-300 ease-in-out"
-                >
-                  <CatalogMenu />
-                </div>
-              )}
-            </li>
-          </Link>
+          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <button className="uppercase hover:text-gray-600">Catálogo</button>
+            {hover && (
+              <div
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className=" transition-all duration-300 ease-in-out"
+              >
+                <CatalogMenu />
+              </div>
+            )}
+          </li>
           <Link href="/categories/color" className="hover:text-gray-600">
             <li>Colección</li>
           </Link>
