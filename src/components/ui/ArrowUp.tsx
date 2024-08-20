@@ -35,6 +35,7 @@ function ArrowUp() {
   return (
     <div className="fixed bottom-20 right-10 z-50 hidden md:block">
       <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className={` transform transition-all duration-500 ease-in-out ${
           isScrolled ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}
