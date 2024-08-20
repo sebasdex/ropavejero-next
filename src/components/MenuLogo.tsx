@@ -3,6 +3,7 @@ import { Bebas_Neue } from "next/font/google";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import CatalogMenu from "./CatalogMenu";
+import CollectionMenu from "./CollectionMenu";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -12,7 +13,22 @@ const bebas = Bebas_Neue({
 function MenuLogo() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [hover, setHover] = useState<boolean>(false);
+  const [hoverCollection, setHoverCollection] = useState<boolean>(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeOutRefCollection = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnterCollection = () => {
+    if (timeOutRefCollection.current) {
+      clearTimeout(timeOutRefCollection.current);
+    }
+    setHoverCollection(true);
+  };
+
+  const handleMouseLeaveCollection = () => {
+    timeOutRefCollection.current = setTimeout(() => {
+      setHoverCollection(false);
+    }, 300);
+  };
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
@@ -64,21 +80,41 @@ function MenuLogo() {
           <Link href="/" className="hover:text-gray-600">
             <li>Home</li>
           </Link>
-          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <button className="uppercase hover:text-gray-600">Catálogo</button>
-            {hover && (
-              <div
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                className=" transition-all duration-300 ease-in-out"
-              >
-                <CatalogMenu />
-              </div>
-            )}
-          </li>
-          <Link href="/categories/color" className="hover:text-gray-600">
-            <li>Colección</li>
+          <Link href="/collection" className="hover:text-gray-600">
+            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <button className="uppercase hover:text-gray-600">
+                Catálogo
+              </button>
+            </li>
           </Link>
+          {hover && (
+            <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="absolute top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
+            >
+              <CatalogMenu />
+            </div>
+          )}
+          <Link href="/categories/color" className="hover:text-gray-600">
+            <li
+              onMouseEnter={handleMouseEnterCollection}
+              onMouseLeave={handleMouseLeaveCollection}
+            >
+              <button className="uppercase hover:text-gray-600">
+                Colección
+              </button>
+            </li>
+          </Link>
+          {hoverCollection && (
+            <div
+              onMouseEnter={handleMouseEnterCollection}
+              onMouseLeave={handleMouseLeaveCollection}
+              className="absolute top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
+            >
+              <CollectionMenu />
+            </div>
+          )}
           <Link href="/sales" className="hover:text-gray-600">
             <li>Ventas</li>
           </Link>
