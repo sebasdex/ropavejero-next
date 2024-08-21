@@ -2,7 +2,7 @@ import React from "react";
 
 function page() {
   return (
-    <main className="text-gray-700 p-8 flex flex-col gap-8 max-w-4xl mx-auto">
+    <main className=" p-8 flex flex-col gap-8 max-w-4xl mx-auto">
       <section>
         <h1 className="text-2xl font-extrabold mb-4">Sobre nosotros</h1>
         <p>
