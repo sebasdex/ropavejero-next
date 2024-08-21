@@ -58,7 +58,7 @@ function MenuLogo() {
 
   return (
     <section
-      className={`w-full flex flex-col items-center justify-evenly sticky top-0 z-40 bg-[rgb(210,209,209)] transition-all duration-300 ease-out ${
+      className={`w-full border-b border-slate-400 border-opacity-20 flex flex-col items-center justify-evenly sticky top-0 z-40 bg-[rgb(210,209,209)] transition-all duration-300 ease-out ${
         isScrolled ? "h-20" : "h-60"
       }`}
     >

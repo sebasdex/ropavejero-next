@@ -13,7 +13,7 @@ function CollectionMenu() {
               before:block before:absolute before:-inset-0 before:bg-black before:opacity-0 hover:before:opacity-30 before:transition-opacity before:duration-300 before:ease-in-out
               `}
             >
-              {item.name}
+              <p className="relative">{item.name}</p>
             </Link>
           </li>
         ))}

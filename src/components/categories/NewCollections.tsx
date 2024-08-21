@@ -6,7 +6,7 @@ function NewCollections() {
     <article className=" w-80 border-gray-300 rounded-lg p-4 flex flex-col gap-4">
       <div className="relative flex items-center justify-center w-72 h-96 bg-menGrid bg-cover bg-bottom border before:block before:absolute before:-inset-0 before:bg-black before:opacity-20">
         <p className="relative opacity-90 text-center text-white uppercase text-xl font-semibold">
-          New collections of fashion clothes
+          Nuevas colecciones de ropa de moda
         </p>
       </div>
       <p className="uppercase font-medium p-1 tracking-wider text-gray-500 text-sm">
@@ -18,16 +18,18 @@ function NewCollections() {
             <img
               src={shirt.image}
               alt={shirt.name}
-              className="w-16 h-20 object-cover object-bottom"
+              className="w-24 h-28 object-cover object-bottom"
             />
-            <div className="flex flex-col text-sm">
-              <p>{shirt.name}</p>
-              <p className="truncate w-40">{shirt.description}</p>
-              <p className=" text-gray-500 text-xs">
+            <div className="flex flex-col gap-1 text-base">
+              <span>
+                <p>{shirt.name}</p>
+                <p className="truncate w-40">{shirt.description}</p>
+              </span>
+              <p className="font-semibold text-sm">
                 ${shirt.price.toFixed(2)} MXN
               </p>
-              <button className="bg-black text-white w-fit p-1 text-sm hover:bg-gray-500">
-                Ver más
+              <button className="bg-black text-white text-sm w-fit px-2 py-1 hover:bg-gray-500 uppercase">
+                Ver
               </button>
             </div>
           </div>
