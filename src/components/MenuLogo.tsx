@@ -58,7 +58,7 @@ function MenuLogo() {
 
   return (
     <section
-      className={`w-full border-b border-slate-400 border-opacity-20 flex flex-col items-center justify-evenly sticky top-0 z-40 bg-[rgb(210,209,209)] transition-all duration-300 ease-out ${
+      className={`w-full  flex flex-col items-center justify-evenly sticky top-0 z-40 bg-[rgb(210,209,209)] transition-all duration-300 ease-out ${
         isScrolled ? "h-20" : "h-60"
       }`}
     >
@@ -93,7 +93,7 @@ function MenuLogo() {
               onMouseLeave={handleMouseLeave}
               className="absolute top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
             >
-              <CatalogMenu />
+              <CatalogMenu setHover={setHover} />
             </div>
           )}
           <Link href="/categories/color" className="hover:text-gray-600">
@@ -112,7 +112,7 @@ function MenuLogo() {
               onMouseLeave={handleMouseLeaveCollection}
               className="absolute top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
             >
-              <CollectionMenu />
+              <CollectionMenu setHoverCollection={setHoverCollection} />
             </div>
           )}
           <Link href="/sales" className="hover:text-gray-600">
