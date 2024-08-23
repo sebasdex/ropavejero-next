@@ -4,6 +4,7 @@ import Image from "next/image";
 
 function Trend() {
   const [trendShirt, setTrendShirt] = useState(dbShirts);
+
   return (
     <article className="flex flex-wrap justify-center gap-4 w-full mb-12">
       {trendShirt.map(

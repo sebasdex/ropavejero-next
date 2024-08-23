@@ -3,14 +3,26 @@ import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SubMenuBar from "./SubMenuBar";
 import { useState, useRef, useEffect } from "react";
+import CartSection from "./CartSection";
+import { dbShirts } from "@/db/db";
 
 function Menubar() {
   const [userButton, setUserButton] = useState(false);
+  const [cartButton, setCartButton] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const menuRefCart = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setUserButton(false);
+    }
+  };
+  const handleClickOutsideCart = (event: MouseEvent) => {
+    if (
+      menuRefCart.current &&
+      !menuRefCart.current.contains(event.target as Node)
+    ) {
+      setCartButton(false);
     }
   };
 
@@ -18,6 +30,13 @@ function Menubar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutsideCart);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideCart);
     };
   }, []);
 
@@ -40,10 +59,17 @@ function Menubar() {
             ) : null}
           </li>
           <li className="hover:bg-gray-900 rounded-full w-8 h-8 flex items-center justify-center">
-            <button>
+            <button onClick={() => setCartButton(!cartButton)}>
               <ShoppingCartOutlinedIcon fontSize="small" />
             </button>
-            <span className="text-xs">{0}</span>
+            {cartButton ? (
+              <div ref={menuRefCart}>
+                <CartSection />
+              </div>
+            ) : null}
+            <span className="text-xs">
+              {dbShirts.length > 0 ? dbShirts.length : 0}
+            </span>
           </li>
         </ul>
       </nav>
