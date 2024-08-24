@@ -1,8 +1,14 @@
 import { create } from "zustand";
-import 
+import { Shirt } from "@/db/db";
 
-const useStore = create((set)=> ({
-    
-}))
+interface StoreState {
+  cart: Shirt[];
+  addToCart: (shirt: Shirt) => void;
+}
+
+const useStore = create<StoreState>((set) => ({
+  cart: [],
+  addToCart: (shirt) => set((state) => ({ cart: [...state.cart, shirt] })),
+}));
 
 export default useStore;

@@ -5,12 +5,14 @@ import SubMenuBar from "./SubMenuBar";
 import { useState, useRef, useEffect } from "react";
 import CartSection from "./CartSection";
 import { dbShirts } from "@/db/db";
+import useStore from "@/store/myState";
 
 function Menubar() {
-  const [userButton, setUserButton] = useState(false);
-  const [cartButton, setCartButton] = useState(false);
+  const [userButton, setUserButton] = useState<boolean>(false);
+  const [cartButton, setCartButton] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuRefCart = useRef<HTMLDivElement>(null);
+  const { cart } = useStore();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -67,9 +69,7 @@ function Menubar() {
                 <CartSection />
               </div>
             ) : null}
-            <span className="text-xs">
-              {dbShirts.length > 0 ? dbShirts.length : 0}
-            </span>
+            <span className="text-xs">{cart.length > 0 ? cart.length : 0}</span>
           </li>
         </ul>
       </nav>

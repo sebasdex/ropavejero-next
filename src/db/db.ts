@@ -1,3 +1,16 @@
+export interface Shirt {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  trend: boolean;
+  popular: boolean;
+  size: string[];
+  stock: number;
+  image: string;
+}
+
 export const dbShirts = [
   {
     id: 1,
