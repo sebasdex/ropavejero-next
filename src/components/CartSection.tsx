@@ -1,15 +1,18 @@
-import { Shirt } from "@/db/db";
 import Image from "next/image";
 import useStore from "@/store/myState";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 function CartSection() {
-  const { cart } = useStore();
+  const { cart, removeFromCart } = useStore();
 
   return (
     <section className="absolute top-12 p-4 right-0 w-96 max-h-96 overflow-y-scroll lg:right-40 rounded-md shadow-lg text-sm z-50 bg-white text-black m-1">
       {cart.length > 0 ? (
         cart.map((shirt) => (
-          <article key={shirt.id} className="flex gap-8 py-2 px-2 border-b">
+          <article
+            key={shirt.id}
+            className="flex items-center gap-8 py-2 px-2 border-b "
+          >
             <Image
               src={shirt.image}
               alt={shirt.name}
@@ -17,10 +20,16 @@ function CartSection() {
               height={300}
               className="object-cover w-14 h-full"
             />
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 w-36">
               <h3>{shirt.name}</h3>
-              <p className="font-semibold">${shirt.price.toFixed(2)} MXN</p>
+              <p className="font-semibold">
+                ${(shirt.price * shirt.quantity).toFixed(2)} MXN
+              </p>
+              <p className="text-gray-400">{shirt.quantity} unidad(es)</p>
             </div>
+            <button onClick={() => removeFromCart(shirt)}>
+              <DeleteIcon className="text-gray-400 hover:text-black text-base" />
+            </button>
           </article>
         ))
       ) : (
@@ -33,7 +42,10 @@ function CartSection() {
           <span className="flex gap-2 justify-between items-center">
             Total:
             <p className="text-2xl text-gray-300">
-              ${cart.reduce((acc, shirt) => acc + shirt.price, 0).toFixed(2)}{" "}
+              $
+              {cart
+                .reduce((acc, shirt) => acc + shirt.price * shirt.quantity, 0)
+                .toFixed(2)}{" "}
               MXN
             </p>
           </span>
