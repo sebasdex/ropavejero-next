@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} flex flex-col min-h-dvh justify-between`}
+        className={`${inter.className} relative flex flex-col min-h-dvh justify-between`}
       >
         <ArrowUp />
         <Menubar />
