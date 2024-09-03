@@ -4,7 +4,7 @@ import Image from "next/image";
 import useStore from "@/store/myState";
 
 function Trend() {
-  const [trendShirt, setTrendShirt] = useState(dbShirts);
+  const [trendShirt] = useState(dbShirts);
   const { addToCart, currentShirtAdd, openModal } = useStore();
   const addCart = (shirt: Shirt) => {
     addToCart(shirt);

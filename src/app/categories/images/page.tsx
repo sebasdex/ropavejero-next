@@ -1,13 +1,19 @@
+"use client";
+import AddMessageCart from "@/components/AddMessageCart";
 import CollectionMain from "@/components/CollectionMain";
-import React from "react";
+import useStore from "@/store/myState";
 
 function page() {
+  const { isModalOpen } = useStore();
   return (
-    <CollectionMain
-      categoryName="Figuras"
-      categoryBG="bg-images"
-      nameElement="figures"
-    />
+    <>
+      {isModalOpen && <AddMessageCart />}
+      <CollectionMain
+        categoryName="Figuras"
+        categoryBG="bg-images"
+        nameElement="figures"
+      />
+    </>
   );
 }
 

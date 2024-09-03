@@ -1,6 +1,13 @@
-import { dbShirts } from "@/db/db";
+"use client";
+import { dbShirts, Shirt } from "@/db/db";
+import useStore from "@/store/myState";
 import Image from "next/image";
 function ColorElements({ nameElement }: { nameElement: string }) {
+  const { addToCart, currentShirtAdd, openModal } = useStore();
+  const addCart = (shirt: Shirt) => {
+    addToCart(shirt);
+    openModal();
+  };
   return (
     <section className="mt-12">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
@@ -23,7 +30,13 @@ function ColorElements({ nameElement }: { nameElement: string }) {
                   <p className="text-sm text-gray-500">
                     ${shirt.price.toFixed(2)} MXN
                   </p>
-                  <button className="bg-black text-white w-fit p-2 rounded-sm hover:bg-gray-500">
+                  <button
+                    className="bg-black text-white w-fit p-2 rounded-sm hover:bg-gray-500"
+                    onClick={() => {
+                      currentShirtAdd(shirt);
+                      addCart(shirt);
+                    }}
+                  >
                     Añadir al carrito
                   </button>
                 </div>

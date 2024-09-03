@@ -4,7 +4,6 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SubMenuBar from "./SubMenuBar";
 import { useState, useRef, useEffect } from "react";
 import CartSection from "./CartSection";
-import { dbShirts } from "@/db/db";
 import useStore from "@/store/myState";
 
 function Menubar() {
@@ -66,7 +65,7 @@ function Menubar() {
             </button>
             {cartButton ? (
               <div ref={menuRefCart}>
-                <CartSection />
+                <CartSection setCartButton={setCartButton} />
               </div>
             ) : null}
             <span className="text-xs">{cart.length > 0 ? cart.length : 0}</span>
