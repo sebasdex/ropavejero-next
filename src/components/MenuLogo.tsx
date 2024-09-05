@@ -82,7 +82,10 @@ function MenuLogo() {
           </Link>
           <Link href="/collection" className="hover:text-gray-600">
             <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <button className="uppercase hover:text-gray-600">
+              <button
+                className="uppercase hover:text-gray-600"
+                onClick={() => setHover(!hover)}
+              >
                 Catálogo
               </button>
             </li>
@@ -101,7 +104,10 @@ function MenuLogo() {
               onMouseEnter={handleMouseEnterCollection}
               onMouseLeave={handleMouseLeaveCollection}
             >
-              <button className="uppercase hover:text-gray-600">
+              <button
+                className="uppercase hover:text-gray-600"
+                onClick={() => setHoverCollection(!hoverCollection)}
+              >
                 Colección
               </button>
             </li>

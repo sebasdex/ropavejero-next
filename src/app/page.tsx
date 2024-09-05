@@ -11,6 +11,7 @@ import useStore from "@/store/myState";
 
 export default function Home() {
   const { isModalOpen } = useStore();
+
   return (
     <>
       {isModalOpen && <AddMessageCart />}

@@ -13,30 +13,43 @@ interface StoreState {
   removeFromCart: (shirt: Shirt) => void;
   isModalOpen: boolean;
   openModal: () => void;
+  initializeCart: () => void;
 }
 
 const useStore = create<StoreState>((set) => ({
   isModalOpen: false,
   openModal: () => set((state) => ({ isModalOpen: !state.isModalOpen })),
   cart: [],
+  initializeCart: () => {
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("cart");
+      if (savedCart) {
+        set({ cart: JSON.parse(savedCart) });
+      }
+    }
+  },
+
   addToCart: (shirt) =>
     set((state) => {
       const existingItem = state.cart.find((item) => item.id === shirt.id);
 
+      let newCart;
       if (existingItem) {
-        // Si el artículo ya existe en el carrito, aumentamos la cantidad
-        return {
-          cart: state.cart.map((item) =>
-            item.id === shirt.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          ),
-        };
+        newCart = state.cart.map((item) =>
+          item.id === shirt.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
       } else {
-        // Si no existe, lo agregamos al carrito con cantidad 1
-        return { cart: [...state.cart, { ...shirt, quantity: 1 }] };
+        newCart = [...state.cart, { ...shirt, quantity: 1 }];
       }
+
+      // Guarda en localStorage
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(newCart));
+      }
+
+      return { cart: newCart };
     }),
+
   removeFromCart: (shirt) =>
     set((state) => ({ cart: state.cart.filter((s) => s.id !== shirt.id) })),
   currentShirt: null,

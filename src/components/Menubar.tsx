@@ -11,7 +11,7 @@ function Menubar() {
   const [cartButton, setCartButton] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuRefCart = useRef<HTMLDivElement>(null);
-  const { cart } = useStore();
+  const { cart, initializeCart } = useStore();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -39,6 +39,10 @@ function Menubar() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutsideCart);
     };
+  }, []);
+
+  useEffect(() => {
+    initializeCart();
   }, []);
 
   return (
