@@ -2,15 +2,15 @@ import useStore from "@/store/myState";
 import React from "react";
 
 function TableCart() {
-  const { cart, removeFromCart } = useStore();
+  const { cart, removeFromCart, addToCart, minusFromCart } = useStore();
   return (
     <table className="table-auto w-full border-collapse">
       <thead className="border-b">
         <tr>
-          <th className="text-start p-4">Nombre</th>
-          <th className="text-start p-4">Precio</th>
-          <th className="text-start p-4">Cantidad</th>
-          <th className="text-start p-4">Total</th>
+          <th className="text-start">Nombre</th>
+          <th className="text-start">Precio</th>
+          <th className="text-start">Cantidad</th>
+          <th className="text-start">Total</th>
         </tr>
       </thead>
       <tbody>
@@ -40,14 +40,26 @@ function TableCart() {
                 </div>
               )}
             </td>
-            <td className="p-4">${shirt.price.toFixed(2)}</td>
+            <td className="p-4">
+              <p>${(shirt.price * shirt.quantity).toFixed(2)}</p>
+            </td>
             <td className="p-4 font-bold text-gray-500">
               <div className="flex items-center gap-2">
-                <button className="border border-gray-400 px-2">-</button>
+                <button
+                  className="border border-gray-400 px-2"
+                  onClick={() => minusFromCart(shirt)}
+                >
+                  -
+                </button>
                 <p className="border border-gray-400 px-2 font-normal">
                   {shirt.quantity}
                 </p>
-                <button className="border border-gray-400 px-2">+</button>
+                <button
+                  className="border border-gray-400 px-2"
+                  onClick={() => addToCart(shirt)}
+                >
+                  +
+                </button>
               </div>
             </td>
             <td className="p-4">
@@ -58,10 +70,10 @@ function TableCart() {
       </tbody>
       <tfoot className="border-y">
         <tr>
-          <td className="text-start p-4 font-bold  text-gray-500">Total</td>
-          <td className="text-start p-4"></td>
-          <td className="text-start p-4"></td>
-          <td className="text-start p-4 font-bold">
+          <td className="text-start font-bold text-gray-500 py-2">Total</td>
+          <td className="text-start"></td>
+          <td className="text-start"></td>
+          <td className="text-start font-bold">
             $
             {cart
               .reduce((total, shirt) => total + shirt.price * shirt.quantity, 0)

@@ -10,6 +10,7 @@ interface StoreState {
   currentShirt: CartItem | null;
   currentShirtAdd: (shirt: Shirt) => void;
   addToCart: (shirt: Shirt) => void;
+  minusFromCart: (shirt: Shirt) => void;
   removeFromCart: (shirt: Shirt) => void;
   isModalOpen: boolean;
   openModal: () => void;
@@ -48,6 +49,20 @@ const useStore = create<StoreState>((set) => ({
       }
 
       return { cart: newCart };
+    }),
+
+  minusFromCart: (shirt) =>
+    set((state) => {
+      const updateCart = state.cart.map((s) =>
+        s.id === shirt.id && s.quantity > 1
+          ? { ...s, quantity: s.quantity - 1 }
+          : s
+      );
+      // Guarda en localStorage
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(updateCart));
+      }
+      return { cart: updateCart };
     }),
 
   removeFromCart: (shirt) =>

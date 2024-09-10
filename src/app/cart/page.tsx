@@ -1,8 +1,10 @@
 "use client";
 import TableCart from "@/components/cart/TableCart";
 import BreadcrumbsCart from "@/components/ui/BreadcrumbsCart";
+import { useRouter } from "next/navigation";
 
 function page() {
+  const router = useRouter();
   return (
     <div className="m-8">
       <BreadcrumbsCart />
@@ -20,7 +22,10 @@ function page() {
           className="w-full p-2 mt-2 text-sm h-24 bg-gray-200"
         ></textarea>
         <div className="flex justify-between text-white border-y py-4">
-          <button className="btn btn-primary bg-black p-2 hover:bg-gray-800">
+          <button
+            className="btn btn-primary bg-black p-2 hover:bg-gray-800"
+            onClick={() => router.push("/")}
+          >
             Continuar comprando
           </button>
           <button className="btn btn-secondary bg-black p-2 hover:bg-gray-800">
