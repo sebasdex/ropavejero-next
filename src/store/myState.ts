@@ -51,7 +51,14 @@ const useStore = create<StoreState>((set) => ({
     }),
 
   removeFromCart: (shirt) =>
-    set((state) => ({ cart: state.cart.filter((s) => s.id !== shirt.id) })),
+    set((state) => {
+      const updateCart = state.cart.filter((s) => s.id !== shirt.id);
+      // Guarda en localStorage
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(updateCart));
+      }
+      return { cart: updateCart };
+    }),
   currentShirt: null,
   currentShirtAdd: (shirt) =>
     set((state) => {

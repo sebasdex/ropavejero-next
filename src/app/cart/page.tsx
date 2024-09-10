@@ -1,9 +1,8 @@
 "use client";
+import TableCart from "@/components/cart/TableCart";
 import BreadcrumbsCart from "@/components/ui/BreadcrumbsCart";
-import useStore from "@/store/myState";
 
 function page() {
-  const { cart } = useStore();
   return (
     <div className="m-8">
       <BreadcrumbsCart />
@@ -11,39 +10,23 @@ function page() {
         Tu carrito de compras
       </h1>
       <section className="flex flex-col gap-4 mt-8">
-        <table className="table-auto w-full border-collapse">
-          <thead className="border-b">
-            <tr>
-              <th className="text-start p-4">Nombre</th>
-              <th className="text-start p-4">Precio</th>
-              <th className="text-start p-4">Cantidad</th>
-              <th className="text-start p-4">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.map((shirt) => (
-              <tr key={shirt.id} className="border-b">
-                <td className="p-4">
-                  {shirt.image && (
-                    <div className="flex items-center gap-2">
-                      <img
-                        src={shirt.image}
-                        alt={shirt.name}
-                        className="w-48 h-56 object-contain"
-                      />
-                      <p>{shirt.name}</p>
-                    </div>
-                  )}
-                </td>
-                <td className="p-4">${shirt.price.toFixed(2)}</td>
-                <td className="p-4">{shirt.quantity}</td>
-                <td className="p-4">
-                  ${(shirt.price * shirt.quantity).toFixed(2)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <TableCart />
+        <label htmlFor="" className="text-sm text-gray-500">
+          Agrega una nota a tu orden
+        </label>
+        <textarea
+          name=""
+          id=""
+          className="w-full p-2 mt-2 text-sm h-24 bg-gray-200"
+        ></textarea>
+        <div className="flex justify-between text-white border-y py-4">
+          <button className="btn btn-primary bg-black p-2 hover:bg-gray-800">
+            Continuar comprando
+          </button>
+          <button className="btn btn-secondary bg-black p-2 hover:bg-gray-800">
+            Proceder al pago
+          </button>
+        </div>
       </section>
     </div>
   );
