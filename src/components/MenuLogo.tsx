@@ -1,9 +1,8 @@
 "use client";
 import { Bebas_Neue } from "next/font/google";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import CatalogMenu from "./CatalogMenu";
-import CollectionMenu from "./CollectionMenu";
+import { useEffect, useState } from "react";
+import HamburgerMenu from "./menu-logo/HamburgerMenu";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -12,36 +11,6 @@ const bebas = Bebas_Neue({
 
 function MenuLogo() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [hover, setHover] = useState<boolean>(false);
-  const [hoverCollection, setHoverCollection] = useState<boolean>(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const timeOutRefCollection = useRef<NodeJS.Timeout | null>(null);
-
-  const handleMouseEnterCollection = () => {
-    if (timeOutRefCollection.current) {
-      clearTimeout(timeOutRefCollection.current);
-    }
-    setHoverCollection(true);
-  };
-
-  const handleMouseLeaveCollection = () => {
-    timeOutRefCollection.current = setTimeout(() => {
-      setHoverCollection(false);
-    }, 300);
-  };
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setHover(true);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setHover(false);
-    }, 300);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,8 +27,8 @@ function MenuLogo() {
 
   return (
     <section
-      className={`w-full  flex flex-col items-center justify-evenly sticky top-0 z-40 bg-[rgb(210,209,209)] transition-all duration-300 ease-out ${
-        isScrolled ? "h-20" : "h-60"
+      className={`w-full my-2 sticky top-0 z-40 bg-[rgb(210,209,209)] transition-all duration-300 ease-out ${
+        isScrolled ? "md:h-20" : "md:h-60"
       }`}
     >
       <article
@@ -71,67 +40,15 @@ function MenuLogo() {
         style={{ transition: "height 0.3s ease, opacity 0.3s ease" }}
       >
         <Link href="/">
-          <img src="/logo.png" alt="logo" className="w-40 h-40" />
+          <img
+            src="/logo.png"
+            alt="logo"
+            className="w-20 h-20 md:w-40 md:h-40"
+          />
         </Link>
-        <span className="-mt-3">Ropavejero</span>
+        <span className="mt-0 md:-mt-3 text-2xl md:text-4xl">Ropavejero</span>
       </article>
-      <article className="w-full max-w-screen-lg font-semibold relative p-2 mt-2">
-        <ul className="flex justify-between uppercase text-base tracking-wider ">
-          <Link href="/" className="hover:text-gray-600">
-            <li>Home</li>
-          </Link>
-          <Link href="/collection" className="hover:text-gray-600">
-            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <button
-                className="uppercase hover:text-gray-600"
-                onClick={() => setHover(!hover)}
-              >
-                Catálogo
-              </button>
-            </li>
-          </Link>
-          {hover && (
-            <div
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="absolute top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
-            >
-              <CatalogMenu setHover={setHover} />
-            </div>
-          )}
-          <Link href="/categories/color" className="hover:text-gray-600">
-            <li
-              onMouseEnter={handleMouseEnterCollection}
-              onMouseLeave={handleMouseLeaveCollection}
-            >
-              <button
-                className="uppercase hover:text-gray-600"
-                onClick={() => setHoverCollection(!hoverCollection)}
-              >
-                Colección
-              </button>
-            </li>
-          </Link>
-          {hoverCollection && (
-            <div
-              onMouseEnter={handleMouseEnterCollection}
-              onMouseLeave={handleMouseLeaveCollection}
-              className="absolute top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
-            >
-              <CollectionMenu setHoverCollection={setHoverCollection} />
-            </div>
-          )}
-          <Link href="/sales" className="hover:text-gray-600">
-            <li>Ventas</li>
-          </Link>
-          <Link href="/about" className="hover:text-gray-600">
-            <li>Sobre nosotros</li>
-          </Link>
-          <Link href="/contact" className="hover:text-gray-600">
-            <li>Contáctanos</li>
-          </Link>
-        </ul>
-      </article>
+      <HamburgerMenu />
     </section>
   );
 }

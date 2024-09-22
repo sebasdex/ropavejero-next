@@ -13,13 +13,13 @@ function PopularShirts() {
   };
   return (
     <>
-      <article className="flex justify-center gap-4 w-full">
+      <article className="flex gap-2 flex-wrap w-full">
         {popularShirt.map(
           (shirt) =>
             shirt.popular && (
               <div
                 key={shirt.id}
-                className="text-center w-full h-full pb-4 flex flex-col justify-center items-center"
+                className="text-center pb-4 flex flex-col justify-center items-center"
               >
                 <Image
                   width={300}

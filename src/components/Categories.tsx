@@ -22,7 +22,7 @@ function Categories() {
   return (
     <section
       className="
-     grid grid-cols-3 gap-8 pt-8 place-items-center w-full h-96 font-bold uppercase text-white text-5xl"
+     grid grid-cols-1 gap-2 pt-2 place-items-center w-full h-96 font-bold uppercase text-white text-4xl"
     >
       {categoriesMain.map((category, index) => {
         return (
