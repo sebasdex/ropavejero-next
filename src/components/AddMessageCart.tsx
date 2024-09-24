@@ -8,9 +8,11 @@ function AddMessageCart() {
   const router = useRouter();
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 tex-white flex flex-col justify-center items-center">
-      <section className="p-4 w-80 bg-white text-center flex flex-col justify-center text-sm">
+      <section className="p-4 w-full sm:max-w-sm md:max-w-md lg:max-w-lg bg-white text-center flex flex-col justify-center text-sm">
         <div className="flex justify-between items-center">
-          <h1 className="text-sm font-bold">Producto agregado a tu carrito</h1>
+          <h1 className="text-sm font-bold md:text-base lg:text-lg">
+            Producto agregado a tu carrito
+          </h1>
           <button
             onClick={() => openModal()}
             className="ml-2 hover:bg-gray-200 ease-in-out duration-300"
@@ -28,8 +30,9 @@ function AddMessageCart() {
                   alt={currentShirt.name}
                   width={100}
                   height={100}
+                  className="sm:w-32 md:w-40 lg:w-48 object-cover"
                 />
-                <p className="m-auto">
+                <p className="m-auto sm:text-sm md:text-base lg:text-lg">
                   {currentShirt.name} - ${currentShirt.price}
                   <span className="block text-gray-500">
                     {currentShirt.quantity} unidad(es)
@@ -43,13 +46,13 @@ function AddMessageCart() {
         </article>
         <div className="flex flex-col justify-center gap-2">
           <button
-            className="bg-black uppercase text-white p-2 hover:bg-gray-600 ease-in-out duration-300 text-xs"
+            className="bg-black uppercase text-white p-2 hover:bg-gray-600 ease-in-out duration-300 text-xs sm:text-sm md:text-base lg:text-lg"
             onClick={() => openModal()}
           >
             Seguir comprando
           </button>
           <button
-            className="bg-black uppercase text-white p-2 hover:bg-gray-600 ease-in-out duration-300 text-xs"
+            className="bg-black uppercase text-white p-2 hover:bg-gray-600 ease-in-out duration-300 text-xs sm:text-sm md:text-base lg:text-lg"
             onClick={() => {
               router.push("/cart");
               openModal();

@@ -19,7 +19,7 @@ function page() {
       <h1 className="text-center uppercase font-medium tracking-wider p-4 w-full">
         Colecciones
       </h1>
-      <section className="grid grid-cols-1 gap-4 place-items-center w-full font-bold uppercase text-white text-2xl my-4">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center w-full font-bold uppercase text-white text-2xl my-4">
         {dbCollection.map((item) => (
           <Link
             href={item.link}

@@ -7,7 +7,7 @@ function CatalogMenu({
   setHover: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
-    <nav className="flex flex-col absolute z-10 top-10 left-0 right-0 bg-white p-2 w-full shadow-md transition-all duration-300 ease-out">
+    <nav className="flex flex-col absolute z-50 top-10 left-0 right-0 bg-white p-2 w-full shadow-md transition-all duration-300 ease-out">
       <ul className="grid grid-cols-4 place-items-center">
         {dbShirts
           .sort(() => Math.random() - 0.5)

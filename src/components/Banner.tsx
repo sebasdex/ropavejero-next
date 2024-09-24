@@ -31,7 +31,7 @@ function Banner() {
   };
 
   return (
-    <section className="mx-auto flex relative h-[32.5rem] w-full gap-4">
+    <section className="mx-auto flex relative h-[32.5rem] w-full gap-4 z-10">
       {bannerImages.map((image, index) => (
         <img
           key={index}

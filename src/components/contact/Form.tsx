@@ -5,7 +5,10 @@ function Form() {
     e.preventDefault();
   };
   return (
-    <form className=" flex flex-col gap-6 w-80 mx-auto" onSubmit={handleSubmit}>
+    <form
+      className=" flex flex-col gap-6 w-full mx-auto"
+      onSubmit={handleSubmit}
+    >
       <legend className="text-xl font-semibold uppercase">Contáctanos</legend>
 
       <div className="flex flex-col gap-2">

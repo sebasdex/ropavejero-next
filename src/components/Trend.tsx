@@ -18,7 +18,7 @@ function Trend() {
           shirt.trend && (
             <div
               key={shirt.id}
-              className="text-center pb-4 flex flex-col justify-center items-center w-[25.9rem] h-full"
+              className="text-center pb-4 px-4 md:px-0 flex flex-col justify-center items-center w-[25.9rem] h-full"
             >
               <Image
                 width={300}
