@@ -13,6 +13,7 @@ function page() {
         categoryName="Logo"
         categoryBG="bg-logo"
         nameElement="logo"
+        nameCollection="Logo"
       />
     </>
   );

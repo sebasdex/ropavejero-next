@@ -9,26 +9,32 @@ function CollectionMain({
   categoryName,
   categoryBG,
   nameElement,
+  nameCollection,
 }: {
   categoryName: string;
   categoryBG: string;
   nameElement: string;
+  nameCollection: string;
 }) {
   return (
-    <aside className="flex w-full mt-4 min-h-dvh gap-4 ">
-      <article className="flex flex-col gap-4 w-96">
-        <BasicBreadcrumbs />
-        <MenuCategories
-          textMenu="Colecciones"
-          myStyles=" text-gray-500 p-2 tracking-widest font-medium"
-        />
-        <NewCollections />
-      </article>
-      <article className="w-full">
-        <BannerCategory categoryName={categoryName} categoryBG={categoryBG} />
-        <ColorElements nameElement={nameElement} />
-      </article>
-    </aside>
+    <div className="p-4 m-auto w-full">
+      <BasicBreadcrumbs nameCollection={nameCollection} />
+      <aside className="flex flex-col space-y-4 gap-8 lg:flex-row lg:space-y-0 lg:space-x-4">
+        <section className="order-2 lg:order-1">
+          <article className="">
+            <MenuCategories
+              textMenu="Colecciones"
+              myStyles=" text-gray-500 p-2 tracking-widest font-medium w-fit"
+            />
+            <NewCollections />
+          </article>
+        </section>
+        <article className="lg:order-2 order-1">
+          <BannerCategory categoryName={categoryName} categoryBG={categoryBG} />
+          <ColorElements nameElement={nameElement} />
+        </article>
+      </aside>
+    </div>
   );
 }
 

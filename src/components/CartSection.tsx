@@ -12,7 +12,7 @@ function CartSection({
   const router = useRouter();
 
   return (
-    <section className="absolute top-12 p-4 right-0 w-96 max-h-96 overflow-y-scroll lg:right-40 rounded-md shadow-lg text-sm z-50 bg-white text-black m-1">
+    <section className="absolute top-5 p-4 -right-3 w-80 max-h-96 overflow-y-scroll rounded-md shadow-lg text-sm z-50 bg-white text-black m-1">
       {cart.length > 0 ? (
         cart.map((shirt) => (
           <article
@@ -47,7 +47,7 @@ function CartSection({
         <footer className="flex justify-between items-center gap-4 p-2">
           <span className="flex gap-2 justify-between items-center">
             Total:
-            <p className="text-2xl text-gray-300">
+            <p className="text-lg text-gray-300">
               $
               {cart
                 .reduce((acc, shirt) => acc + shirt.price * shirt.quantity, 0)

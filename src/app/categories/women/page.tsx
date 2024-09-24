@@ -12,6 +12,7 @@ function page() {
         categoryName="Mujeres"
         categoryBG="bg-women"
         nameElement="women"
+        nameCollection="Mujeres"
       />
     </>
   );

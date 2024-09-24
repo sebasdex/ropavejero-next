@@ -7,13 +7,13 @@ function CatalogMenu({
   setHover: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
-    <nav className="flex flex-col absolute z-10 top-14 left-0 right-0 bg-white p-2 w-full shadow-md transition-all duration-300 ease-out">
-      <ul className="grid grid-cols-4">
+    <nav className="flex flex-col absolute z-10 top-10 left-0 right-0 bg-white p-2 w-full shadow-md transition-all duration-300 ease-out">
+      <ul className="grid grid-cols-4 place-items-center">
         {dbShirts
           .sort(() => Math.random() - 0.5)
           .slice(0, 4)
           .map((item) => (
-            <li key={item.id} className="w-60 h-40 p-1">
+            <li key={item.id} className="w-60 h-40 p-4 lg:p-1">
               <Image
                 width={600}
                 height={400}

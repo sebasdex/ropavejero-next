@@ -12,6 +12,7 @@ function page() {
         categoryName="Únicas"
         categoryBG="bg-unique"
         nameElement="unique"
+        nameCollection="Únicas"
       />
     </>
   );

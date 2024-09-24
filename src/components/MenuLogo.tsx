@@ -1,7 +1,7 @@
 "use client";
 import { Bebas_Neue } from "next/font/google";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import HamburgerMenu from "./menu-logo/HamburgerMenu";
 
 const bebas = Bebas_Neue({
@@ -11,11 +11,25 @@ const bebas = Bebas_Neue({
 
 function MenuLogo() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const prevScrollPos = useRef<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 200);
+
+      if (scrollPosition > prevScrollPos.current) {
+        // Desplazándose hacia abajo
+        if (scrollPosition > 220 && !isScrolled) {
+          setIsScrolled(true);
+        }
+      } else {
+        // Desplazándose hacia arriba
+        if (scrollPosition < 180 && isScrolled) {
+          setIsScrolled(false);
+        }
+      }
+
+      prevScrollPos.current = scrollPosition;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -23,31 +37,28 @@ function MenuLogo() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isScrolled]);
 
   return (
-    <section
-      className={`w-full my-2 sticky top-0 z-40 bg-[rgb(210,209,209)] transition-all duration-300 ease-out ${
-        isScrolled ? "md:h-20" : "md:h-60"
-      }`}
-    >
-      <article
-        className={`${
-          bebas.className
-        } leading-10 tracking-wider text-4xl flex flex-col items-center justify-center transition-opacity duration-300 ${
-          isScrolled ? "opacity-0 h-0 overflow-hidden" : "opacity-100 h-auto"
+    <section className="w-full sticky top-0 z-40 bg-[rgb(210,209,209)] overflow-hidden md:py-4">
+      <div
+        className={`transition-[max-height] duration-500 ease-in-out overflow-hidden ${
+          isScrolled ? "max-h-0" : "max-h-[200px]"
         }`}
-        style={{ transition: "height 0.3s ease, opacity 0.3s ease" }}
       >
-        <Link href="/">
-          <img
-            src="/logo.png"
-            alt="logo"
-            className="w-20 h-20 md:w-40 md:h-40"
-          />
-        </Link>
-        <span className="mt-0 md:-mt-3 text-2xl md:text-4xl">Ropavejero</span>
-      </article>
+        <article
+          className={`${bebas.className} leading-10 tracking-wider text-4xl flex flex-col items-center justify-center`}
+        >
+          <Link href="/">
+            <img
+              src="/logo.png"
+              alt="logo"
+              className="w-20 h-20 md:w-40 md:h-40"
+            />
+          </Link>
+          <span className="mt-0 md:-mt-3 text-2xl md:text-4xl">Ropavejero</span>
+        </article>
+      </div>
       <HamburgerMenu />
     </section>
   );

@@ -12,6 +12,7 @@ function page() {
         categoryName="Figuras"
         categoryBG="bg-images"
         nameElement="figures"
+        nameCollection="Figuras"
       />
     </>
   );

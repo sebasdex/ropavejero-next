@@ -11,6 +11,7 @@ function page() {
         categoryName="Adolescentes"
         categoryBG="bg-teens"
         nameElement="teens"
+        nameCollection="Adolescentes"
       />
     </>
   );

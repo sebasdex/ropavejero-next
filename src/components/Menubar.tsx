@@ -68,7 +68,7 @@ function Menubar() {
               <ShoppingCartOutlinedIcon fontSize="small" />
             </button>
             {cartButton ? (
-              <div ref={menuRefCart}>
+              <div ref={menuRefCart} className="relative">
                 <CartSection setCartButton={setCartButton} />
               </div>
             ) : null}

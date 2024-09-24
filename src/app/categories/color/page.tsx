@@ -13,6 +13,7 @@ function color() {
         categoryName="Color"
         categoryBG="bg-color"
         nameElement="color"
+        nameCollection="Color"
       />
     </>
   );

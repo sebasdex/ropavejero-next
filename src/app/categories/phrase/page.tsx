@@ -12,6 +12,7 @@ function page() {
         categoryName="Frases"
         categoryBG="bg-phrase"
         nameElement="phrase"
+        nameCollection="Frases"
       />
     </>
   );

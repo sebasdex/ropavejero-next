@@ -8,7 +8,7 @@ function CollectionMenu({
 }) {
   return (
     <nav className="flex flex-col absolute z-10 top-10 left-0 right-0 bg-white p-2 w-full shadow-md transition-all duration-300 ease-out">
-      <ul className="grid grid-cols-4">
+      <ul className="grid grid-cols-3 lg:grid-cols-4 gap-2 p-2">
         {dbCollection.map((item) => (
           <li key={item.id} className="w-60 h-40 p-1">
             <Link

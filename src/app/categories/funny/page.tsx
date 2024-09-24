@@ -12,6 +12,7 @@ function page() {
         categoryName="Divertidas"
         categoryBG="bg-funny"
         nameElement="funny"
+        nameCollection="Divertidas"
       />
     </>
   );

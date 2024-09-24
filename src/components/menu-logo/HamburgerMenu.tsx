@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import CatalogMenu from "../CatalogMenu";
@@ -10,19 +10,44 @@ function HamburgerMenu() {
   const [hover, setHover] = useState<boolean>(false);
   const [hoverCollection, setHoverCollection] = useState<boolean>(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const timeOutRefCollection = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRefCollection = useRef<NodeJS.Timeout | null>(null);
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Function to update the window width state
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      if (timeoutRefCollection.current) {
+        clearTimeout(timeoutRefCollection.current);
+      }
+    };
+  }, []);
 
   const handleMouseEnterCollection = () => {
-    if (timeOutRefCollection.current) {
-      clearTimeout(timeOutRefCollection.current);
+    if (timeoutRefCollection.current) {
+      clearTimeout(timeoutRefCollection.current);
     }
-    if (window.innerWidth >= 768) {
+    if (isDesktop) {
       setHoverCollection(true);
     }
   };
 
   const handleMouseLeaveCollection = () => {
-    timeOutRefCollection.current = setTimeout(() => {
+    timeoutRefCollection.current = setTimeout(() => {
       setHoverCollection(false);
     }, 300);
   };
@@ -31,7 +56,7 @@ function HamburgerMenu() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    if (window.innerWidth >= 768) {
+    if (isDesktop) {
       setHover(true);
     }
   };
@@ -41,21 +66,22 @@ function HamburgerMenu() {
       setHover(false);
     }, 300);
   };
+
   return (
     <>
       <button
-        className="p-4 flex gap-2 items-center"
+        className="p-4 flex gap-2 items-center md:hidden"
         onClick={() => setOpenMenu(!openMenu)}
       >
         {openMenu ? <CloseIcon /> : <MenuIcon />}
         <span className="font-semibold">{openMenu ? "Cerrar" : "Menu"}</span>
       </button>
-      {openMenu ? (
-        <article className="w-full max-w-screen-lg font-semibold relative p-2 mt-2">
-          <ul className="flex flex-col items-center justify-between uppercase text-base tracking-wide leading-7 md:flex-row md:justify-start ">
-            <Link href="/" className="hover:text-gray-600">
-              <li>Home</li>
-            </Link>
+      {(openMenu || isDesktop) && (
+        <article className="w-full max-w-screen-lg font-semibold relative p-2 mx-auto">
+          <ul className="flex flex-col items-center justify-between uppercase text-base tracking-wide leading-7 md:flex-row md:justify-between md:px-4">
+            <li className="hover:text-gray-600">
+              <Link href="/">Home</Link>
+            </li>
             <Link href="/collection" className="hover:text-gray-600">
               <li
                 onMouseEnter={handleMouseEnter}
@@ -63,7 +89,7 @@ function HamburgerMenu() {
               >
                 <button
                   className="uppercase hover:text-gray-600"
-                  onClick={() => window.innerWidth >= 768 && setHover(!hover)}
+                  onClick={() => isDesktop && setHover(!hover)}
                 >
                   Catálogo
                 </button>
@@ -86,8 +112,7 @@ function HamburgerMenu() {
                 <button
                   className="uppercase hover:text-gray-600"
                   onClick={() =>
-                    window.innerWidth >= 768 &&
-                    setHoverCollection(!hoverCollection)
+                    isDesktop && setHoverCollection(!hoverCollection)
                   }
                 >
                   Colección
@@ -103,18 +128,18 @@ function HamburgerMenu() {
                 <CollectionMenu setHoverCollection={setHoverCollection} />
               </div>
             )}
-            <Link href="/sales" className="hover:text-gray-600">
-              <li>Ventas</li>
-            </Link>
-            <Link href="/about" className="hover:text-gray-600">
-              <li>Sobre nosotros</li>
-            </Link>
-            <Link href="/contact" className="hover:text-gray-600">
-              <li>Contáctanos</li>
-            </Link>
+            <li className="hover:text-gray-600">
+              <Link href="/sales">Ventas</Link>
+            </li>
+            <li className="hover:text-gray-600">
+              <Link href="/about">Sobre nosotros</Link>
+            </li>
+            <li className="hover:text-gray-600">
+              <Link href="/contact">Contáctanos</Link>
+            </li>
           </ul>
         </article>
-      ) : null}
+      )}
     </>
   );
 }

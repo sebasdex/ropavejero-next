@@ -11,7 +11,7 @@ function page() {
       <div role="presentation" className="">
         <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">
-            Incio
+            Inicio
           </Link>
           <Typography color="text.primary">Colecciones</Typography>
         </Breadcrumbs>
