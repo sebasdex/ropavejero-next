@@ -2,6 +2,7 @@
 import { dbShirts, Shirt } from "@/db/db";
 import useStore from "@/store/myState";
 import Image from "next/image";
+import Link from "next/link";
 function ColorElements({ nameElement }: { nameElement: string }) {
   const { addToCart, currentShirtAdd, openModal } = useStore();
   const addCart = (shirt: Shirt) => {
@@ -18,13 +19,18 @@ function ColorElements({ nameElement }: { nameElement: string }) {
                 key={shirt.id}
                 className="flex flex-col gap-4 p-4 rounded-md"
               >
-                <Image
-                  width={300}
-                  height={300}
-                  src={shirt.image}
-                  alt={shirt.name}
-                  className="w-full"
-                />
+                <Link
+                  href={`/collection/${shirt.id}`}
+                  className="relative custom-hover"
+                >
+                  <Image
+                    width={300}
+                    height={300}
+                    src={shirt.image}
+                    alt={shirt.name}
+                    className="object-cover w-full h-full"
+                  />
+                </Link>
                 <div className="flex flex-col gap-2 items-center">
                   <h2 className="text-base font-bold">{shirt.name}</h2>
                   <p className="text-sm text-gray-500">

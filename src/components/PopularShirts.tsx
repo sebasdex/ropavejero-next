@@ -2,6 +2,7 @@ import { dbShirts, Shirt } from "@/db/db";
 import Image from "next/image";
 import { useState } from "react";
 import useStore from "@/store/myState";
+import Link from "next/link";
 
 function PopularShirts() {
   const [popularShirt, setPopularShirt] = useState(dbShirts);
@@ -21,13 +22,18 @@ function PopularShirts() {
                 key={shirt.id}
                 className="text-center pb-4 flex flex-col justify-center items-center"
               >
-                <Image
-                  width={300}
-                  height={300}
-                  src={shirt.image}
-                  alt={shirt.name}
-                  className="object-cover"
-                />
+                <Link
+                  href={`/collection/${shirt.id}`}
+                  className="relative custom-hover"
+                >
+                  <Image
+                    width={300}
+                    height={300}
+                    src={shirt.image}
+                    alt={shirt.name}
+                    className="object-cover w-full h-full"
+                  />
+                </Link>
                 <h3 className="pt-2">{shirt.name}</h3>
                 <p className="py-2 font-semibold">${shirt.price}</p>
                 <button
