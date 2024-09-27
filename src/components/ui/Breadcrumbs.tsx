@@ -13,7 +13,7 @@ export default function BasicBreadcrumbs({
     <div role="presentation">
       <Breadcrumbs aria-label="breadcrumb">
         <Link underline="hover" color="inherit" href="/">
-          Incio
+          Inicio
         </Link>
         <Link underline="hover" color="inherit" href="/collection">
           Colecciones

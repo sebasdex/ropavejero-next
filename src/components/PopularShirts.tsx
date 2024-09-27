@@ -14,7 +14,7 @@ function PopularShirts() {
   };
   return (
     <>
-      <article className="flex justify-center gap-2 flex-wrap w-full">
+      <article className="flex justify-center gap-2 flex-wrap lg:flex-nowrap w-full">
         {popularShirt.map(
           (shirt) =>
             shirt.popular && (

@@ -57,7 +57,7 @@ function HamburgerMenu() {
           openMenu ? "block" : "hidden"
         } md:block`}
       >
-        <ul className="flex flex-col items-center justify-between uppercase text-base tracking-wide leading-7 md:flex-row md:justify-between md:px-4">
+        <ul className="flex flex-col items-center justify-between uppercase text-base tracking-wide leading-7 md:flex-row md:justify-between md:px-4 ">
           <li className="hover:text-gray-600">
             <Link href="/">Home</Link>
           </li>

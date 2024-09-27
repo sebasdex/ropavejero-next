@@ -9,6 +9,10 @@ export interface Shirt {
   size: string[];
   stock: number;
   image: string;
+  available: boolean;
+  barcode: string;
+  color: string[];
+  material: string;
 }
 
 export const dbShirts = [
