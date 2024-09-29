@@ -39,8 +39,8 @@ function PopularShirts() {
                 <button
                   className="bg-black text-white p-2 hover:bg-gray-600 ease-in-out duration-300"
                   onClick={() => {
-                    currentShirtAdd(shirt);
                     addCart(shirt);
+                    currentShirtAdd(shirt);
                   }}
                 >
                   Añadir al carrito

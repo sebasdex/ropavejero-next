@@ -1,7 +1,6 @@
 "use client";
 import { dbShirts } from "@/db/db";
 import BasicBreadcrumbs from "@/components/ui/Breadcrumbs";
-import { Info } from "@mui/icons-material";
 import InfoClothes from "@/components/clothes-details/InfoClothes";
 
 function page({ params }: { params: { id: string } }) {
