@@ -59,13 +59,19 @@ function HamburgerMenu() {
       >
         <ul className="flex flex-col items-center justify-between uppercase text-base tracking-wide leading-7 md:flex-row md:justify-between md:px-4 ">
           <li className="hover:text-gray-600">
-            <Link href="/">Home</Link>
+            <Link href="/" onClick={() => setOpenMenu(false)}>
+              Home
+            </Link>
           </li>
-          <Link href="/collection" className="hover:text-gray-600">
+          <Link
+            href="/collection"
+            className="hover:text-gray-600"
+            onClick={() => setOpenMenu(false)}
+          >
             <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
               <button
                 className="uppercase hover:text-gray-600"
-                onClick={() => setHover(!hover)}
+                onClick={() => window.innerWidth >= 768 && setHover(!hover)}
               >
                 Catálogo
               </button>
@@ -80,14 +86,21 @@ function HamburgerMenu() {
               <CatalogMenu setHover={setHover} />
             </div>
           )}
-          <Link href="/categories/color" className="hover:text-gray-600">
+          <Link
+            href="/categories/color"
+            className="hover:text-gray-600"
+            onClick={() => setOpenMenu(false)}
+          >
             <li
               onMouseEnter={handleMouseEnterCollection}
               onMouseLeave={handleMouseLeaveCollection}
             >
               <button
                 className="uppercase hover:text-gray-600"
-                onClick={() => setHoverCollection(!hoverCollection)}
+                onClick={() =>
+                  window.innerWidth >= 768 &&
+                  setHoverCollection(!hoverCollection)
+                }
               >
                 Colección
               </button>
@@ -103,13 +116,19 @@ function HamburgerMenu() {
             </div>
           )}
           <li className="hover:text-gray-600">
-            <Link href="/sales">Ventas</Link>
+            <Link href="/sales" onClick={() => setOpenMenu(false)}>
+              Ventas
+            </Link>
           </li>
           <li className="hover:text-gray-600">
-            <Link href="/about">Sobre nosotros</Link>
+            <Link href="/about" onClick={() => setOpenMenu(false)}>
+              Sobre nosotros
+            </Link>
           </li>
           <li className="hover:text-gray-600">
-            <Link href="/contact">Contáctanos</Link>
+            <Link href="/contact" onClick={() => setOpenMenu(false)}>
+              Contáctanos
+            </Link>
           </li>
         </ul>
       </article>
