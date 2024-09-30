@@ -29,7 +29,7 @@ function Page() {
             Continuar comprando
           </button>
           <button className="bg-black p-2 hover:bg-gray-800 text-xs sm:text-sm md:text-base lg:text-lg">
-            Proceder al pago
+            Proceder al pago.
           </button>
         </div>
       </section>
