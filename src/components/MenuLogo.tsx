@@ -41,7 +41,7 @@ function MenuLogo() {
   }, [isScrolled]);
 
   return (
-    <section className="w-full sticky top-10 z-40 bg-[rgb(210,209,209)] overflow-visible md:py-4 md:shadow-sm">
+    <section className="w-full sticky top-12 z-40 bg-[rgb(210,209,209)] overflow-visible md:py-4 md:shadow-sm">
       <div
         className={`transition-[max-height] duration-500 ease-in-out overflow-hidden ${
           isScrolled ? "max-h-0" : "max-h-[200px]"
