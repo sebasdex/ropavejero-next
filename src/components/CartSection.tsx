@@ -12,7 +12,7 @@ function CartSection({
   const router = useRouter();
 
   return (
-    <section className="absolute top-5 p-4 -right-3 w-80 max-h-96 overflow-y-scroll rounded-md shadow-lg text-sm z-50 bg-white text-black m-1">
+    <section className="absolute top-5 p-4 -right-3 w-96 max-h-96 overflow-y-scroll rounded-md shadow-lg text-sm z-50 bg-white text-black m-1">
       {cart.length > 0 ? (
         cart.map((shirt) => (
           <article

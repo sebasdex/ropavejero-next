@@ -2,6 +2,7 @@
 import { dbShirts } from "@/db/db";
 import BasicBreadcrumbs from "@/components/ui/Breadcrumbs";
 import InfoClothes from "@/components/clothes-details/InfoClothes";
+import Image from "next/image";
 
 function page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -9,17 +10,19 @@ function page({ params }: { params: { id: string } }) {
   const shirt = dbShirts.find((shirt) => shirt.id === idParse);
 
   return (
-    <>
+    <div className="">
       {shirt ? (
         <>
-          <div className="flex gap-6 md:w-9/12 lg:mx-auto p-4 my-4">
+          <div className="flex md:w-9/12 lg:mx-auto p-4">
             <BasicBreadcrumbs nameCollection={shirt?.name.toString()} />
           </div>
           <section className="flex flex-col md:flex-row justify-center gap-6 w-full mx-auto p-4">
-            <img
+            <Image
               src={shirt.image}
               alt={` ${shirt.id}`}
-              className="w-full max-w-lg object-cover"
+              className="w-full max-w-sm object-contain"
+              width={500}
+              height={500}
             />
             <InfoClothes shirt={shirt} />
           </section>
@@ -48,7 +51,7 @@ function page({ params }: { params: { id: string } }) {
           ocasión!
         </p>
       </section>
-    </>
+    </div>
   );
 }
 

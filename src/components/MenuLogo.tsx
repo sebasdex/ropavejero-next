@@ -19,12 +19,12 @@ function MenuLogo() {
 
       if (scrollPosition > prevScrollPos.current) {
         // Desplazándose hacia abajo
-        if (scrollPosition > 220 && !isScrolled) {
+        if (scrollPosition > 80 && !isScrolled) {
           setIsScrolled(true);
         }
       } else {
         // Desplazándose hacia arriba
-        if (scrollPosition < 180 && isScrolled) {
+        if (scrollPosition < 80 && isScrolled) {
           setIsScrolled(false);
         }
       }
@@ -50,13 +50,9 @@ function MenuLogo() {
           className={`${bebas.className} leading-10 tracking-wider text-4xl flex flex-col items-center justify-center`}
         >
           <Link href="/">
-            <img
-              src="/logo.png"
-              alt="logo"
-              className="w-20 h-20 md:w-40 md:h-40"
-            />
+            <img src="/logo.png" alt="logo" className="w-20 h-20" />
           </Link>
-          <span className="mt-0 md:-mt-3 text-2xl md:text-4xl">Ropavejero</span>
+          <span className="mt-0 md:-mt-2 text-2xl">Ropavejero</span>
         </article>
       </div>
       <HamburgerMenu />

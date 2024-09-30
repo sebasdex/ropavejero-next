@@ -7,7 +7,7 @@ import { dbCollection } from "@/db/db";
 
 function page() {
   return (
-    <main className="min-h-dvh m-6">
+    <main className="min-h-screen m-6">
       <div role="presentation" className="">
         <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">

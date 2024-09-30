@@ -9,7 +9,7 @@ function TableCart() {
       {/* Tabla para pantallas medianas y grandes */}
       <div className="overflow-x-auto hidden md:block">
         <table className="table-auto w-full border-collapse">
-          <thead className="border-b">
+          <thead className="">
             <tr>
               <th className="text-start">Nombre</th>
               <th className="text-start">Precio</th>
@@ -19,8 +19,8 @@ function TableCart() {
           </thead>
           <tbody>
             {cart.map((shirt) => (
-              <tr key={shirt.id} className="border-b">
-                <td className="p-4">
+              <tr key={shirt.id} className="">
+                <td className="py-4">
                   {shirt.image && (
                     <div className="flex items-center gap-4">
                       <img
@@ -47,10 +47,10 @@ function TableCart() {
                     </div>
                   )}
                 </td>
-                <td className="p-4">
+                <td className="py-4">
                   <p>${shirt.price.toFixed(2)}</p>
                 </td>
-                <td className="p-4">
+                <td className="py-4">
                   <div className="flex items-center gap-2">
                     <button
                       className="border border-gray-400 px-2"
@@ -69,13 +69,13 @@ function TableCart() {
                     </button>
                   </div>
                 </td>
-                <td className="p-4">
+                <td className="py-4">
                   ${(shirt.price * shirt.quantity).toFixed(2)}
                 </td>
               </tr>
             ))}
           </tbody>
-          <tfoot className="border-y">
+          <tfoot className="">
             <tr>
               <td className="text-start font-bold text-gray-500 py-2">Total</td>
               <td></td>
@@ -97,7 +97,7 @@ function TableCart() {
       {/* Tarjetas para pantallas pequeñas */}
       <div className="md:hidden">
         {cart.map((shirt) => (
-          <div key={shirt.id} className="border-b py-4">
+          <div key={shirt.id} className="py-4">
             <div className="flex items-start gap-4">
               <img
                 src={shirt.image}
@@ -145,7 +145,7 @@ function TableCart() {
           </div>
         ))}
         {/* Total */}
-        <div className="py-4">
+        <div className="">
           <p className="text-start font-bold text-gray-500">
             Total: $
             {cart
