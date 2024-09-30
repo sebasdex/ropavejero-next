@@ -1,10 +1,8 @@
-"use client";
+import ButtonsCart from "@/components/cart/ButtonsCart";
 import TableCart from "@/components/cart/TableCart";
 import BreadcrumbsCart from "@/components/ui/BreadcrumbsCart";
-import { useRouter } from "next/navigation";
 
 function Page() {
-  const router = useRouter();
   return (
     <div className="min-h-screen mx-6 my-2 md:my-8">
       <BreadcrumbsCart />
@@ -21,17 +19,7 @@ function Page() {
           id=""
           className="w-full p-2 mt-2 text-sm h-24 bg-gray-200"
         ></textarea>
-        <div className="flex justify-between text-white py-2">
-          <button
-            className="bg-black p-2 hover:bg-gray-800 text-xs sm:text-sm md:text-base lg:text-lg"
-            onClick={() => router.push("/")}
-          >
-            Continuar comprando
-          </button>
-          <button className="bg-black p-2 hover:bg-gray-800 text-xs sm:text-sm md:text-base lg:text-lg">
-            Proceder al pago.
-          </button>
-        </div>
+        <ButtonsCart />
       </section>
     </div>
   );
