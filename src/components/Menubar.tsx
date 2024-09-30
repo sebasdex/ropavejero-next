@@ -47,7 +47,7 @@ function Menubar() {
 
   return (
     <>
-      <nav className="bg-black text-white z-50">
+      <nav className="bg-black text-white z-50 fixed top-0 left-0 right-0 w-full">
         <ul className="flex gap-3 p-2 items-center justify-end mx-auto min-w-32 max-w-screen-lg">
           <li
             className={`${"hover:bg-gray-900 rounded-full w-8 h-8 flex items-center justify-center relative"} ${
