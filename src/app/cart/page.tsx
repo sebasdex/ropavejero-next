@@ -3,7 +3,7 @@ import ButtonsCart from "@/components/cart/ButtonsCart";
 import TableCart from "@/components/cart/TableCart";
 import BreadcrumbsCart from "@/components/ui/BreadcrumbsCart";
 
-function Page() {
+function page() {
   return (
     <div className="min-h-screen mx-6 my-2 md:my-8">
       <BreadcrumbsCart />
@@ -26,4 +26,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default page;
