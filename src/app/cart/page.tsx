@@ -3,7 +3,7 @@ import TableCart from "@/components/cart/TableCart";
 import BreadcrumbsCart from "@/components/ui/BreadcrumbsCart";
 import { useRouter } from "next/navigation";
 
-function page() {
+function Page() {
   const router = useRouter();
   return (
     <div className="min-h-screen mx-6 my-2 md:my-8">
@@ -37,4 +37,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
