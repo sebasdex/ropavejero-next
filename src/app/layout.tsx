@@ -27,7 +27,7 @@ export default function RootLayout({
         <Menubar />
         <MenuLogo />
 
-        <div className="container mx-auto flex flex-col mb-auto">
+        <div className="container mx-auto flex flex-col mb-auto mt-16">
           {children}
         </div>
         <Footer />
