@@ -43,23 +43,25 @@ function MenuLogo() {
   return (
     <section className="w-full sticky top-12 z-40 bg-[rgb(210,209,209)] overflow-visible md:py-4 md:shadow-sm">
       <div
-        className={`transition-[max-height] duration-500 ease-in-out overflow-hidden ${
-          isScrolled ? "max-h-0" : "max-h-[200px]"
-        }`}
+        className={`transition-[max-height] duration-500 ease-in-out overflow-hidden h-fit`}
       >
         <article
           className={`${bebas.className} leading-10 tracking-wider text-4xl flex flex-col items-center justify-center`}
         >
-          <Link href="/">
-            <Image
-              src="/logo.png"
-              alt="logo"
-              className="w-20 h-20"
-              width={100}
-              height={100}
-            />
-          </Link>
-          <span className="mt-0 md:-mt-2 text-2xl">Ropavejero</span>
+          {isScrolled ? null : (
+            <>
+              <Link href="/">
+                <Image
+                  src="/logo.png"
+                  alt="logo"
+                  className={`w-20 h-20 object-contain`}
+                  width={100}
+                  height={100}
+                />
+              </Link>
+              <span className="mt-0 md:-mt-2 text-2xl">Ropavejero</span>
+            </>
+          )}
         </article>
       </div>
       <HamburgerMenu />
