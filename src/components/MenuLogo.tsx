@@ -3,6 +3,7 @@ import { Bebas_Neue } from "next/font/google";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import HamburgerMenu from "./menu-logo/HamburgerMenu";
+import Image from "next/image";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -50,7 +51,13 @@ function MenuLogo() {
           className={`${bebas.className} leading-10 tracking-wider text-4xl flex flex-col items-center justify-center`}
         >
           <Link href="/">
-            <img src="/logo.png" alt="logo" className="w-20 h-20" />
+            <Image
+              src="/logo.png"
+              alt="logo"
+              className="w-20 h-20"
+              width={100}
+              height={100}
+            />
           </Link>
           <span className="mt-0 md:-mt-2 text-2xl">Ropavejero</span>
         </article>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 
 function Banner() {
@@ -33,8 +34,10 @@ function Banner() {
   return (
     <section className="mx-auto flex relative h-[32.5rem] w-full gap-4 z-10">
       {bannerImages.map((image, index) => (
-        <img
+        <Image
           key={index}
+          width={1000}
+          height={1000}
           src={image.src}
           alt={image.alt}
           className={`w-full h-full rounded-md object-cover object-top  absolute transition-opacity duration-1000 ${

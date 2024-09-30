@@ -1,5 +1,6 @@
 import React from "react";
 import { dbShirts } from "@/db/db";
+import Image from "next/image";
 
 function NewCollections() {
   return (
@@ -18,7 +19,9 @@ function NewCollections() {
         <div className="flex flex-col">
           {dbShirts.slice(0, 3).map((shirt) => (
             <div key={shirt.id} className=" flex gap-2 items-center p-2 ">
-              <img
+              <Image
+                width={100}
+                height={100}
                 src={shirt.image}
                 alt={shirt.name}
                 className="w-24 h-28 object-cover object-bottom"

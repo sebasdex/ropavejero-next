@@ -1,4 +1,5 @@
 import useStore from "@/store/myState";
+import Image from "next/image";
 import React from "react";
 
 function TableCart() {
@@ -99,7 +100,9 @@ function TableCart() {
         {cart.map((shirt) => (
           <div key={shirt.id} className="py-4">
             <div className="flex items-start gap-4">
-              <img
+              <Image
+                width={100}
+                height={100}
                 src={shirt.image}
                 alt={shirt.name}
                 className="w-24 h-32 object-contain"
