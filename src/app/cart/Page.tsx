@@ -1,3 +1,4 @@
+"use client";
 import ButtonsCart from "@/components/cart/ButtonsCart";
 import TableCart from "@/components/cart/TableCart";
 import BreadcrumbsCart from "@/components/ui/BreadcrumbsCart";
