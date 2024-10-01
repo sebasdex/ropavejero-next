@@ -20,7 +20,7 @@ function MenuLogo() {
 
       if (scrollPosition > prevScrollPos.current) {
         // Desplazándose hacia abajo
-        if (scrollPosition > 80 && !isScrolled) {
+        if (scrollPosition > 30 && !isScrolled) {
           setIsScrolled(true);
         }
       } else {
@@ -41,27 +41,29 @@ function MenuLogo() {
   }, [isScrolled]);
 
   return (
-    <section className="w-full sticky top-12 z-40 bg-[rgb(210,209,209)] overflow-visible md:py-4 md:shadow-sm">
+    <section className="w-full sticky top-12 z-40 bg-[rgb(210,209,209)]  md:shadow-sm md:py-2">
       <div
-        className={`transition-[max-height] duration-500 ease-in-out overflow-hidden h-fit`}
+        className={`transition-[max-height] duration-500 ease-in-out  ${
+          isScrolled ? "max-h-0" : "max-h-[500px]"
+        }`}
       >
         <article
-          className={`${bebas.className} leading-10 tracking-wider text-4xl flex flex-col items-center justify-center`}
+          className={`${
+            bebas.className
+          } leading-10 tracking-wider text-4xl flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out ${
+            isScrolled ? "opacity-0" : "opacity-100"
+          }`}
         >
-          {isScrolled ? null : (
-            <>
-              <Link href="/">
-                <Image
-                  src="/logo.png"
-                  alt="logo"
-                  className={`w-20 h-20 object-contain`}
-                  width={100}
-                  height={100}
-                />
-              </Link>
-              <span className="mt-0 md:-mt-2 text-2xl">Ropavejero</span>
-            </>
-          )}
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="logo"
+              className={`w-20 h-20 object-contain`}
+              width={100}
+              height={100}
+            />
+          </Link>
+          <span className="mt-0 md:-mt-2 text-2xl">Ropavejero</span>
         </article>
       </div>
       <HamburgerMenu />
