@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Next.js Proyecto E-commerce 
+Este es un proyecto de práctica desarrollado para mejorar habilidades en Next.js, TypeScript y el manejo del estado con Zustand. También se utilizaron Material UI y Tailwind CSS para estilizar la interfaz.  
 
-## Getting Started
+El proyecto consiste en un prototipo de e-commerce (carrito de compras) basado en el diseño de la página Urban Tee. Aunque no se implementó un backend ni base de datos, las funcionalidades del cliente permiten experimentar con el flujo principal de un carrito de compras.
 
-First, run the development server:
+## Características
+- **Framework:** Next.js
+- **Lenguaje:** TypeScript
+- **Gestión de estado:** Zustand
+- **Estilización:** Material UI, Tailwind CSS
+- **Imágenes generadas por IA:** Las imágenes utilizadas en el proyecto fueron generadas mediante modelos de inteligencia artificial y se encuentran dentro del repositorio.
+- **Diseño responsivo inspirado en:** [Urban Tee](https://theme528-t-shirt.myshopify.com/).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Instalación y Uso
+Clonar el repositorio
 ```
+git clone https://github.com/sebasdex/ropavejero-next
+cd ropavejero-next
+```
+Instalar dependencias
+```
+npm install
+```
+Iniciar el proyecto
+```
+npm run dev
+```
+Abre http://localhost:3000 en tu navegador para ver el proyecto.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura del proyecto
+```
+├── components/        # Componentes reutilizables
+├── pages/             # Rutas del proyecto (Next.js)
+├── public/images/     # Imágenes generadas por IA
+├── store/             # Estado global utilizando Zustand
+├── styles/            # Estilos globales con Tailwind
+├── utils/             # Utilidades y helpers
+├── tsconfig.json      # Configuración de TypeScript
+├── tailwind.config.js # Configuración de Tailwind CSS
+└── README.md          # Este archivo
+```
+## Funcionalidades implementadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Catálogo de productos.
+- Sistema de carrito de compras.
+- Actualización del estado del carrito con Zustand.
+- Interfaz estilizada con Material UI y Tailwind CSS.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Mejoras futuras
 
-## Learn More
+1. Integración con backend:
+    - Implementar una API o conectarse a un servicio de base de datos.
 
-To learn more about Next.js, take a look at the following resources:
+2. Optimización de imágenes:
+    - Usar herramientas en la nube para almacenar y servir imágenes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Autenticación de usuarios:
+    - Añadir un sistema de login y perfiles.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. Mejoras en la UI:
+    - Animaciones y transiciones más dinámicas.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Inspiración y créditos
+Este proyecto se inspiró en el diseño de la página [Urban Tee](https://theme528-t-shirt.myshopify.com/).  
+Las imágenes fueron generadas con modelos de inteligencia artificial.
+## 
+2024 sebasdex | Proyecto de práctica
