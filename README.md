@@ -19,11 +19,11 @@ cd ropavejero-next
 ```
 Instalar dependencias
 ```
-npm install
+pnpm install
 ```
 Iniciar el proyecto
 ```
-npm run dev
+pnpm run dev
 ```
 Abre http://localhost:3000 en tu navegador para ver el proyecto.
 
