@@ -141,4 +141,4 @@ Abre http://localhost:3000 en tu navegador para ver el proyecto.
 Este proyecto se inspiró en el diseño de la página [Urban Tee](https://theme528-t-shirt.myshopify.com/).  
 Las imágenes fueron generadas con modelos de inteligencia artificial.
 ## 
-2024 sebasdex | Proyecto de práctica
+Proyecto de práctica
