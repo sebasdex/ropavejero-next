@@ -29,15 +29,92 @@ Abre http://localhost:3000 en tu navegador para ver el proyecto.
 
 ## Estructura del proyecto
 ```
-├── components/        # Componentes reutilizables
-├── pages/             # Rutas del proyecto (Next.js)
-├── public/images/     # Imágenes generadas por IA
-├── store/             # Estado global utilizando Zustand
-├── styles/            # Estilos globales con Tailwind
-├── utils/             # Utilidades y helpers
-├── tsconfig.json      # Configuración de TypeScript
-├── tailwind.config.js # Configuración de Tailwind CSS
-└── README.md          # Este archivo
+📦 src/
+├── app/
+│   ├── about/
+│   │   └── page.tsx
+│   ├── cart/
+│   │   └── page.tsx
+│   ├── categories/
+│   │   ├── color/
+│   │   │   └── page.tsx
+│   │   ├── funny/
+│   │   │   └── page.tsx
+│   │   ├── images/
+│   │   │   └── page.tsx
+│   │   ├── logo/
+│   │   │   └── page.tsx
+│   │   ├── men/
+│   │   │   └── page.tsx
+│   │   ├── phrase/
+│   │   │   └── page.tsx
+│   │   ├── teens/
+│   │   │   └── page.tsx
+│   │   ├── unique/
+│   │   │   └── page.tsx
+│   │   ├── women/
+│   │   │   └── page.tsx
+│   ├── collection/
+│   │   ├── [id]/
+│   │   │   └── page.tsx
+│   │   └── page.tsx
+│   ├── contact/
+│   │   └── page.tsx
+│   ├── layout.tsx
+│   ├── not-found.tsx
+│   └── globals.css
+|   └── page.tsx 
+├── components/
+│   ├── cart/
+│   │   ├── ButtonsCart.tsx
+│   │   └── TableCart.tsx
+│   ├── categories/
+│   │   ├── ColorElements.tsx
+│   │   └── NewCollections.tsx
+│   ├── clothes-details/
+│   │   ├── InfoClothes.tsx
+│   │   └── SocialMediaInfo.tsx
+│   ├── contact/
+│   │   ├── Form.tsx
+│   │   ├── InfoContact.tsx
+│   │   └── SocialMedia.tsx
+│   ├── menu-logo/
+│   │   └── HamburgerMenu.tsx
+│   ├── ui/
+│   │   ├── ArrowUp.tsx
+│   │   ├── Breadcrumbs.tsx
+│   │   ├── BreadcrumbsCart.tsx
+│   ├── AddMessageCart.tsx
+│   ├── Banner.tsx
+│   ├── BannerCategory.tsx
+│   ├── CartSection.tsx
+│   ├── CatalogMenu.tsx
+│   ├── Categories.tsx
+│   ├── CollectionMain.tsx
+│   ├── CollectionMenu.tsx
+│   ├── Footer.tsx
+│   ├── MenuCategories.tsx
+│   ├── MenuLogo.tsx
+│   ├── Menubar.tsx
+│   ├── Offer.tsx
+│   ├── PopularShirts.tsx
+│   ├── SubMenuBar.tsx
+│   ├── Title.tsx
+│   └── Trend.tsx
+├── db/
+│   └── db.ts
+├── store/
+│   └── myState.ts
+├── .eslintrc.json
+├── .gitignore
+├── README.md
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.mjs
+├── tailwind.config.ts
+└── tsconfig.json
 ```
 ## Funcionalidades implementadas
 
