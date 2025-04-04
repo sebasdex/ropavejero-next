@@ -6,26 +6,6 @@ body {
   background-color: rgb(210, 209, 209);
 }
 
-.custom-hover::before {
-  content: 'Más detalles';
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo con opacidad del 50% */
-  color: white;
-  opacity: 0;
-  padding: 0.5rem 1rem; /* px-4 py-2 */
-  transition: opacity 0.3s ease-in-out;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.custom-hover:hover::before {
-  opacity: 1; /* Fondo visible con opacidad del 50% */
-}
-
 
 
 
