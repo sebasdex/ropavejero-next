@@ -1,69 +1,72 @@
-import { dbShirts, Shirt } from "@/db/db";
 import Image from "next/image";
 import { useState } from "react";
-import useStore from "@/store/myState";
 import Link from "next/link";
+import { dbShirts, Shirt } from "@/db/db";
+import useStore from "@/store/myState";
 
 function PopularShirts() {
-  const [popularShirt, setPopularShirt] = useState(dbShirts);
+  const [popularShirt] = useState<Shirt[]>(dbShirts);
   const { addToCart, currentShirtAdd, openModal } = useStore();
 
   const addCart = (shirt: Shirt) => {
     addToCart(shirt);
     openModal();
   };
+
   return (
-    <article className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4 flex-wrap lg:flex-nowrap w-full px-6 py-8">
-      {popularShirt.map(
-        (shirt) =>
-          shirt.popular && (
-            <div
-              key={shirt.id}
-              className="w-full mx-auto bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative w-full group">
-                <Link href={`/collection/${shirt.id}`} className="block relative custom-hover">
-                  <div className="relative w-full transition-transform duration-500 group-hover:scale-105">
+    <article className="w-full h-full px-6 py-12">
+      <div className="grid grid-cols-1 min-[450px]:grid-cols-2 md:grid-cols-3 gap-6 h-full">
+        {popularShirt.map(
+          (shirt) =>
+            shirt.popular && (
+              <div
+                key={shirt.id}
+                className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 ease-out flex flex-col"
+              >
+                <Link href={`/collection/${shirt.id}`} className="block relative flex-shrink-0">
+                  <div className="relative w-full h-72 bg-gray-100 p-4 group/image">
+                    <div className="absolute inset-0 border-4 border-black/10 rounded-2xl transform rotate-2 group-hover/image:rotate-0 transition-transform duration-700 ease-out"></div>
                     <Image
-                      width={300}
-                      height={300}
+                      width={400}
+                      height={400}
                       src={shirt.image}
                       alt={shirt.name}
-                      className="object-contain w-full"
+                      className="w-full h-full object-contain relative z-10 transition-transform duration-700 group-hover/image:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                      <span className="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-1 bg-gray-900 bg-opacity-80 rounded-full flex items-center space-x-2">
-                        <span>Más detalles</span>
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                      </span>
-                    </div>
+                    <span className="absolute top-4 left-4 bg-black text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-20 animate-pulse-subtle">
+                      Popular
+                    </span>
                   </div>
-                  <div className="absolute top-0 left-0 w-full h-2 bg-black opacity-80"></div>
                 </Link>
+
+                <div className="relative px-6 py-6 text-center flex-1 flex flex-col justify-between">
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 tracking-tight line-clamp-1">
+                    {shirt.name}
+                  </h3>
+
+                  <div className="relative inline-block mb-4">
+                    <span className="text-lg font-extrabold text-black bg-white px-4 py-1 rounded-lg shadow-sm border border-gray-200 transform rotate-3 transition-transform duration-500">
+                      ${shirt.price.toFixed(2)}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      currentShirtAdd(shirt);
+                      addCart(shirt);
+                    }}
+                    className="w-full bg-black text-white py-3 px-6 rounded-xl text-sm font-semibold uppercase tracking-wide relative overflow-hidden group/button"
+                  >
+                    <span className="relative z-10">Añadir al carrito</span>
+                    <div className="absolute inset-0 bg-white/30 transform skew-x-12 -translate-x-full group-hover/button:translate-x-0 transition-transform duration-500 ease-out"></div>
+                  </button>
+                </div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-black rounded-t-full opacity-0 transition-opacity duration-500">
+                  <div className="w-full h-full bg-white/50 rounded-t-full transform scale-x-0 transition-transform duration-300 origin-center"></div>
+                </div>
               </div>
-              <div className="text-center px-4 pt-6 pb-4 space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900 tracking-tight line-clamp-1">
-                  {shirt.name}
-                </h3>
-                <p className="text-base font-bold text-gray-800">
-                  ${shirt.price.toFixed(2)}
-                </p>
-                <button
-                  className="w-full bg-black text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-gray-600 active:bg-gray-900 transition-all duration-300 ease-in-out relative overflow-hidden"
-                  onClick={() => {
-                    addCart(shirt);
-                    currentShirtAdd(shirt);
-                  }}
-                >
-                  <span className="relative z-10">Añadir al carrito</span>
-                  <div className="absolute inset-0 bg-gray-600 opacity-0 hover:opacity-30 transition-opacity duration-300"></div>
-                </button>
-              </div>
-            </div>
-          )
-      )}
+            )
+        )}
+      </div>
     </article>
   );
 }
