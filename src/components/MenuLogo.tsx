@@ -1,74 +1,85 @@
 "use client";
-import { Bebas_Neue } from "next/font/google";
+import { useState } from "react";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
-import HamburgerMenu from "./menu-logo/HamburgerMenu";
-import Image from "next/image";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
-const bebas = Bebas_Neue({
-  subsets: ["latin"],
-  weight: ["400"],
-});
+const menuItems = [
+  { label: "Home", href: "/" },
+  { label: "Catálogo", href: "/collection" },
+  { label: "Colección", href: "/categories/color" },
+  { label: "Ventas", href: "/sales" },
+  { label: "Sobre nosotros", href: "/about" },
+  { label: "Contáctanos", href: "/contact" },
+];
 
-function MenuLogo() {
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const prevScrollPos = useRef<number>(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition > prevScrollPos.current) {
-        // Desplazándose hacia abajo
-        if (scrollPosition > 30 && !isScrolled) {
-          setIsScrolled(true);
-        }
-      } else {
-        // Desplazándose hacia arriba
-        if (scrollPosition < 80 && isScrolled) {
-          setIsScrolled(false);
-        }
-      }
-
-      prevScrollPos.current = scrollPosition;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isScrolled]);
+export default function MenuLogo() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="w-full sticky top-12 z-40 bg-[rgb(210,209,209)]  md:shadow-sm md:py-2">
+    <>
+      {/* NAVBAR */}
+      <nav className="fixed top-0 mt-14 sm:mt-16 left-0 right-0 z-40 bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800">
+        <div className="max-w-7xl mx-auto px-6 flex justify-center items-center h-16">
+          {/* Hamburger Menu */}
+          <button
+            className="md:hidden text-neutral-300 hover:text-white transition"
+            onClick={() => setIsOpen(true)}
+          >
+            <MenuIcon className="w-6 h-6" />
+          </button>
+
+          {/*Desktop */}
+          <ul className="hidden md:flex gap-10 text-neutral-300 text-sm font-medium">
+            {menuItems.map((item) => (
+              <li key={item.label} className="group relative">
+                <Link
+                  href={item.href}
+                  className="transition-colors hover:text-white"
+                >
+                  {item.label}
+                </Link>
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-red-500 transition-all group-hover:w-full" />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
+      {/* MOBILE MENU */}
       <div
-        className={`transition-[max-height] duration-500 ease-in-out  ${
-          isScrolled ? "max-h-0" : "max-h-[500px]"
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-neutral-900 text-neutral-200 z-50 transform transition-transform duration-300 ease-in-out 
+        ${isOpen ? "translate-x-0" : "translate-x-full"} md:hidden`}
       >
-        <article
-          className={`${
-            bebas.className
-          } leading-10 tracking-wider text-4xl flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out ${
-            isScrolled ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          <Link href="/">
-            <Image
-              src="/logo.png"
-              alt="logo"
-              className={`w-20 h-20 object-contain`}
-              width={100}
-              height={100}
-            />
-          </Link>
-          <span className="mt-0 md:-mt-2 text-2xl">Ropavejero</span>
-        </article>
+        <div className="flex justify-between items-center px-4 py-4 border-b border-neutral-700">
+          <span className="text-base font-semibold">Menú</span>
+          <button onClick={() => setIsOpen(false)} aria-label="Cerrar">
+            <CloseIcon className="w-6 h-6 text-neutral-400 hover:text-white transition" />
+          </button>
+        </div>
+
+        <ul className="flex flex-col px-6 py-4 gap-6 text-lg font-medium">
+          {menuItems.map((item) => (
+            <li key={item.label}>
+              <Link
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="block hover:text-red-400 transition-colors"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-      <HamburgerMenu />
-    </section>
+
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+    </>
   );
 }
-
-export default MenuLogo;
