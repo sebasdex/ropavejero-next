@@ -2,6 +2,7 @@
 import AddMessageCart from "@/components/AddMessageCart";
 import Banner from "@/components/Banner";
 import Categories from "@/components/Categories";
+import CollectionBanner from "@/components/CollectionBanner";
 import MenuCategories from "@/components/MenuCategories";
 import Offer from "@/components/Offer";
 import PopularShirts from "@/components/PopularShirts";
@@ -29,6 +30,7 @@ export default function Home() {
       <Offer />
       <Title text="Tendencias" />
       <Trend />
+      <CollectionBanner />
     </>
   );
 }
