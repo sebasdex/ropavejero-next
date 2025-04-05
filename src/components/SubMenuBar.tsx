@@ -1,17 +1,33 @@
-import React from "react";
+"use client";
+import Link from "next/link";
 
 function SubMenuBar() {
   return (
-    <div className="bg-white text-black absolute top-8 right-0 w-28 lg:left-0 rounded-md shadow-lg text-sm z-50">
-      <ul className="flex flex-col gap-2 p-2 items-center justify-end">
-        <li className="hover:bg-slate-200 w-full rounded-sm p-1">
-          <button>Mi Perfíl</button>
+    <div className="bg-neutral-800 border border-neutral-700 rounded-2xl shadow-lg overflow-hidden">
+      <ul className="flex flex-col divide-y divide-neutral-700">
+        <li>
+          <Link
+            href="/perfil"
+            className="block px-4 py-3 text-sm text-neutral-200 hover:bg-neutral-700 transition-all"
+          >
+            Mi perfil
+          </Link>
         </li>
-        <li className="hover:bg-slate-200 w-full rounded-sm p-1">
-          <button>Mi Cuenta</button>
+        <li>
+          <Link
+            href="/pedidos"
+            className="block px-4 py-3 text-sm text-neutral-200 hover:bg-neutral-700 transition-all"
+          >
+            Mis pedidos
+          </Link>
         </li>
-        <li className="hover:bg-slate-200 w-full rounded-sm p-1">
-          <button>Mi Historial</button>
+        <li>
+          <Link
+            href="/configuracion"
+            className="block px-4 py-3 text-sm text-neutral-200 hover:bg-neutral-700 transition-all"
+          >
+            Configuración
+          </Link>
         </li>
       </ul>
     </div>
