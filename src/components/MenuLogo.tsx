@@ -19,7 +19,7 @@ export default function MenuLogo() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="fixed top-0 mt-14 sm:mt-16 left-0 right-0 z-40 bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800">
+      <nav className="fixed top-0 mt-[4.5rem] sm:mt-20 left-0 right-0 z-40 bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800">
         <div className="max-w-7xl mx-auto px-6 flex justify-center items-center h-16">
           {/* Hamburger Menu */}
           <button
