@@ -29,7 +29,6 @@ function CollectionMain({
             <article className="">
               <MenuCategories
                 textMenu="Colecciones"
-                myStyles=" text-gray-500 p-2 tracking-widest font-medium w-fit"
               />
               <NewCollections />
             </article>
