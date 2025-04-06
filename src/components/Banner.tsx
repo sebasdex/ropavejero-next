@@ -29,36 +29,55 @@ function Banner() {
   };
 
   return (
-    <section className="relative w-full h-[30rem] max-w-screen-2xl mx-auto overflow-hidden">
-      <div className="relative w-full h-full">
+    <section className="relative w-full h-[24rem] sm:h-[28rem] md:h-[32rem] max-w-screen-2xl mx-auto overflow-hidden mt-24 md:mt-28 px-4 sm:px-6 md:px-8">
+      <div className="relative w-full h-full rounded-2xl sm:rounded-3xl">
         {bannerImages.map((image, index) => (
           <Image
             key={index}
-            width={1200}
-            height={480}
+            width={1400}
+            height={560}
             src={image.src}
             alt={image.alt}
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-800 ease-in-out ${index === currentImageIndex
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 translate-x-10"
-              }`}
+            className={`absolute inset-0 w-full h-full
+              object-cover object-center transition-all duration-1000 ease-in-out 
+              ${index === currentImageIndex
+                ? "opacity-100 scale-100 translate-y-0"
+                : "opacity-0 scale-110 translate-y-10"
+              }
+            `}
             priority={index === 0}
           />
         ))}
+
+        {/* Overlay con parallax */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 to-gray-900/50 pointer-events-none" />
       </div>
 
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-center">
-        <h1 className="text-white text-2xl md:text-4xl font-bold uppercase tracking-widest drop-shadow-lg animate-fadeIn">
+      <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-10 text-center px-4 sm:px-6 md:px-8">
+        <h1
+          className="text-white text-[clamp(1.5rem,5vw,3rem)] font-extrabold uppercase tracking-wider drop-shadow-2xl
+            animate__animated animate__fadeIn animate__delay-1s transition-opacity duration-500 ease-out"
+        >
           {bannerImages[currentImageIndex].alt}
         </h1>
+        <p
+          className="text-white/80 text-[clamp(0.875rem,2.5vw,1.25rem)] mt-2 sm:mt-3 md:mt-4 font-medium tracking-tight 
+            animate__animated animate__fadeIn animate__delay-1.5s transition-opacity duration-500 ease-out"
+        >
+          Encuentra lo mejor para ti
+        </p>
       </div>
 
-      <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
+      <div className="absolute top-0 right-0 h-full flex flex-col justify-center gap-3 z-10 pr-6 sm:pr-10 md:pr-12">
         {bannerImages.map((_, index) => (
           <button
             key={index}
             onClick={() => goToImage(index)}
-            className={`w-2 h-8 rounded-full transition-all duration-300 hover:h-10 focus:outline-none focus:ring-2 focus:ring-white ${index === currentImageIndex ? "bg-white" : "bg-white/40 hover:bg-white/70"
+            className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-500 ease-out
+              hover:scale-125 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white/50
+              ${index === currentImageIndex
+                ? "bg-white scale-125"
+                : "bg-white/40 hover:bg-white/70"
               }`}
             aria-label={`Ir a imagen ${index + 1}`}
           />
