@@ -13,7 +13,7 @@ function CartSection({ setCartButton }: { setCartButton: (value: boolean) => voi
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
 
   return (
-    <section className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto bg-neutral-900/80 backdrop-blur-md text-white rounded-2xl shadow-2xl px-5 py-6 sm:p-6 md:p-8 border border-white/10 space-y-6">
+    <section className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto bg-neutral-900/95 backdrop-blur-md text-white rounded-2xl shadow-2xl px-5 py-6 sm:p-6 md:p-8 border border-white/10 space-y-6">
       <div className="flex justify-between items-center border-b border-white/10 pb-4">
         <h2 className="text-lg sm:text-xl font-bold tracking-wide">Tu carrito</h2>
         <button
@@ -27,7 +27,7 @@ function CartSection({ setCartButton }: { setCartButton: (value: boolean) => voi
         </button>
       </div>
 
-      <div className="max-h-[30vh] lg:max-h-[20vh] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent space-y-6 pr-1">
+      <div className="max-h-[30vh] lg:max-h-[20vh] overflow-y-auto space-y-6 pr-1">
         {cart.length > 0 ? (
           cart.map((item) => (
             <article
