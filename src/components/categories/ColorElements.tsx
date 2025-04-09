@@ -1,55 +1,68 @@
 "use client";
+
 import { dbShirts, Shirt } from "@/db/db";
 import useStore from "@/store/myState";
 import Image from "next/image";
 import Link from "next/link";
+
 function ColorElements({ nameElement }: { nameElement: string }) {
   const { addToCart, currentShirtAdd, openModal } = useStore();
+
   const addCart = (shirt: Shirt) => {
     addToCart(shirt);
     openModal();
   };
+
   return (
-    <section className="mt-12">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-        {dbShirts.map(
-          (shirt) =>
-            shirt.category === nameElement && (
-              <div
-                key={shirt.id}
-                className="flex flex-col gap-4 p-4 rounded-md"
-              >
-                <Link
-                  href={`/collection/${shirt.id}`}
-                  className="relative custom-hover"
-                >
-                  <Image
-                    width={300}
-                    height={300}
-                    src={shirt.image}
-                    alt={shirt.name}
-                    className="object-cover w-full h-full"
-                  />
-                </Link>
-                <div className="flex flex-col gap-2 items-center">
-                  <h2 className="text-base font-bold">{shirt.name}</h2>
-                  <p className="text-sm text-gray-500">
-                    ${shirt.price.toFixed(2)} MXN
-                  </p>
-                  <button
-                    className="bg-black text-white w-fit p-2 rounded-sm hover:bg-gray-500"
-                    onClick={() => {
-                      currentShirtAdd(shirt);
-                      addCart(shirt);
-                    }}
-                  >
-                    Añadir al carrito
-                  </button>
-                </div>
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {dbShirts
+        .filter((shirt) => shirt.category === nameElement)
+        .map((shirt) => (
+          <div
+            key={shirt.id}
+            className="relative rounded-xl bg-white border border-neutral-200 shadow-sm overflow-hidden transition-all hover:shadow-xl"
+          >
+            {/* Imagen */}
+            <Link href={`/collection/${shirt.id}`} className="block overflow-hidden group relative">
+              <Image
+                width={500}
+                height={500}
+                src={shirt.image}
+                alt={shirt.name}
+                className="w-full h-72 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded text-[11px] text-black font-semibold tracking-wide shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Ver más detalles
               </div>
-            )
-        )}
-      </div>
+            </Link>
+
+            <div className="p-6 flex flex-col justify-between h-[200px]">
+              <div>
+                <h3 className="text-lg font-semibold text-black">
+                  {shirt.name}
+                </h3>
+                <p className="text-sm text-neutral-500 mt-1 line-clamp-2">
+                  {shirt.description}
+                </p>
+              </div>
+
+              <div className="mt-4 flex items-center justify-between">
+                <span className="text-sm font-bold text-black">
+                  ${shirt.price.toFixed(2)} MXN
+                </span>
+                <button
+                  onClick={() => {
+                    currentShirtAdd(shirt);
+                    addCart(shirt);
+                  }}
+                  className="px-4 py-1.5 text-xs rounded-full bg-black text-white font-medium hover:bg-neutral-800 transition"
+                >
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
     </section>
   );
 }
