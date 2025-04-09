@@ -1,9 +1,13 @@
 function Title({ text }: { text: string }) {
   return (
-    <span className="block my-8 text-center p-8 uppercase font-semibold tracking-widest text-gray-900 bg-gradient-to-b from-white to-gray-100 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
-      <span className="relative z-10">{text}</span>
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gray-900 rounded-b-md"></div>
-    </span>
+    <div className="w-full px-4">
+      <div className="max-w-screen-2xl mx-auto text-center m-6">
+        <span className="inline-block w-full bg-gray-100 text-gray-900 py-6 px-8 rounded-xl uppercase font-semibold tracking-widest text-base sm:text-lg shadow-sm relative">
+          {text}
+          <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-14 h-[3px] bg-gray-100 rounded" />
+        </span>
+      </div>
+    </div>
   );
 }
 
