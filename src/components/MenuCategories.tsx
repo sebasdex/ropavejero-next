@@ -1,6 +1,4 @@
 import Link from "next/link";
-
-// Arreglo de categorías
 const categories = [
   { href: "/categories/color", label: "Color" },
   { href: "/categories/funny", label: "Divertidas" },
@@ -19,7 +17,7 @@ function MenuCategories({
   textMenu: string;
 }) {
   return (
-    <section className="w-full h-full bg-black text-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl p-6 relative">
+    <section className="w-full h-fit bg-black text-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl p-6 relative">
       <p
         className={`text-lg font-bold tracking-widest bg-gray-800/80 py-3 px-6 rounded-t-lg -mt-6 -mx-6 mb-4 shadow-md text-center`}
       >
