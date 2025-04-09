@@ -5,7 +5,7 @@ import SocialMedia from "@/components/contact/SocialMedia";
 
 function page() {
   return (
-    <section className="min-h-screen my-28 bg-white text-black px-6 py-24 relative overflow-hidden">
+    <section className="min-h-screen bg-white text-black px-6 py-24 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <header className="text-center mb-20">
           <h1 className="text-5xl font-extrabold uppercase relative">

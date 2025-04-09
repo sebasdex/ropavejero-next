@@ -25,7 +25,7 @@ function Page() {
     },
   ]
   return (
-    <main className="min-h-screen px-6 py-16 bg-gradient-to-br from-white to-gray-100 text-gray-900 my-32">
+    <main className="min-h-screen px-6 py-16 bg-gradient-to-br from-white to-gray-100 text-gray-900">
       <header className="max-w-5xl mx-auto mb-16 text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-wider text-gray-900 relative inline-block">
           Ropavejero

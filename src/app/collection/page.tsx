@@ -4,7 +4,7 @@ import { dbCollection } from "@/db/db";
 
 function Page() {
   return (
-    <main className="min-h-screen px-8 py-20 bg-white text-black my-24">
+    <main className="min-h-screen px-8 py-20 bg-white text-black">
       {/* Breadcrumbs */}
       <nav className="max-w-6xl mx-auto mb-12" aria-label="breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-neutral-600 font-medium uppercase tracking-wide">

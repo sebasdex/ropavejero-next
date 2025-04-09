@@ -1,7 +1,7 @@
 "use client";
 function NotFound() {
   return (
-    <div className="my-28 min-h-[calc(100vh-14rem)] p-4 mx-4 bg-white flex items-center justify-center px-6 relative overflow-hidden font-sans">
+    <div className="min-h-[calc(100vh-14rem)] p-4 mx-4 bg-white flex items-center justify-center px-6 relative overflow-hidden font-sans">
       <div className="absolute -top-28 -left-24 w-72 h-72 bg-gradient-to-br from-indigo-100 via-pink-100 to-yellow-100 rounded-full blur-3xl opacity-40 animate-pulse" />
       <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-gradient-to-tr from-cyan-100 to-purple-100 rounded-full blur-2xl opacity-30 animate-pulse" />
 

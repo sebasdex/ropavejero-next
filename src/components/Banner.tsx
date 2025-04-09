@@ -29,7 +29,7 @@ function Banner() {
   };
 
   return (
-    <section className="relative w-full h-[24rem] sm:h-[28rem] md:h-[32rem] max-w-screen-2xl mx-auto overflow-hidden mt-24 md:mt-28 px-4 sm:px-6 md:px-8">
+    <section className="relative w-full h-[24rem] sm:h-[28rem] md:h-[32rem] max-w-screen-2xl mx-auto overflow-hidden mt-8 px-4 sm:px-6 md:px-8">
       <div className="relative w-full h-full rounded-2xl sm:rounded-3xl">
         {bannerImages.map((image, index) => (
           <Image

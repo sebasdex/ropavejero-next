@@ -25,7 +25,7 @@ function CollectionMain({
     <>
       {isModalOpen && <AddMessageCart />}
 
-      <div className="my-28 px-4 sm:px-8 lg:px-20 py-16 min-h-screen bg-white">
+      <div className="px-4 sm:px-8 lg:px-20 py-16 min-h-screen bg-white">
         <div className="max-w-7xl mx-auto space-y-16">
           <BasicBreadcrumbs nameCollection={nameCollection} />
           <BannerCategory categoryName={categoryName} categoryBG={categoryBG} />
