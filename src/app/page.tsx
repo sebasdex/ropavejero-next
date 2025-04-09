@@ -19,7 +19,7 @@ export default function Home() {
       <Banner />
       <Categories />
       <Title text="Popular Products" />
-      <div className="w-full flex flex-col lg:flex-row gap-8 pb-10 mx-auto">
+      <div className="w-full flex flex-col lg:flex-row gap-8 mx-auto pt-4 px-2">
         <div className="w-full lg:w-72 p-5 flex-shrink-0">
           <MenuCategories textMenu="Categorías" />
         </div>

@@ -21,12 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} relative flex flex-col min-h-dvh justify-between mt-28`}
+        className={`${inter.className} relative flex flex-col justify-between mt-28`}
       >
         <ArrowUp />
         <Menubar />
         <MenuLogo />
-
         <div className="container mx-auto flex flex-col mb-auto mt-16 bg-white">
           {children}
         </div>
