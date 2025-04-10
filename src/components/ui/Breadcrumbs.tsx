@@ -1,25 +1,31 @@
 "use client";
-import * as React from "react";
-import Typography from "@mui/material/Typography";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
-
 export default function BasicBreadcrumbs({
   nameCollection,
 }: {
   nameCollection: string;
 }) {
   return (
-    <div role="presentation">
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
-          Inicio
-        </Link>
-        <Link underline="hover" color="inherit" href="/collection">
-          Colecciones
-        </Link>
-        <Typography color="text.primary">{nameCollection}</Typography>
-      </Breadcrumbs>
-    </div>
+    <nav
+      aria-label="breadcrumb"
+      className="w-full max-w-7xl mx-auto px-4"
+    >
+      <ol className="flex flex-wrap items-center gap-1 text-[11px] sm:text-xs font-medium uppercase text-neutral-500 tracking-widest">
+        <li>
+          <a href="/" className="hover:underline hover:text-black transition">
+            Inicio
+          </a>
+        </li>
+        <li className="mx-1 select-none text-neutral-300">/</li>
+        <li>
+          <a href="/collection" className="hover:underline hover:text-black transition">
+            Catálogo
+          </a>
+        </li>
+        <li className="mx-1 select-none text-neutral-300">/</li>
+        <li className="text-black font-semibold truncate max-w-[180px] sm:max-w-xs">
+          {nameCollection}
+        </li>
+      </ol>
+    </nav>
   );
 }
