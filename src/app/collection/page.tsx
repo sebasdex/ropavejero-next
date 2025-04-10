@@ -6,8 +6,8 @@ function Page() {
   return (
     <main className="min-h-screen px-8 py-20 bg-white text-black">
       {/* Breadcrumbs */}
-      <nav className="max-w-6xl mx-auto mb-12" aria-label="breadcrumb">
-        <ol className="flex items-center space-x-2 text-sm text-neutral-600 font-medium uppercase tracking-wide">
+      <nav className="max-w-7xl mx-auto px-4 mb-12" aria-label="breadcrumb">
+        <ol className="flex flex-wrap items-center text-[11px] sm:text-xs text-neutral-500 font-medium uppercase tracking-widest">
           <li>
             <a
               href="/"
@@ -16,19 +16,26 @@ function Page() {
               Inicio
             </a>
           </li>
+          <li className="mx-2 text-neutral-300 select-none">/</li>
           <li>
-            <span className="mx-2 text-neutral-400">→</span>
+            <a
+              href="/collection"
+              className="hover:underline hover:text-black transition-colors"
+            >
+              Colecciones
+            </a>
           </li>
-          <li className="text-neutral-800">Colecciones</li>
+          <li className="mx-2 text-neutral-300 select-none">/</li>
+          <li className="text-black font-semibold truncate max-w-[160px] sm:max-w-xs">
+            Nombre de la categoría
+          </li>
         </ol>
       </nav>
-
       {/* Title */}
-      <header className="max-w-6xl mx-auto mb-16 relative text-center">
+      <header className="max-w-7xl mx-auto mb-16 relative text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-center leading-none relative z-10">
           Colecciones
         </h1>
-
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center pointer-events-none">
           <span className="text-[10rem] md:text-[12rem] font-black text-black opacity-5 tracking-tighter">
             C
@@ -41,8 +48,8 @@ function Page() {
         </div>
       </header>
 
-      {/* Collections Grid */}
-      <section className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      {/* Grid */}
+      <section className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
         {dbCollection.map((item) => (
           <a
             href={item.link}
