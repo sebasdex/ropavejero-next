@@ -63,11 +63,11 @@ function Menubar() {
           className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2"
         >
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="Ropavejero Logo"
             width={36}
             height={36}
-            className="rounded-full border border-neutral-700 shadow-sm sm:w-10 sm:h-10 object-contain"
+            className="sm:w-12 sm:h-12 object-contain"
           />
           <span className="hidden sm:block text-white font-semibold text-lg sm:text-xl tracking-tight">
             Ropavejero

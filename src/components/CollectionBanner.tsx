@@ -1,7 +1,7 @@
 import Link from 'next/link'
 function CollectionBanner() {
     return (
-        <section className="w-full my-12 py-12 px-6 bg-black text-white max-w-screen-2xl mx-auto flex flex-col items-center gap-6">
+        <section className="w-full py-12 px-6 bg-black text-white max-w-screen-2xl flex flex-col items-center gap-6 mb-4">
             <p className="text-sm font-medium tracking-wider uppercase text-center">
                 Explora más estilos en nuestra colección completa
             </p>
