@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Ropavejero",
   description: "Tienda de ropa en linea",
+  icons: {
+    icon: "/icon.png",
+  }
 };
 
 export default function RootLayout({
