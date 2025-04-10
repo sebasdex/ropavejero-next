@@ -53,7 +53,7 @@ function Page() {
             <Image
               width={400}
               height={400}
-              src='/logo.png'
+              src='/contact-logo.webp'
               alt="Ropavejero Logo"
               className="w-full h-full object-contain rounded-lg shadow-md transform rotate-2 hover:rotate-0 transition-transform duration-300"
             />
