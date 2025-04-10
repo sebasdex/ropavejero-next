@@ -1,58 +1,61 @@
 "use client";
 import { dbShirts } from "@/db/db";
-import BasicBreadcrumbs from "@/components/ui/Breadcrumbs";
-import InfoClothes from "@/components/clothes-details/InfoClothes";
 import Image from "next/image";
+import InfoClothes from "@/components/clothes-details/InfoClothes";
+import BasicBreadcrumbs from "@/components/ui/Breadcrumbs";
+import RelatedProducts from "@/components/RelatedProducts";
 
-function page({ params }: { params: { id: string } }) {
+function ProductPage({ params }: { params: { id: string } }) {
   const { id } = params;
-  const idParse = Number(id);
-  const shirt = dbShirts.find((shirt) => shirt.id === idParse);
+  const shirt = dbShirts.find((s) => s.id === Number(id));
+
+  if (!shirt) {
+    return <div className="text-center py-20 text-neutral-400">Producto no encontrado</div>;
+  }
 
   return (
-    <div className="">
-      {shirt ? (
-        <>
-          <div className="flex md:w-9/12 lg:mx-auto p-4">
-            <BasicBreadcrumbs nameCollection={shirt?.name.toString()} />
-          </div>
-          <section className="flex flex-col md:flex-row justify-center gap-6 w-full mx-auto p-4">
-            <Image
-              src={shirt.image}
-              alt={` ${shirt.id}`}
-              className="w-full max-w-sm object-contain"
-              width={500}
-              height={500}
-            />
-            <InfoClothes shirt={shirt} />
-          </section>
-        </>
-      ) : (
-        <p>Shirt not found</p>
-      )}
-      <section className="p-4 m-auto w-full max-w-screen-lg text-gray-500 text-sm space-y-4">
-        <p>
-          En nuestra tienda, nos especializamos en ofrecer ropa que combina
-          calidad excepcional con diseños únicos. Cada una de nuestras prendas
-          está confeccionada con materiales de alta durabilidad, suaves al tacto
-          y diseñadas para brindar la máxima comodidad durante todo el día. Nos
-          enfocamos en los detalles, desde las costuras precisas hasta los
-          estampados exclusivos, para que cada prenda sea un reflejo de tu
-          estilo personal.
-        </p>
-        <p>
-          Ya sea que busques algo casual para el día a día o una opción moderna
-          y elegante, nuestras colecciones están diseñadas para adaptarse a ti.
-          Destacamos no solo por la durabilidad de nuestras prendas, sino
-          también por su diseño atemporal que complementa cualquier estilo.
-          Además, utilizamos procesos responsables y sostenibles, porque creemos
-          que la moda también debe cuidar el medio ambiente. ¡Descubre la
-          diferencia, elige nuestras prendas y siéntete seguro y cómodo en cada
-          ocasión!
-        </p>
+    <main className="w-full bg-white min-h-screen font-sans pt-8">
+      <div className="max-w-7xl mx-auto px-4 pt-6 pb-2 text-[11px] text-neutral-400 uppercase tracking-widest">
+        <BasicBreadcrumbs nameCollection={shirt.name} />
+      </div>
+      {/* Imagen + Info */}
+      <section className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10">
+        <div className="h-[460px] bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden shadow-sm flex items-center justify-center">
+          <Image
+            src={shirt.image}
+            alt={shirt.name}
+            width={800}
+            height={800}
+            className="object-contain w-full h-full p-6"
+          />
+        </div>
+        <div className="bg-white border border-neutral-200 rounded-xl px-6 pt-6 shadow-sm">
+          <InfoClothes shirt={shirt} />
+        </div>
       </section>
-    </div>
+
+      {/* Texto */}
+      <section className="w-full bg-neutral-100 px-4 py-20">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <h2 className="text-3xl md:text-4xl font-black uppercase leading-tight tracking-tight text-black">
+            No es una prenda.
+            <br />
+            Es una declaración.
+          </h2>
+          <p className="text-sm md:text-base text-neutral-700 leading-relaxed max-w-3xl">
+            Diseñada para destacar sin gritar. Hecha con materiales duraderos,
+            detalles cuidados, y una intención clara: expresar sin decir una palabra.
+          </p>
+        </div>
+      </section>
+      {/* Productos relacionados */}
+      <section className="px-4 py-16">
+        <div className="max-w-7xl mx-auto">
+          <RelatedProducts currentId={shirt.id} />
+        </div>
+      </section>
+    </main>
   );
 }
 
-export default page;
+export default ProductPage;
