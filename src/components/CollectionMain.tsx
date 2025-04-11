@@ -1,4 +1,5 @@
 "use client";
+
 import BannerCategory from "@/components/BannerCategory";
 import ColorElements from "@/components/categories/ColorElements";
 import NewCollections from "@/components/categories/NewCollections";
@@ -19,29 +20,26 @@ function CollectionMain({
   nameCollection: string;
 }) {
   const { isModalOpen } = useStore();
+
   return (
     <>
       {isModalOpen && <AddMessageCart />}
-      <div className="p-4 m-auto w-full">
-        <BasicBreadcrumbs nameCollection={nameCollection} />
-        <aside className="flex flex-col space-y-4 gap-8 lg:flex-row lg:space-y-0 lg:space-x-4">
-          <section className="order-2 lg:order-1">
-            <article className="">
-              <MenuCategories
-                textMenu="Colecciones"
-                myStyles=" text-gray-500 p-2 tracking-widest font-medium w-fit"
-              />
+
+      <div className="px-4 sm:px-8 lg:px-20 py-16 min-h-screen bg-white">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <BasicBreadcrumbs nameCollection={nameCollection} />
+          <BannerCategory categoryName={categoryName} categoryBG={categoryBG} />
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-16">
+            <aside className="lg:col-span-1 space-y-10">
+              <MenuCategories textMenu="Colecciones" />
               <NewCollections />
-            </article>
-          </section>
-          <article className="lg:order-2 order-1">
-            <BannerCategory
-              categoryName={categoryName}
-              categoryBG={categoryBG}
-            />
-            <ColorElements nameElement={nameElement} />
-          </article>
-        </aside>
+            </aside>
+            <main className="lg:col-span-3">
+              <ColorElements nameElement={nameElement} />
+            </main>
+          </div>
+        </div>
       </div>
     </>
   );

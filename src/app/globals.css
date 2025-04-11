@@ -6,24 +6,51 @@ body {
   background-color: rgb(210, 209, 209);
 }
 
-.custom-hover::before {
-  content: 'Más detalles';
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo con opacidad del 50% */
-  color: white;
-  opacity: 0;
-  padding: 0.5rem 1rem; /* px-4 py-2 */
-  transition: opacity 0.3s ease-in-out;
-  z-index: 10;
-  pointer-events: none;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.custom-hover:hover::before {
-  opacity: 1; /* Fondo visible con opacidad del 50% */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+/* Modal cart animation */
+@layer utilities {
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease-out forwards;
+  }
+
+  .animate-fade-out-down {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeOutDown 0.4s ease-in forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeOutDown {
+    to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  }
 }
 
 

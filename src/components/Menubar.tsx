@@ -1,82 +1,113 @@
 "use client";
+import { useState, useRef, useEffect } from "react";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import SubMenuBar from "./SubMenuBar";
-import { useState, useRef, useEffect } from "react";
-import CartSection from "./CartSection";
+import Image from "next/image";
+import Link from "next/link";
 import useStore from "@/store/myState";
+import SubMenuBar from "./SubMenuBar";
+import CartSection from "./CartSection";
 
 function Menubar() {
-  const [userButton, setUserButton] = useState<boolean>(false);
-  const [cartButton, setCartButton] = useState<boolean>(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const menuRefCart = useRef<HTMLDivElement>(null);
+  const [isUserOpen, setIsUserOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const userRef = useRef<HTMLDivElement>(null);
+  const cartRef = useRef<HTMLDivElement>(null);
   const { cart, initializeCart } = useStore();
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      setUserButton(false);
-    }
-  };
-  const handleClickOutsideCart = (event: MouseEvent) => {
-    if (
-      menuRefCart.current &&
-      !menuRefCart.current.contains(event.target as Node)
-    ) {
-      setCartButton(false);
-    }
-  };
-
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        userRef.current &&
+        !userRef.current.contains(event.target as Node) &&
+        cartRef.current &&
+        !cartRef.current.contains(event.target as Node)
+      ) {
+        setIsUserOpen(false);
+        setIsCartOpen(false);
+      }
+    };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutsideCart);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutsideCart);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
     initializeCart();
-  }, []);
+  }, [initializeCart]);
+
+  const toggleUserMenu = () => {
+    setIsUserOpen((prev) => !prev);
+    if (isCartOpen) setIsCartOpen(false);
+  };
+
+  const toggleCartMenu = () => {
+    setIsCartOpen((prev) => !prev);
+    if (isUserOpen) setIsUserOpen(false);
+  };
 
   return (
-    <>
-      <nav className="bg-black text-white z-50 fixed top-0 left-0 right-0 w-full">
-        <ul className="flex gap-3 p-2 items-center justify-end mx-auto min-w-32 max-w-screen-lg">
-          <li
-            className={`${"hover:bg-gray-900 rounded-full w-8 h-8 flex items-center justify-center relative"} ${
-              userButton ? "bg-gray-900" : ""
-            }`}
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-neutral-900/95 backdrop-blur-sm pt-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between relative">
+        {/* Botón usuario */}
+        <button
+          onClick={toggleUserMenu}
+          className="p-2 rounded-xl text-neutral-300 hover:text-white hover:bg-neutral-800 transition-all duration-200"
+          aria-label="User menu"
+        >
+          <PersonIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+        </button>
+
+        {/* Logo */}
+        <Link
+          href="/"
+          className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2"
+        >
+          <Image
+            src="/logo.webp"
+            alt="Ropavejero Logo"
+            width={36}
+            height={36}
+            className="sm:w-12 sm:h-12 object-contain"
+          />
+          <span className="hidden sm:block text-white font-semibold text-lg sm:text-xl tracking-tight">
+            Ropavejero
+          </span>
+        </Link>
+
+        {/* Botón carrito */}
+        <button
+          onClick={toggleCartMenu}
+          className="p-2 rounded-xl text-neutral-300 hover:text-white hover:bg-neutral-800 transition-all duration-200 relative"
+          aria-label="Cart"
+        >
+          <ShoppingCartOutlinedIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+          {cart.length > 0 && (
+            <span className="absolute -top-1.5 -right-1.5 w-4 h-4 sm:w-5 sm:h-5 bg-red-500 text-white text-[10px] sm:text-xs font-semibold rounded-full flex items-center justify-center shadow-md">
+              {cart.length}
+            </span>
+          )}
+        </button>
+
+        {/* Submenús */}
+        {isUserOpen && (
+          <div
+            ref={userRef}
+            className="absolute top-full left-4 sm:left-6 mt-2 w-60 sm:w-72"
           >
-            <button onClick={() => setUserButton(!userButton)}>
-              <PersonIcon fontSize="small" />
-            </button>
-            {userButton ? (
-              <div ref={menuRef}>
-                <SubMenuBar />
-              </div>
-            ) : null}
-          </li>
-          <li className="hover:bg-gray-900 rounded-full w-8 h-8 flex items-center justify-center">
-            <button onClick={() => setCartButton(!cartButton)}>
-              <ShoppingCartOutlinedIcon fontSize="small" />
-            </button>
-            {cartButton ? (
-              <div ref={menuRefCart} className="relative">
-                <CartSection setCartButton={setCartButton} />
-              </div>
-            ) : null}
-            <span className="text-xs">{cart.length > 0 ? cart.length : 0}</span>
-          </li>
-        </ul>
-      </nav>
-    </>
+            <SubMenuBar />
+          </div>
+        )}
+
+        {isCartOpen && (
+          <div
+            ref={cartRef}
+            className="absolute top-full right-4 sm:right-6 mt-2 w-64 sm:w-80"
+          >
+            <CartSection setCartButton={setIsCartOpen} />
+          </div>
+        )}
+      </div>
+    </nav>
   );
 }
 

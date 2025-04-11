@@ -1,50 +1,70 @@
 import React from "react";
 import { dbShirts } from "@/db/db";
 import Image from "next/image";
+import Link from "next/link";
 
 function NewCollections() {
   return (
-    <>
-      <article className="w-80 flex-2 lg:flex-1 rounded-lg p-4 flex flex-col gap-4">
-        <div className="relative flex items-center justify-center w-72 h-96 bg-menGrid bg-cover bg-bottom border before:block before:absolute before:-inset-0 before:bg-black before:opacity-20">
-          <p className="relative opacity-90 text-center text-white uppercase text-xl font-semibold">
-            Nuevas colecciones de ropa de moda
+    <div className="bg-white border border-neutral-200 rounded-xl overflow-hidden shadow-lg">
+      {/* Encabezado*/}
+      <div className="bg-black text-white px-6 py-4 uppercase font-bold text-xs tracking-widest border-b border-white/10">
+        Nuevas colecciones destacadas
+      </div>
+
+      {/* Banner */}
+      <div className="relative w-full h-56 bg-menGrid bg-cover bg-center">
+        <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-center px-6">
+          <p className="text-white text-lg sm:text-xl font-semibold leading-snug">
+            Estilo renovado.<br />
+            Mismo flow. <span className="opacity-80 text-sm block mt-1">¡Descúbrelo!</span>
           </p>
         </div>
-      </article>
-      <article>
-        <p className="uppercase font-medium p-1 tracking-wider text-gray-500 text-sm">
-          Products
-        </p>
-        <div className="flex flex-col">
-          {dbShirts.slice(0, 3).map((shirt) => (
-            <div key={shirt.id} className=" flex gap-2 items-center p-2 ">
+      </div>
+
+      {/* Lista de productos */}
+      <div className="p-6 space-y-6">
+        {dbShirts.slice(0, 3).map((shirt) => (
+          <div
+            key={shirt.id}
+            className="flex gap-4 items-start border-b last:border-b-0 border-gray-100 pb-4"
+          >
+            <div className="w-20 h-24 flex-shrink-0 overflow-hidden rounded-lg border border-gray-200">
               <Image
-                width={100}
-                height={100}
+                width={80}
+                height={96}
                 src={shirt.image}
                 alt={shirt.name}
-                className="w-24 h-28 object-cover object-bottom"
+                className="w-full h-full object-cover object-bottom"
               />
-              <div className="flex flex-col gap-1 text-base">
-                <span>
-                  <p>{shirt.name}</p>
-                  <p className="truncate w-40 capitalize">
-                    {shirt.description}
-                  </p>
-                </span>
-                <p className="font-semibold text-sm">
-                  ${shirt.price.toFixed(2)} MXN
+            </div>
+
+            <div className="flex flex-col justify-between text-sm w-full">
+              <div>
+                <p className="font-semibold uppercase text-black">
+                  {shirt.name}
                 </p>
-                <button className="bg-black text-white text-xs w-fit px-2 py-1 hover:bg-gray-500 uppercase">
-                  Ver
-                </button>
+                <p className="text-gray-500 mt-0.5 line-clamp-2">
+                  {shirt.description}
+                </p>
+              </div>
+
+              {/* Precio y link */}
+              <div className="mt-3 flex flex-col items-start gap-1">
+                <span className="text-black font-bold text-sm">
+                  ${shirt.price.toFixed(2)} MXN
+                </span>
+                <Link
+                  href={`/collection/${shirt.id}`}
+                  className="text-xs font-medium underline underline-offset-4 text-neutral-700 hover:text-black transition"
+                >
+                  Ver producto
+                </Link>
               </div>
             </div>
-          ))}
-        </div>
-      </article>
-    </>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

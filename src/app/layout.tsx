@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Ropavejero",
   description: "Tienda de ropa en linea",
+  icons: {
+    icon: "/icon.png",
+  }
 };
 
 export default function RootLayout({
@@ -21,13 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} relative flex flex-col min-h-dvh justify-between`}
+        className={`${inter.className} relative flex flex-col justify-between mt-28`}
       >
         <ArrowUp />
         <Menubar />
         <MenuLogo />
-
-        <div className="container mx-auto flex flex-col mb-auto mt-16">
+        <div className="container mx-auto flex flex-col mb-auto mt-16 bg-white">
           {children}
         </div>
         <Footer />

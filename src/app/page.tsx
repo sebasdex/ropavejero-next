@@ -2,6 +2,7 @@
 import AddMessageCart from "@/components/AddMessageCart";
 import Banner from "@/components/Banner";
 import Categories from "@/components/Categories";
+import CollectionBanner from "@/components/CollectionBanner";
 import MenuCategories from "@/components/MenuCategories";
 import Offer from "@/components/Offer";
 import PopularShirts from "@/components/PopularShirts";
@@ -18,16 +19,18 @@ export default function Home() {
       <Banner />
       <Categories />
       <Title text="Popular Products" />
-      <div className="flex w-full gap-3 mb-6 p-2">
-        <MenuCategories
-          textMenu="Categorías"
-          myStyles="bg-black text-sm text-white tracking-wider font-semibold p-4"
-        />
-        <PopularShirts />
+      <div className="w-full flex flex-col lg:flex-row gap-8 mx-auto pt-4 px-2">
+        <div className="w-full lg:w-72 p-5 flex-shrink-0">
+          <MenuCategories textMenu="Categorías" />
+        </div>
+        <div className="w-full flex-1">
+          <PopularShirts />
+        </div>
       </div>
       <Offer />
       <Title text="Tendencias" />
       <Trend />
+      <CollectionBanner />
     </>
   );
 }

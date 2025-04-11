@@ -1,99 +1,136 @@
 import React from "react";
+import Image from "next/image";
 
-function page() {
+function Page() {
+  const values = [
+    {
+      title: "Calidad",
+      desc: "Prendas duraderas, seleccionadas con pasión y precisión.",
+    },
+    {
+      title: "Servicio",
+      desc: "Atención personalizada que pone al cliente primero.",
+    },
+    {
+      title: "Sostenibilidad",
+      desc: "Moda que cuida el planeta, paso a paso.",
+    },
+    {
+      title: "Innovación",
+      desc: "A la vanguardia, siempre un paso adelante.",
+    },
+    {
+      title: "Comunidad",
+      desc: "Apoyamos lo local, crecemos juntos.",
+    },
+  ]
   return (
-    <main className=" p-8 flex flex-col gap-8 max-w-4xl mx-auto">
-      <section>
-        <h1 className="text-2xl font-extrabold mb-4">Sobre nosotros</h1>
-        <p>
-          En Ropavejero, somos más que una simple tienda de ropa; somos una
-          familia apasionada por la moda, comprometida con ofrecer productos de
-          calidad que se adapten a tu estilo de vida. Desde nuestros inicios en
-          2012, nos hemos enfocado en crear una experiencia de compra única y
-          accesible para todos.
+    <main className="min-h-screen px-6 py-16 bg-gradient-to-br from-white to-gray-100 text-gray-900">
+      <header className="max-w-5xl mx-auto mb-16 text-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-wider text-gray-900 relative inline-block">
+          Ropavejero
+          <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-gray-900 to-transparent rounded-full animate-fade-in"></span>
+        </h1>
+        <p className="mt-4 text-lg font-medium text-gray-700 italic">
+          Donde la moda encuentra su alma
         </p>
-      </section>
-
-      <section>
-        <h2 className="text-xl font-bold mb-4">Nuestra historia</h2>
-        <p>
-          Ropavejero comenzó con una visión simple: hacer que la moda de alta
-          calidad sea accesible para todos. Fundada en México, nació de la
-          necesidad de ofrecer una alternativa a las grandes cadenas
-          comerciales, centrada en la atención personalizada y en productos
-          cuidadosamente seleccionados. Lo que empezó como un pequeño negocio ha
-          crecido, gracias al apoyo de nuestra comunidad, convirtiéndose en un
-          destino en línea para quienes buscan ropa que combine estilo, confort
-          y durabilidad.
-        </p>
-      </section>
-
-      <section>
-        <h2 className="text-xl font-bold mb-4">Nuestra misión</h2>
-        <p>
-          Nuestra misión es ofrecer ropa de calidad que refleje las últimas
-          tendencias, sin dejar de lado los clásicos atemporales. Nos esforzamos
-          por ser una tienda que entiende las necesidades de sus clientes y que
-          trabaja incansablemente para superar sus expectativas. Queremos que
-          cada prenda que compres en [Nombre de la Tienda] te haga sentir seguro
-          y auténtico, porque creemos que la moda es una extensión de tu
-          personalidad.
-        </p>
-      </section>
-
-      <section>
-        <h2 className="text-xl font-bold mb-4">Nuestra visión</h2>
-        <p>
-          En Ropavejero, aspiramos a ser reconocidos como una marca líder en el
-          sector de la moda, no solo por la calidad de nuestros productos, sino
-          también por nuestro compromiso con la sostenibilidad y el comercio
-          justo. Nos visualizamos como un puente entre las tendencias globales y
-          las necesidades locales, siempre con un enfoque ético y responsable.
-          Nuestra visión es crecer junto a nuestros clientes, convirtiéndonos en
-          su primera opción al buscar prendas que les hagan sentir únicos.
-        </p>
-      </section>
-
-      <section>
-        <h2 className="text-xl font-bold mb-4">Nuestros valores</h2>
-        <ul className="list-disc pl-6 space-y-2">
-          <li>
-            <strong>Calidad:</strong> Cada prenda en nuestra tienda es
-            seleccionada con un alto estándar de calidad, asegurando que te
-            acompañe por mucho tiempo.
-          </li>
-          <li>
-            <strong>Servicio al Cliente:</strong> La satisfacción del cliente es
-            nuestra prioridad. Nos esforzamos por ofrecer un servicio
-            personalizado y atento en cada interacción.
-          </li>
-          <li>
-            <strong>Sostenibilidad:</strong> Creemos en un futuro donde la moda
-            no dañe el planeta. Nos comprometemos a ofrecer productos que
-            respeten el medio ambiente y a reducir nuestro impacto ecológico.
-          </li>
-          <li>
-            <strong>Innovación:</strong> Nos mantenemos a la vanguardia de las
-            tendencias y tecnologías para ofrecerte lo mejor en moda y en
-            experiencia de compra.
-          </li>
-          <li>
-            <strong>Compromiso Local:</strong> Valoramos y apoyamos a nuestra
-            comunidad. Trabajamos con proveedores locales y nos esforzamos por
-            contribuir al desarrollo económico de nuestra región.
-          </li>
-        </ul>
-      </section>
-
-      <footer className="mt-8">
-        <p className="text-center">
-          Gracias por formar parte de la familia Ropavejero. Esperamos seguir
-          creciendo juntos y acompañarte en cada paso de tu camino estilístico.
-          ¡Bienvenido a una nueva forma de vivir la moda!
-        </p>
-      </footer>
+      </header>
+      <div className="max-w-5xl mx-auto space-y-20">
+        <section className="relative flex flex-col md:flex-row items-center gap-8">
+          <div className="flex-1">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight transform -rotate-2 bg-gray-200 inline-block px-4 py-2 rounded-md shadow-lg">
+              Sobre nosotros
+            </h2>
+            <p className="text-gray-800 text-base leading-loose">
+              En <span className="font-bold text-gray-900">Ropavejero</span>,
+              somos una familia apasionada por la moda, dedicada a ofrecer
+              piezas únicas que resuenan con tu estilo de vida. Desde 2012,
+              hemos transformado la compra en una experiencia personal y
+              auténtica, fusionando calidad y creatividad en cada prenda.
+            </p>
+          </div>
+          <div className="flex-1 h-64">
+            <Image
+              width={400}
+              height={400}
+              src='/contact-logo.webp'
+              alt="Ropavejero Logo"
+              className="w-full h-full object-contain rounded-lg shadow-md transform rotate-2 hover:rotate-0 transition-transform duration-300"
+            />
+          </div>
+        </section>
+        <section className="relative">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 tracking-tight text-center">
+            Nuestra historia
+          </h2>
+          <div className="bg-white p-8 rounded-xl shadow-xl border-l-8 border-gray-900">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Todo comenzó en México con un sueño: democratizar la moda de
+              calidad. Desde un pequeño taller en 2012,{" "}
+              <span className="font-bold text-gray-900">Ropavejero</span> ha
+              crecido gracias a nuestra comunidad, convirtiéndose en un refugio
+              digital para quienes buscan estilo, confort y durabilidad en cada
+              costura. Somos la alternativa a lo masivo, con un toque humano.
+            </p>
+          </div>
+        </section>
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="relative bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">
+              Nuestra misión
+            </h2>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Crear ropa que hable por ti: tendencias frescas y clásicos
+              eternos, diseñados para superar expectativas. En{" "}
+              <span className="font-bold text-gray-900">Ropavejero</span>,
+              cada prenda es una invitación a sentirte seguro y auténtico.
+            </p>
+            <span className="absolute -top-3 -left-3 w-6 h-6 bg-gray-900 rounded-full"></span>
+          </div>
+          <div className="relative bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">
+              Nuestra visión
+            </h2>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Ser un ícono de moda sostenible y ética, conectando lo global con
+              lo local. Aspiramos a que{" "}
+              <span className="font-bold text-gray-900">Ropavejero</span> sea tu
+              elección para prendas que celebran tu unicidad.
+            </p>
+            <span className="absolute -bottom-3 -right-3 w-6 h-6 bg-gray-900 rounded-full"></span>
+          </div>
+        </section>
+        <section className="relative">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight text-center">
+            Nuestros valores
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {
+              values.map((value, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-4 rounded-md shadow-md hover:-translate-y-2 transition-transform duration-300 border-t-4 border-gray-900"
+                >
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {value.desc}
+                  </p>
+                </div>
+              ))}
+          </div>
+        </section>
+        <footer className="mt-16 py-8 text-center border-t-2 border-gray-200">
+          <p className="text-gray-800 text-lg font-medium leading-relaxed">
+            Únete a la familia{" "}
+            <span className="font-bold text-gray-900">Ropavejero</span>. Juntos,
+            redefinimos la moda con estilo, propósito y corazón.
+          </p>
+        </footer>
+      </div>
     </main>
   );
 }
 
-export default page;
+export default Page;

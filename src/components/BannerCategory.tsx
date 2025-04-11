@@ -9,11 +9,18 @@ function BannerCategory({
 }) {
   return (
     <section
-      className={`w-full md:h-72 h-36 flex flex-col items-center justify-center bg-cover bg-center ${categoryBG}`}
+      className={`relative w-full h-[300px] bg-cover bg-center rounded-xl overflow-hidden flex items-center justify-start ${categoryBG}`}
     >
-      <h1 className="text-center text-4xl font-semibold text-white">
-        {categoryName}
-      </h1>
+      <div className="absolute inset-0 bg-black/60" />
+
+      <div className="relative z-10 pl-8 sm:pl-12 max-w-xl">
+        <h1 className="text-white text-4xl sm:text-5xl font-semibold uppercase leading-snug tracking-wider">
+          {categoryName}
+        </h1>
+        <p className="mt-2 text-white/70 text-base sm:text-lg">
+          Una mirada visual a esta categoría, donde el estilo se siente desde la entrada.
+        </p>
+      </div>
     </section>
   );
 }

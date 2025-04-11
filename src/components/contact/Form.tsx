@@ -4,47 +4,51 @@ function Form() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
+
   return (
     <form
-      className=" flex flex-col gap-6 w-full mx-auto"
       onSubmit={handleSubmit}
+      className="bg-white border border-black rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300"
     >
-      <legend className="text-xl font-semibold uppercase">Contáctanos</legend>
+      <h2 className="text-2xl font-bold uppercase mb-8 tracking-wide">
+        Escríbenos
+        <span className="block w-10 h-1 bg-black mt-2" />
+      </h2>
 
-      <div className="flex flex-col gap-2">
+      <p className="text-sm text-gray-600 mb-6">
+        Te responderemos lo antes posible. Gracias por comunicarte con nosotros.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <input
           type="text"
-          id="name"
           name="name"
-          className="w-full border border-gray-500 p-3 outline-none focus:border-gray-500 transition duration-300 bg-transparent placeholder-gray-700"
-          placeholder="Nombre"
+          placeholder="Nombre completo"
+          required
+          className="border border-gray-300 p-3 rounded-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black transition"
         />
-      </div>
-
-      <div className="flex flex-col gap-2">
         <input
           type="email"
-          id="email"
           name="email"
-          className="w-full border border-gray-500 p-3 outline-none focus:border-gray-500 transition duration-300 bg-transparent placeholder-gray-700"
-          placeholder="Email"
+          placeholder="Correo electrónico"
+          required
+          className="border border-gray-300 p-3 rounded-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black transition"
         />
       </div>
 
-      <div className="flex flex-col gap-2">
-        <textarea
-          id="message"
-          name="message"
-          className="w-full min-h-32 border border-gray-500 p-3 outline-none focus:border-gray-500 transition duration-300 bg-transparent resize-none placeholder-gray-700"
-          placeholder="Escribe tu mensaje"
-        ></textarea>
-      </div>
+      <textarea
+        name="message"
+        rows={6}
+        placeholder="Cuéntanos cómo podemos ayudarte..."
+        required
+        className="w-full border border-gray-300 p-3 rounded-md placeholder-gray-500 resize-none focus:outline-none focus:ring-2 focus:ring-black transition mb-6"
+      />
 
       <button
         type="submit"
-        className="w-full bg-black text-white font-medium py-3 px-6 rounded-lg hover:bg-gray-900 transition duration-300"
+        className="w-full bg-black text-white py-3 rounded-md font-semibold hover:bg-gray-800 transition duration-300"
       >
-        Enviar
+        Enviar mensaje
       </button>
     </form>
   );

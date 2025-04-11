@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { Shirt } from "@/db/db";
-import SocialMediaInfo from "./SocialMediaInfo";
 import useStore from "@/store/myState";
 import AddMessageCart from "../AddMessageCart";
+import SocialMediaInfo from "./SocialMediaInfo";
 
 function InfoClothes({ shirt }: { shirt: Shirt }) {
   const {
@@ -18,70 +17,66 @@ function InfoClothes({ shirt }: { shirt: Shirt }) {
   return (
     <>
       {isModalOpen && <AddMessageCart />}
-      <article className="px-4 w-full max-w-lg space-y-2">
-        <h1 className="text-2xl font-bold uppercase tracking-wider mb-6">
-          {shirt.name}
-        </h1>
-        <p className="font-bold text-sm">
-          Stock:
-          <span
-            className={
-              shirt.available ? "text-green-700 font-normal" : "text-red-500"
-            }
-          >
-            {" "}
-            {shirt.available ? "Disponible" : "No Disponible"}
-          </span>
-        </p>
-        <p className="font-bold text-sm">
-          Colección:{" "}
-          <span className="font-normal capitalize">{shirt.category}</span>
-        </p>
-        <p className="font-bold text-sm">
-          Código:{" "}
-          <span className="font-normal capitalize">{shirt.barcode}</span>
-        </p>
-        <p className="font-bold text-sm">
-          Descripción:{" "}
-          <span className="font-normal capitalize">{shirt.description}</span>
-        </p>
-        <p className="font-bold text-sm">
-          Material:{" "}
-          <span className="font-normal capitalize">{shirt.material}</span>
-        </p>
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between py-4">
-          <p className="font-bold text-2xl">${shirt.price.toFixed(2)} MXN</p>
-          <div className="flex items-center space-x-2">
-            <p>Cantidad:</p>
+      <div className="space-y-6 text-neutral-900">
+        {/* Precio */}
+        <div className="space-y-1">
+          <h1 className="text-3xl font-black uppercase tracking-tight">
+            {shirt.name}
+          </h1>
+          <p className="text-xl font-semibold text-neutral-800">
+            ${shirt.price.toFixed(2)} MXN
+          </p>
+        </div>
+        {/* Descripción */}
+        <div className="space-y-2 pt-2">
+          <h3 className="text-sm uppercase font-semibold text-neutral-500 tracking-wide">
+            Descripción del producto
+          </h3>
+          <p className="text-sm text-neutral-700 leading-relaxed">
+            {shirt.description}
+          </p>
+        </div>
+        {/* Datos */}
+        <div className="grid grid-cols-2 gap-y-1 text-sm text-neutral-600 pt-4">
+          <p><strong>Stock:</strong> {shirt.available ? "Disponible" : "Agotado"}</p>
+          <p><strong>Material:</strong> {shirt.material}</p>
+          <p><strong>Categoría:</strong> {shirt.category}</p>
+          <p><strong>Código:</strong> {shirt.barcode}</p>
+        </div>
+        <div className="mt-8 w-full bg-neutral-50 border border-neutral-200 rounded-lg px-5 py-6 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="flex items-center gap-4">
             <button
-              className="border border-gray-400 px-2 font-bold text-xl hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all duration-300 ease-in-out"
               onClick={removeQuantityToBuy}
+              className="w-10 h-10 rounded-full bg-white border border-neutral-300 text-xl font-bold text-neutral-700 transition-all duration-200 hover:bg-black hover:text-white hover:scale-105"
             >
-              -
+              −
             </button>
-            <p className="text-lg text-gray-500 border px-2 border-gray-400">
+            <span className="text-lg font-bold text-neutral-800 min-w-[32px] text-center">
               {quantityToBuy}
-            </p>
+            </span>
             <button
-              className="border border-gray-400 px-2 font-bold text-xl hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all duration-300 ease-in-out"
               onClick={addQuantityToBuy}
+              className="w-10 h-10 rounded-full bg-white border border-neutral-300 text-xl font-bold text-neutral-700 transition-all duration-200 hover:bg-black hover:text-white hover:scale-105"
             >
               +
             </button>
           </div>
+          <button
+            onClick={() => {
+              addItemToBuy(shirt, quantityToBuy);
+              currentShirtAdd(shirt);
+              openModal();
+            }}
+            className="w-full sm:w-auto uppercase text-sm font-bold bg-black text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg hover:scale-[1.02]"
+          >
+            Añadir al carrito
+          </button>
         </div>
-        <button
-          className="bg-black text-white p-3 uppercase font-bold hover:bg-gray-800 transition-all duration-300 ease-in-out"
-          onClick={() => {
-            addItemToBuy(shirt, quantityToBuy);
-            currentShirtAdd(shirt);
-            openModal();
-          }}
-        >
-          Agregar al carrito
-        </button>
-        <SocialMediaInfo />
-      </article>
+        {/* Redes */}
+        <div className="pt-6">
+          <SocialMediaInfo />
+        </div>
+      </div>
     </>
   );
 }

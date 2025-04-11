@@ -1,21 +1,21 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 
-function ButtonsCart() {
+export default function ButtonsCart() {
   const router = useRouter();
+
   return (
-    <div className="flex justify-between text-white py-2">
+    <div className="flex flex-col sm:flex-row justify-between gap-3 pt-4">
       <button
-        className="bg-black p-2 hover:bg-gray-800 text-xs sm:text-sm md:text-base"
         onClick={() => router.push("/")}
+        className="w-full sm:w-auto text-sm uppercase font-medium border border-black px-5 py-2 rounded-md hover:bg-black hover:text-white transition"
       >
-        Continuar comprando
+        Seguir comprando
       </button>
-      <button className="bg-black p-2 hover:bg-gray-800 text-xs sm:text-sm md:text-base">
-        Proceder al pago.
+      <button className="w-full sm:w-auto text-sm uppercase font-semibold bg-black text-white px-5 py-2 rounded-md hover:bg-neutral-800 transition">
+        Proceder al pago
       </button>
     </div>
   );
 }
-
-export default ButtonsCart;
