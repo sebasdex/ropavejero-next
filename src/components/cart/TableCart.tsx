@@ -1,164 +1,81 @@
+"use client";
 import useStore from "@/store/myState";
 import Image from "next/image";
-import React from "react";
 
-function TableCart() {
-  const { cart, removeFromCart, addToCart, minusFromCart } = useStore();
+export default function TableCart() {
+  const { cart, addToCart, minusFromCart, removeFromCart } = useStore();
+  if (cart.length === 0) {
+    return (
+      <p className="text-center text-neutral-500">Tu carrito está vacío.</p>
+    );
+  }
 
   return (
-    <div>
-      {/* Tabla para pantallas medianas y grandes */}
-      <div className="overflow-x-auto hidden md:block">
-        <table className="table-auto w-full border-collapse">
-          <thead className="">
-            <tr>
-              <th className="text-start">Nombre</th>
-              <th className="text-start">Precio</th>
-              <th className="text-start">Cantidad</th>
-              <th className="text-start">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.map((shirt) => (
-              <tr key={shirt.id} className="">
-                <td className="py-4">
-                  {shirt.image && (
-                    <div className="flex items-center gap-4">
-                      <img
-                        src={shirt.image}
-                        alt={shirt.name}
-                        className="w-24 h-32 object-contain"
-                      />
-                      <div>
-                        <p className="text-black font-bold">{shirt.name}</p>
-                        <p className="capitalize text-gray-500">
-                          {shirt.category}
-                        </p>
-                        <p className="truncate w-40 text-gray-500">
-                          {shirt.description}
-                        </p>
-                        <p className="text-gray-500">{shirt.trend}</p>
-                        <button
-                          className="bg-black p-2 hover:bg-gray-800 text-white uppercase text-sm px-4 my-2"
-                          onClick={() => removeFromCart(shirt)}
-                        >
-                          Eliminar
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </td>
-                <td className="py-4">
-                  <p>${shirt.price.toFixed(2)}</p>
-                </td>
-                <td className="py-4">
-                  <div className="flex items-center gap-2">
-                    <button
-                      className="border border-gray-400 px-2"
-                      onClick={() => minusFromCart(shirt)}
-                    >
-                      -
-                    </button>
-                    <p className="border border-gray-400 px-2">
-                      {shirt.quantity}
-                    </p>
-                    <button
-                      className="border border-gray-400 px-2"
-                      onClick={() => addToCart(shirt)}
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-                <td className="py-4">
-                  ${(shirt.price * shirt.quantity).toFixed(2)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot className="">
-            <tr>
-              <td className="text-start font-bold text-gray-500 py-2">Total</td>
-              <td></td>
-              <td></td>
-              <td className="text-start font-bold">
-                $
-                {cart
-                  .reduce(
-                    (total, shirt) => total + shirt.price * shirt.quantity,
-                    0
-                  )
-                  .toFixed(2)}
-              </td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+    <>
+      {cart.map((item) => (
+        <div
+          key={item.id}
+          className="flex gap-4 bg-white border border-neutral-200 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+        >
+          {/* Imagen */}
+          <Image
+            src={item.image}
+            alt={item.name}
+            width={90}
+            height={110}
+            className="w-20 h-28 object-contain bg-neutral-100 rounded-md"
+          />
+          {/* Info */}
+          <div className="flex-1 flex flex-col justify-between min-w-0">
+            <div className="space-y-1">
+              <h2 className="text-sm font-semibold uppercase truncate">
+                {item.name}
+              </h2>
+              <p className="text-xs text-neutral-500 truncate">
+                {item.category}
+              </p>
+              <p className="text-xs text-neutral-500 line-clamp-2">
+                {item.description}
+              </p>
+            </div>
 
-      {/* Tarjetas para pantallas pequeñas */}
-      <div className="md:hidden">
-        {cart.map((shirt) => (
-          <div key={shirt.id} className="py-4">
-            <div className="flex items-start gap-4">
-              <Image
-                width={100}
-                height={100}
-                src={shirt.image}
-                alt={shirt.name}
-                className="w-24 h-32 object-contain"
-              />
-              <div>
-                <p className="text-black font-bold">{shirt.name}</p>
-                <p className="capitalize text-gray-500">{shirt.category}</p>
-                <p className="truncate w-40 text-gray-500">
-                  {shirt.description}
-                </p>
-                <p className="text-gray-500">{shirt.trend}</p>
-                <p className="text-gray-500">
-                  Precio: ${shirt.price.toFixed(2)}
-                </p>
-                <div className="flex items-center gap-2 mt-2">
-                  <button
-                    className="border border-gray-400 px-2"
-                    onClick={() => minusFromCart(shirt)}
-                  >
-                    -
-                  </button>
-                  <p className="border border-gray-400 px-2">
-                    {shirt.quantity}
-                  </p>
-                  <button
-                    className="border border-gray-400 px-2"
-                    onClick={() => addToCart(shirt)}
-                  >
-                    +
-                  </button>
-                </div>
-                <p className="text-gray-500 mt-2">
-                  Total: ${(shirt.price * shirt.quantity).toFixed(2)}
-                </p>
+            {/* Total */}
+            <div className="flex justify-between items-center mt-3">
+              <div className="flex items-center gap-2 text-sm">
                 <button
-                  className="bg-black p-2 hover:bg-gray-800 text-white uppercase text-sm px-4 my-2"
-                  onClick={() => removeFromCart(shirt)}
+                  onClick={() => minusFromCart(item)}
+                  className="w-6 h-6 rounded border border-neutral-400 hover:bg-black hover:text-white transition"
                 >
-                  Eliminar
+                  −
+                </button>
+                <span>{item.quantity}</span>
+                <button
+                  onClick={() => addToCart(item)}
+                  className="w-6 h-6 rounded border border-neutral-400 hover:bg-black hover:text-white transition"
+                >
+                  +
                 </button>
               </div>
+
+              <div className="text-sm font-bold text-black">
+                ${(item.price * item.quantity).toFixed(2)}MXN
+              </div>
+            </div>
+            {/* Botones */}
+            <div className="flex justify-between text-xs mt-2">
+              <button
+                onClick={() => removeFromCart(item)}
+                className="text-red-600 hover:underline"
+              >
+                Eliminar
+              </button>
+              <span className="text-neutral-400">
+                u: ${item.price.toFixed(2)}MXN
+              </span>
             </div>
           </div>
-        ))}
-        {/* Total */}
-        <div className="">
-          <p className="text-start font-bold text-gray-500">
-            Total: $
-            {cart
-              .reduce((total, shirt) => total + shirt.price * shirt.quantity, 0)
-              .toFixed(2)}
-          </p>
         </div>
-      </div>
-    </div>
+      ))}
+    </>
   );
 }
-
-export default TableCart;

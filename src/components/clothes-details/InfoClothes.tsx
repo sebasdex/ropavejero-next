@@ -17,19 +17,32 @@ function InfoClothes({ shirt }: { shirt: Shirt }) {
   return (
     <>
       {isModalOpen && <AddMessageCart />}
-
       <div className="space-y-6 text-neutral-900">
+        {/* Precio */}
         <div className="space-y-1">
-          <h1 className="text-3xl font-black uppercase tracking-tight">{shirt.name}</h1>
-          <p className="text-xl font-semibold text-neutral-800">${shirt.price.toFixed(2)} MXN</p>
+          <h1 className="text-3xl font-black uppercase tracking-tight">
+            {shirt.name}
+          </h1>
+          <p className="text-xl font-semibold text-neutral-800">
+            ${shirt.price.toFixed(2)} MXN
+          </p>
         </div>
+        {/* Descripción */}
+        <div className="space-y-2 pt-2">
+          <h3 className="text-sm uppercase font-semibold text-neutral-500 tracking-wide">
+            Descripción del producto
+          </h3>
+          <p className="text-sm text-neutral-700 leading-relaxed">
+            {shirt.description}
+          </p>
+        </div>
+        {/* Datos */}
         <div className="grid grid-cols-2 gap-y-1 text-sm text-neutral-600 pt-4">
           <p><strong>Stock:</strong> {shirt.available ? "Disponible" : "Agotado"}</p>
           <p><strong>Material:</strong> {shirt.material}</p>
           <p><strong>Categoría:</strong> {shirt.category}</p>
           <p><strong>Código:</strong> {shirt.barcode}</p>
         </div>
-
         <div className="mt-8 w-full bg-neutral-50 border border-neutral-200 rounded-lg px-5 py-6 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="flex items-center gap-4">
             <button
@@ -59,6 +72,7 @@ function InfoClothes({ shirt }: { shirt: Shirt }) {
             Añadir al carrito
           </button>
         </div>
+        {/* Redes */}
         <div className="pt-6">
           <SocialMediaInfo />
         </div>
