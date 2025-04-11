@@ -1,18 +1,23 @@
 "use client";
-import * as React from "react";
-import Typography from "@mui/material/Typography";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
 
 export default function BreadcrumbsCart() {
   return (
-    <div role="presentation">
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
-          Incio
-        </Link>
-        <Typography color="text.primary">Tu carrito de compras</Typography>
-      </Breadcrumbs>
-    </div>
+    <nav
+      className="w-full max-w-7xl mx-auto mb-10 px-4 sm:px-6 lg:px-8"
+      aria-label="breadcrumb"
+    >
+      <ol className="flex items-center gap-2 text-[13px] sm:text-sm text-neutral-500 font-medium tracking-wide uppercase">
+        <li>
+          <a
+            href="/"
+            className="hover:underline hover:text-black transition-colors"
+          >
+            Inicio
+          </a>
+        </li>
+        <li className="text-neutral-400">/</li>
+        <li className="text-neutral-700 font-semibold">Tu orden</li>
+      </ol>
+    </nav>
   );
 }
