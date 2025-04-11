@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import useStore from "@/store/myState";
@@ -9,55 +8,53 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 function CartSection({ setCartButton }: { setCartButton: (value: boolean) => void }) {
   const { cart, removeFromCart } = useStore();
   const router = useRouter();
-
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
 
   return (
-    <section className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto bg-neutral-900/95 backdrop-blur-md text-white rounded-2xl shadow-2xl px-5 py-6 sm:p-6 md:p-8 border border-white/10 space-y-6">
-      <div className="flex justify-between items-center border-b border-white/10 pb-4">
-        <h2 className="text-lg sm:text-xl font-bold tracking-wide">Tu carrito</h2>
+    <section className="w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto bg-white text-neutral-900 rounded-2xl shadow-2xl px-6 py-6 border border-neutral-200 space-y-6 animate-fade-in">
+      {/* Header */}
+      <div className="flex justify-between items-center border-b border-neutral-200 pb-4">
+        <h2 className="text-xl font-bold tracking-tight">Tu carrito</h2>
         <button
           onClick={() => setCartButton(false)}
-          className="text-white/50 hover:text-white transition"
           aria-label="Cerrar carrito"
+          className="text-neutral-500 hover:text-black transition"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
-      <div className="max-h-[30vh] lg:max-h-[20vh] overflow-y-auto space-y-6 pr-1">
+      {/* List */}
+      <div className="overflow-y-auto max-h-[320px] space-y-4 pr-1 custom-scrollbar">
         {cart.length > 0 ? (
-          cart.map((item) => (
+          [...cart].reverse().map((item) => (
             <article
               key={item.id}
-              className="flex gap-4 bg-white/5 p-4 rounded-xl hover:bg-white/10 transition"
+              className="flex gap-4 items-start bg-neutral-50 hover:bg-neutral-100 rounded-xl p-4 border border-neutral-200 transition-all group"
             >
               <Image
                 src={item.image}
                 alt={item.name}
                 width={64}
                 height={64}
-                className="rounded-lg object-cover w-16 h-16 border border-white/10 flex-shrink-0"
+                className="w-16 h-16 object-cover rounded-md border border-neutral-200 flex-shrink-0"
               />
-
-              <div className="flex-1 flex flex-col justify-between min-w-0 gap-2">
-                <h3 className="text-sm font-semibold text-white line-clamp-1 break-words">
-                  {item.name}
-                </h3>
-                <p className="text-xs text-white/60">
-                  ${item.price.toFixed(2)}{' '}MXN x {item.quantity}
+              <div className="flex-1 min-w-0 space-y-1">
+                <h3 className="text-sm font-semibold line-clamp-1">{item.name}</h3>
+                <p className="text-xs text-neutral-500">
+                  ${item.price.toFixed(2)} x {item.quantity}
                 </p>
-                <div className="flex justify-between items-center mt-1">
-                  <p className="text-sm font-semibold text-white">
-                    ${(item.price * item.quantity).toFixed(2)}{' '}
-                    <span className="text-xs text-white/60">MXN</span>
-                  </p>
+                <div className="flex justify-between items-center pt-1">
+                  <span className="text-sm font-bold">
+                    ${(item.price * item.quantity).toFixed(2)}{" "}
+                    <span className="text-xs text-neutral-500">MXN</span>
+                  </span>
                   <button
                     onClick={() => removeFromCart(item)}
-                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-red-500/20 text-white/70 hover:text-red-400 transition"
-                    aria-label={`Eliminar ${item.name}`}
+                    aria-label="Eliminar"
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-100 hover:bg-red-100 text-neutral-600 hover:text-red-500 transition"
                   >
                     <DeleteIcon className="w-4 h-4" />
                   </button>
@@ -66,12 +63,12 @@ function CartSection({ setCartButton }: { setCartButton: (value: boolean) => voi
             </article>
           ))
         ) : (
-          <div className="flex flex-col items-center justify-center text-center h-40 gap-4">
-            <ShoppingCartIcon className="w-10 h-10 text-white/30" />
-            <p className="text-sm text-white/60">Tu carrito está vacío</p>
+          <div className="flex flex-col items-center justify-center text-center h-44 gap-4">
+            <ShoppingCartIcon className="w-10 h-10 text-neutral-300" />
+            <p className="text-sm text-neutral-500">Tu carrito está vacío</p>
             <button
               onClick={() => setCartButton(false)}
-              className="px-4 py-2 bg-white/10 text-white rounded-full text-sm hover:bg-white/20 transition"
+              className="px-4 py-2 bg-neutral-100 text-neutral-700 rounded-full text-sm hover:bg-neutral-200 transition"
             >
               Seguir comprando
             </button>
@@ -79,18 +76,19 @@ function CartSection({ setCartButton }: { setCartButton: (value: boolean) => voi
         )}
       </div>
 
+      {/* Footer */}
       {cart.length > 0 && (
-        <footer className="pt-5 border-t border-white/10 space-y-4">
-          <div className="flex justify-between text-sm text-white/80">
+        <footer className="pt-4 border-t border-neutral-200 space-y-4">
+          <div className="flex justify-between items-center text-sm text-neutral-700">
             <span>Total</span>
-            <span className="text-lg font-bold text-white">${total}{' '}MXN</span>
+            <span className="text-lg font-bold text-black">${total} MXN</span>
           </div>
           <button
             onClick={() => {
               router.push("/cart");
               setCartButton(false);
             }}
-            className="w-full bg-red-500 hover:bg-red-400 text-white text-sm font-semibold py-3 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
+            className="w-full py-3 rounded-full bg-black text-white text-sm font-semibold tracking-wide hover:bg-neutral-800 transition-all duration-300 hover:scale-[1.01] active:scale-95"
           >
             Pagar ahora
           </button>
