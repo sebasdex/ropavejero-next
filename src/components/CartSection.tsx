@@ -47,11 +47,12 @@ function CartSection({ setCartButton }: { setCartButton: (value: boolean) => voi
                   {item.name}
                 </h3>
                 <p className="text-xs text-white/60">
-                  ${item.price.toFixed(2)} x {item.quantity}
+                  ${item.price.toFixed(2)}{' '}MXN x {item.quantity}
                 </p>
                 <div className="flex justify-between items-center mt-1">
                   <p className="text-sm font-semibold text-white">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    ${(item.price * item.quantity).toFixed(2)}{' '}
+                    <span className="text-xs text-white/60">MXN</span>
                   </p>
                   <button
                     onClick={() => removeFromCart(item)}
@@ -82,7 +83,7 @@ function CartSection({ setCartButton }: { setCartButton: (value: boolean) => voi
         <footer className="pt-5 border-t border-white/10 space-y-4">
           <div className="flex justify-between text-sm text-white/80">
             <span>Total</span>
-            <span className="text-lg font-bold text-white">${total}</span>
+            <span className="text-lg font-bold text-white">${total}{' '}MXN</span>
           </div>
           <button
             onClick={() => {
