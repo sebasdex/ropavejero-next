@@ -8,31 +8,53 @@ function shuffleArray<T>(array: T[]): T[] {
     return [...array].sort(() => Math.random() - 0.5);
 }
 
-function RelatedProducts({ currentId }: { currentId: number }) {
-    const currentProduct = dbShirts.find((s) => s.id === currentId);
+type Props =
+    | { currentId: number; category?: never; excludeIds?: never }
+    | { category: string; excludeIds?: number[]; currentId?: never };
+
+function RelatedProducts(props: Props) {
     const [related, setRelated] = useState<typeof dbShirts>([]);
 
     useEffect(() => {
-        if (!currentProduct) return;
-        const filtered = dbShirts.filter(
-            (shirt) => shirt.category === currentProduct.category && shirt.id !== currentId
-        );
+        let filtered: typeof dbShirts = [];
+        if ("currentId" in props) {
+            const currentProduct = dbShirts.find((s) => s.id === props.currentId);
+            if (!currentProduct) return;
+            filtered = dbShirts.filter(
+                (shirt) =>
+                    shirt.category === currentProduct.category &&
+                    shirt.id !== props.currentId
+            );
+        }
+
+        if ("category" in props) {
+            filtered = dbShirts.filter(
+                (shirt) =>
+                    shirt.category === props.category &&
+                    !props.excludeIds?.includes(shirt.id)
+            );
+        }
+
         const randomized = shuffleArray(filtered).slice(0, 6);
         setRelated(randomized);
-    }, [currentId]);
+    }, [props]);
 
-    if (!currentProduct || related.length === 0) return null;
+    if (related.length === 0) return null;
 
     return (
-        <div className="space-y-4">
-            <h3 className="text-xl font-bold uppercase tracking-wide mb-4">
+        <div className="space-y-6 mt-16">
+            <h3 className="text-xl font-bold uppercase tracking-wide mb-2">
                 También podría gustarte
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
                 {related.map((shirt) => (
-                    <Link key={shirt.id} href={`/collection/${shirt.id}`} className="group">
-                        <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white transition-all duration-200 transform group-hover:shadow-lg group-hover:scale-105">
+                    <Link
+                        key={shirt.id}
+                        href={`/collection/${shirt.id}`}
+                        className="group"
+                    >
+                        <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white transition-all duration-300 transform group-hover:shadow-md group-hover:scale-[1.03] flex flex-col h-full">
                             <div className="overflow-hidden h-40">
                                 <Image
                                     src={shirt.image}
@@ -42,16 +64,16 @@ function RelatedProducts({ currentId }: { currentId: number }) {
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                 />
                             </div>
-                            <div className="p-2 text-xs text-center text-neutral-800 font-medium group-hover:underline transition-colors">
+                            <div className="p-2 text-xs text-center text-neutral-800 font-medium group-hover:underline transition-colors h-[40px] line-clamp-2">
                                 {shirt.name}
                             </div>
+
                         </div>
                     </Link>
                 ))}
             </div>
         </div>
     );
-
 }
 
 export default RelatedProducts;
