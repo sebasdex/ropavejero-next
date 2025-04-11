@@ -8,9 +8,15 @@ function shuffleArray<T>(array: T[]): T[] {
     return [...array].sort(() => Math.random() - 0.5);
 }
 
-type Props =
-    | { currentId: number; category?: never; excludeIds?: never }
-    | { category: string; excludeIds?: number[]; currentId?: never };
+type Props = {
+    currentId: number;
+    category?: never;
+    excludeIds?: never;
+} | {
+    category: string;
+    excludeIds?: number[];
+    currentId?: never;
+};
 
 function RelatedProducts(props: Props) {
     const [related, setRelated] = useState<typeof dbShirts>([]);
