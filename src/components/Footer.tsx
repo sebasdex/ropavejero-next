@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+
 const currentYear = new Date().getFullYear();
 
 function Footer() {
@@ -6,9 +8,19 @@ function Footer() {
     <footer className="bg-black text-white px-6 py-24 mt-28">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
         <div className="lg:col-span-2 space-y-6">
-          <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight">
-            Ropavejero
-          </h2>
+          <div className="flex items-center gap-4">
+            <Image
+              src="/contact-logo.webp"
+              alt="Logo Ropavejero"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+            <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight">
+              Ropavejero
+            </h2>
+          </div>
+
           <p className="text-white/70 text-sm leading-relaxed">
             Proyecto personal iniciado en 2012 como una idea escolar centrada en moda reciclada. Desde entonces, ha evolucionado como un espacio de exploración creativa, donde diseño, frontend y visión de marca se encuentran para seguir creciendo.
           </p>
@@ -90,6 +102,7 @@ function Footer() {
         </div>
       </div>
 
+      {/* Créditos */}
       <div className="mt-16 text-center text-white/40 text-xs">
         2012 – {currentYear} | Elaborado con ❤️ por{" "}
         <Link
