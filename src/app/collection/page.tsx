@@ -17,17 +17,8 @@ function Page() {
             </a>
           </li>
           <li className="mx-2 text-neutral-300 select-none">/</li>
-          <li>
-            <a
-              href="/collection"
-              className="hover:underline hover:text-black transition-colors"
-            >
-              Colecciones
-            </a>
-          </li>
-          <li className="mx-2 text-neutral-300 select-none">/</li>
           <li className="text-black font-semibold truncate max-w-[160px] sm:max-w-xs">
-            Nombre de la categoría
+            Catálogo
           </li>
         </ol>
       </nav>
