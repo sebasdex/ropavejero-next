@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Menubar from "@/components/Menubar";
 import MenuLogo from "@/components/MenuLogo";
 import ArrowUp from "@/components/ui/ArrowUp";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} relative flex flex-col justify-between mt-28`}
       >
+        <Analytics />
         <ArrowUp />
         <Menubar />
         <MenuLogo />
